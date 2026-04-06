@@ -1,11 +1,12 @@
 
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
     [SerializeField] private EnemyData enemyData;
-
+    [SerializeField] private TextMeshProUGUI textMeshPro;
     // Runtime health — initialised from enemyData on Start.
     private int currentHealth;
     private bool isDead = false;
@@ -59,7 +60,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         int damage = enemyData.GetAttackDamage();
         target.TakeDamage(damage);
-
+        textMeshPro.text = $"[Enemy] {enemyData.Name} Health: {currentHealth}";
         Debug.Log($"[Enemy] {enemyData.Name} attacks {target.name} for {damage} damage.");
     }
 

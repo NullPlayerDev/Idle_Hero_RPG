@@ -1,11 +1,13 @@
 
 using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HeroBehaviour : MonoBehaviour
 {
     [SerializeField] private HeroData heroData;
-
+    [SerializeField] private TextMeshProUGUI heroText;
     // Runtime health — initialised from heroData on Start.
     private int currentHealth;
     private bool isHeroDead = false;
@@ -59,7 +61,7 @@ public class HeroBehaviour : MonoBehaviour
 
         int damage = heroData.GetAttackDamage();
         target.TakeDamage(damage);
-
+        heroText.text = $"[Hero] {heroData.Name} health: {currentHealth}";
         Debug.Log($"[Hero] {heroData.Name} attacks {target.name} for {damage} damage.");
     }
 
