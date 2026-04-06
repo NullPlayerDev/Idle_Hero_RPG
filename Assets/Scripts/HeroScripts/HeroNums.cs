@@ -79,10 +79,10 @@ public static class HeroNums
     {
         switch (damage)
         {
-            case AttackDamage.LOW_PER_HIT:  return 10;
-            case AttackDamage.MEDIUM_HIGH:  return 15;
-            case AttackDamage.STANDARD:     return 20;
-            case AttackDamage.HIGH_PER_HIT: return 25;
+            case AttackDamage.LOW_PER_HIT:  return 4;
+            case AttackDamage.MEDIUM_HIGH:  return 8;
+            case AttackDamage.STANDARD:     return 10;
+            case AttackDamage.HIGH_PER_HIT: return 15;
             default:                        return 5;
         }
     }

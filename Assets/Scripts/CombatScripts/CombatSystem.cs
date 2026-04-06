@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class CombatSystem : MonoBehaviour
@@ -7,6 +9,8 @@ public class CombatSystem : MonoBehaviour
     [SerializeField] private List<HeroBehaviour> heroes   = new List<HeroBehaviour>();
     [SerializeField] private List<EnemyBehaviour> enemies = new List<EnemyBehaviour>();
 
+    [SerializeField] private TextMeshProUGUI heroResultText;
+    [SerializeField] private TextMeshProUGUI enemyResultText;
     // -------------------------------------------------------------------------
     // Registration — called by a spawning system at runtime
     // -------------------------------------------------------------------------
@@ -77,11 +81,13 @@ public class CombatSystem : MonoBehaviour
     {
         if (enemies.Count == 0 && heroes.Count > 0)
         {
+            heroResultText.text = $"Hero wins!";
             Debug.Log("[CombatSystem] *** HEROES WIN! ***");
             OnHeroesWin();
         }
         else if (heroes.Count == 0 && enemies.Count > 0)
         {
+            heroResultText.text = $"Enemy wins!";
             Debug.Log("[CombatSystem] *** ENEMIES WIN! ***");
             OnEnemiesWin();
         }
