@@ -1,3 +1,7 @@
+// HeroData.cs
+// ScriptableObject that stores all design-time stats for a hero type.
+// Create via: Assets > Create > Scriptable Objects > HeroData
+
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "HeroData", menuName = "Scriptable Objects/HeroData")]
@@ -6,16 +10,26 @@ public class HeroData : ScriptableObject
     [Header("Basic Information")]
     public string Name;
     public HeroNums.VisualTypes VisualType;
-    
-    [Header("Stats Information")]
+
+    [Header("Stats (Design Time)")]
     public HeroNums.AttackSpeed attackSpeed;
     public HeroNums.AttackDamage attackDamage;
-    [Header("RunTime Information")]
-    public int Health;
-    public int AttackRate;
-    public int Damage;
-    
-        
-    [Header("Health Information")]
     public HeroNums.HP hpType;
+
+    // Returns a fresh runtime health value based on hpType.
+    // Call this when spawning the hero — do NOT read it as a persistent field.
+    public int GetStartingHealth()
+    {
+        return HeroNums.GetMaxHealth(hpType);
+    }
+
+    public float GetAttackCooldown()
+    {
+        return HeroNums.GetAttackCooldown(attackSpeed);
+    }
+
+    public int GetAttackDamage()
+    {
+        return HeroNums.GetAttackDamage(attackDamage);
+    }
 }

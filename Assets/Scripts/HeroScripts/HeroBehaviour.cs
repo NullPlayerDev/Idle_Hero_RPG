@@ -1,103 +1,108 @@
-using System;
+
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class HeroBehaviour : MonoBehaviour
 {
-    [SerializeField] private HeroData _heroData;
-    [SerializeField] private HeroNums _heroENums;
-    //[SerializeField] private HeroData heroData;
-    private float timer;
-    private float attackCooldown, lastAttackTime;
-    
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private HeroData heroData;
+
+    // Runtime health — initialised from heroData on Start.
+    private int currentHealth;
+    private bool isHeroDead = false;
+    private Coroutine attackCoroutine;
+
+    // Reference to the CombatSystem manager — found at Start via FindObjectOfType.
+    private CombatSystem combatSystem;
+
+    public bool IsDead => isHeroDead;
+    public int CurrentHealth => currentHealth;
+
+    // -------------------------------------------------------------------------
+    // Unity Lifecycle
+    // -------------------------------------------------------------------------
+
     void Start()
     {
-        //playerWeapon = GameObject.FindGameObjectWithTag("PlayerWeapon");
-        StartCoroutine(AttackRoutine());
+        // CombatSystem lives on a separate manager GameObject — never GetComponent on self.
+        combatSystem = FindObjectOfType<CombatSystem>();
+
+        if (combatSystem == null)
+            Debug.LogError($"[HeroBehaviour] {heroData.Name}: CombatSystem not found in scene!");
+
+        // Initialise runtime health from the ScriptableObject.
+        currentHealth = heroData.GetStartingHealth();
+
+        // Start the auto-attack loop.
+        attackCoroutine = StartCoroutine(AttackRoutine());
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnDestroy()
     {
-        
-    }
-    
-    /*
-     * Normal Functions
-
-     */
-    
-    public void SpawnPosition()
-    {
-        //Spawn position
-        //is the place allocated/not empty return 
-        // spawn
-        
-    }
-    public void AttackHero()
-    {
-        if (_heroData.Health <= 0) Death();
-        if (_heroData.AttackRate <= 0) return;
-        //if(heroData.Health<=0) return;
-        /*
-         if(heroData.heroHP>=0)
-         {
-            //enemy data theke enemy er HP kombe
-            //attackEnemy function e parameter pass korte hobe
-         }
-
-         */
-    }
-    public void DamageFromHeroUi()
-    {
-        /*
-          * Ui will update 
-         */
-        
+        // Stop the coroutine cleanly when the GameObject is destroyed.
+        if (attackCoroutine != null)
+            StopCoroutine(attackCoroutine);
     }
 
-    public void DamageHero()
+    // -------------------------------------------------------------------------
+    // Combat
+    // -------------------------------------------------------------------------
+
+    // Called by the attack coroutine every cooldown interval.
+    private void AttackEnemy()
     {
-        
+        if (isHeroDead) return;
+
+        // Ask the CombatSystem for a valid enemy target.
+        EnemyBehaviour target = combatSystem.GetRandomEnemy();
+
+        if (target == null || target.IsDead) return;
+
+        int damage = heroData.GetAttackDamage();
+        target.TakeDamage(damage);
+
+        Debug.Log($"[Hero] {heroData.Name} attacks {target.name} for {damage} damage.");
     }
 
-    public void Death()
+    // Called by CombatSystem or EnemyBehaviour when this hero takes a hit.
+    public void TakeDamage(int damage)
     {
-        //The enemy death
-        Destroy(gameObject); 
-        Debug.Log("DEAD");
-        
-    }
-   
-    //attack hero after sometime
-    IEnumerator AttackRoutine()
-    {
-        float cooldown = _heroENums.GetAttackCooldown(_heroData.attackSpeed);
+        if (isHeroDead) return;
 
-        while (true)
+        currentHealth -= damage;
+        Debug.Log($"[Hero] {heroData.Name} took {damage} damage. HP: {currentHealth}");
+
+        if (currentHealth <= 0)
+            Die();
+    }
+
+    private void Die()
+    {
+        if (isHeroDead) return;   // Guard: Die() can only execute once.
+
+        isHeroDead = true;
+        Debug.Log($"[Hero] {heroData.Name} died.");
+
+        // Notify the CombatSystem before destroying.
+        combatSystem?.OnHeroDied(this);
+
+        Destroy(gameObject);
+    }
+
+    // -------------------------------------------------------------------------
+    // Coroutines
+    // -------------------------------------------------------------------------
+
+    private IEnumerator AttackRoutine()
+    {
+        float cooldown = heroData.GetAttackCooldown();
+
+        // Small initial delay so the scene has time to fully initialise.
+        yield return new WaitForSeconds(1f);
+
+        while (!isHeroDead)
         {
-            AttackHero();
+            AttackEnemy();
             yield return new WaitForSeconds(cooldown);
         }
-    }
-    
-    
-    //Hero Health Decrease
-    //Damage Hero
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Enemy"))
-        {
-            //heroes health will decrease
-            _heroData.Health--;
-            if (_heroData.Health <= 0)
-            {
-                Death();
-            }
-        }
-      
     }
 }
