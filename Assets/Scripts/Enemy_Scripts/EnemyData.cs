@@ -6,7 +6,7 @@ public class EnemyData : ScriptableObject
     [Header("Basic Information")]
     public string Name;
     public EnemyEnums.VisualTypes VisualType;
-
+    public RewardEnums RewardType;
     [Header("Stats (Design Time)")]
     public EnemyEnums.AttackSpeed attackSpeed;
     public EnemyEnums.AttackDamage attackDamage;

@@ -1,16 +1,18 @@
+using System;
+using TMPro;
 using UnityEngine;
 
-public class RewardUI : MonoBehaviour
+public class RewardUI  : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+   [SerializeField]private TextMeshProUGUI goldText;
+   [SerializeField]private TextMeshProUGUI gemText;
+   private void Start()
+   {
+     
+   }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   private void Update()
+   {
+      goldText.text = $"Total gold: {RewardWallet.Instance.CurrentGold.ToString()}";
+   }
 }

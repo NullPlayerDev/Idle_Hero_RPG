@@ -248,8 +248,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -233, y: -1}
-  m_SizeDelta: {x: 1920, y: 934}
+  m_AnchoredPosition: {x: -305.3669, y: 6.0947876}
+  m_SizeDelta: {x: 3126.1162, y: 1022.6855}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &419440276
 MonoBehaviour:
@@ -323,7 +323,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -779, y: -0}
+  m_AnchoredPosition: {x: -1169, y: -31.844}
   m_SizeDelta: {x: 1920, y: 934}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &476210484
@@ -612,7 +612,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1030.6667, y: 12.499671}
+  m_AnchoredPosition: {x: 1374, y: -15.0000305}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &990284293
@@ -775,6 +775,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1075642731}
   m_CullTransparentMesh: 1
+--- !u!1 &1268175174
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1268175178}
+  - component: {fileID: 1268175177}
+  - component: {fileID: 1268175176}
+  - component: {fileID: 1268175175}
+  m_Layer: 0
+  m_Name: RewardManger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1268175175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268175174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f084b48f617e4d469552ab52cdfeeab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RewardUI
+  goldText: {fileID: 1644396114}
+--- !u!114 &1268175176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268175174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d441d63377434ab4d860fba89b739183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RewardWallet
+  currentGold: 0
+--- !u!114 &1268175177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268175174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55015d4711c3d844930ed21cd7efd95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RewardCalculator
+  _rewardWallet: {fileID: 0}
+--- !u!4 &1268175178
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268175174}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1335.1637, y: 1391.9548, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1304443730
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,7 +963,7 @@ GameObject:
   - component: {fileID: 1644396115}
   - component: {fileID: 1644396114}
   m_Layer: 5
-  m_Name: Gold Amount
+  m_Name: Gold AmountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1001,7 +1074,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -310.2889, y: -418.8553, z: -859.8898, w: -421.2188}
+  m_margin: {x: -665.0289, y: -418.8553, z: -1025.4349, w: -421.2188}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1364,7 +1437,7 @@ GameObject:
   - component: {fileID: 2074580117}
   - component: {fileID: 2074580116}
   m_Layer: 5
-  m_Name: Gems Amount
+  m_Name: Gems AmountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1496,3 +1569,4 @@ SceneRoots:
   - {fileID: 127069185}
   - {fileID: 1304443734}
   - {fileID: 2039167548}
+  - {fileID: 1268175178}
