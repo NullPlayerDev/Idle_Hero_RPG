@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4cc22e48751703043ba52eb79e0a5e4c
+guid: 5dbf458ab45d9384bb98f49c60fea68d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4234428584311574190
-    second: Diamong_0
+      213: 5439953587320986565
+    second: Plus_icomn-removebg-preview_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Diamong_0
+      name: Plus_icomn-removebg-preview_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 784
-        height: 1168
+        x: 247
+        y: 45
+        width: 230
+        height: 236
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 251395533a94c35c0800000000000000
-      internalID: -4234428584311574190
+      spriteID: 5cb11ee27f89e7b40800000000000000
+      internalID: 5439953587320986565
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Diamong_0: -4234428584311574190
+      Plus_icomn-removebg-preview_0: 5439953587320986565
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

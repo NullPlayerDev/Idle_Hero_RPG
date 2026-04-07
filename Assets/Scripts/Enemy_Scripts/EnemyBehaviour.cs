@@ -96,7 +96,6 @@ public class EnemyBehaviour : MonoBehaviour
     private IEnumerator AttackRoutine()
     {
         float cooldown = enemyData.GetAttackCooldown();
-
         // Small initial delay so the scene has time to fully initialise.
         yield return new WaitForSeconds(1f);
 
