@@ -5,6 +5,7 @@ public class RewardWallet : MonoBehaviour
 {
     public static RewardWallet Instance;
     public int currentGold;
+    public int currentGems;
      public event Action<int> OnGoldChanged; 
      
     public int CurrentGold
@@ -13,6 +14,11 @@ public class RewardWallet : MonoBehaviour
         set => currentGold = value;
     }
 
+    public int CurrentGems
+    {
+        get => currentGems;
+        set => currentGems = value;
+    }
     private void Awake()
     {
         if (Instance == null)
@@ -20,6 +26,7 @@ public class RewardWallet : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             LoadGold();
+            LoadGems();
         }
         else
         {
@@ -57,6 +64,44 @@ public class RewardWallet : MonoBehaviour
     void SaveGold()
     {
         PlayerPrefs.SetInt("Gold", CurrentGold);
+        PlayerPrefs.Save();
+    }
+/*
+ * -----Gems Part Codes are here-------
+ * 
+ */  
+  
+    void LoadGems()
+    {
+        CurrentGems = PlayerPrefs.GetInt("Gems", 0);
+        OnGoldChanged?.Invoke(currentGems);
+    }
+    public void AddGems(int gems)
+    {
+        currentGems += gems;
+        SaveGold();
+        OnGoldChanged?.Invoke(gems);
+    }
+    // Spend gold
+    public bool SpendGems(int amount)
+    {
+        if (!CanAffordGems(amount)) return false;
+
+        currentGems -= amount;
+        SaveGems();
+        OnGoldChanged?.Invoke(currentGems);
+        return true;
+    }
+
+    // Check if enough gold
+    public bool CanAffordGems(int amount)
+    {
+        return currentGems >= amount;
+    }
+    
+    void SaveGems()
+    {
+        PlayerPrefs.SetInt("Gems", currentGems);
         PlayerPrefs.Save();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created

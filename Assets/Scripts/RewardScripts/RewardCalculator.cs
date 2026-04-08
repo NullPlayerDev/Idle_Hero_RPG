@@ -1,12 +1,13 @@
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class RewardCalculator : MonoBehaviour
 {
     private RewardEnums rewardEnum;
     private int stage, currentGold,finalGold;
     private bool isFinalStage;
-    private int totalGold;
-    private bool isConditionTooGood,isConditionTooBad;
+    private int totalGold,_totalGems;
+    private bool isConditionTooGood,isConditionTooBad,isStageWon,isTheStageFinished;
     private RewardEnums.GoldRewardTier goldTier;
     [SerializeField] private RewardWallet _rewardWallet;
     
@@ -39,7 +40,7 @@ public class RewardCalculator : MonoBehaviour
     //Reward per kill
     public int CalculateBasicReward(RewardEnums.GoldRewardTier rewardType)
     {
-        //it will be done from the stage type
+        //it will be done using the stage type
         return RewardEnums.GoldReward(rewardType);
     }
     public int  CalculateGoldsReward()
@@ -71,10 +72,12 @@ public class RewardCalculator : MonoBehaviour
         if (totalGold >= 100 && isConditionTooGood)
         {
             totalGold -= Random.Range(10, 20);
+            isConditionTooGood = false;
         }
         else if (isConditionTooBad)
         {
             totalGold += Random.Range(10, 20);
+            isConditionTooBad = false;
         }
 
         if (totalGold % 5 != 0)
@@ -85,11 +88,43 @@ public class RewardCalculator : MonoBehaviour
         return finalGold;
         
     }
-    public void CalculateGemsReward()
+    public int CalculateGemsReward()
     {
         /*
-         * 
+         * Per Stage Completion => 1 gem
+         * EXTRA GEMS
+         * if stage is won => 3 Gems
+         * if (total_gold >= 100 || total_gold<100) && isConditionTooBad = > 3 Gems
+         * if(total_gold >= 100 || total_gold<100) && isConditionTooGood = > 1 Gems
+         * if total_gold< = 100 =+> 1 Gem 
          */
+        if (isTheStageFinished)
+        {
+            _totalGems++;
+        }
+
+        if (isStageWon)
+        {
+            _totalGems += 3;
+        }
+
+        if (totalGold >= 100 && isConditionTooGood)
+        {
+            _totalGems += 1;
+        }
+        else if ((totalGold >= 100 || totalGold < 100) && isConditionTooBad)
+        {
+            _totalGems += 3;
+        }
+        else _totalGems++;
+
+        return _totalGems;
+
+    }
+
+    public void RewardInWallet()
+    {
+        RewardWallet.Instance.AddGems( CalculateGemsReward());
     }
     
 }

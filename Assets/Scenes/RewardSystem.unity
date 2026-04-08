@@ -535,7 +535,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -747, y: -142}
+  m_AnchoredPosition: {x: -1220, y: -114.51}
   m_SizeDelta: {x: 1920, y: 934}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &930413180
@@ -734,8 +734,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 198, y: 0}
-  m_SizeDelta: {x: 1920, y: 934}
+  m_AnchoredPosition: {x: 277.70016, y: 0}
+  m_SizeDelta: {x: 3248.337, y: 979.8042}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1075642733
 MonoBehaviour:
@@ -807,6 +807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RewardUI
   goldText: {fileID: 1644396114}
+  gemText: {fileID: 2074580116}
 --- !u!114 &1268175176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -820,6 +821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RewardWallet
   currentGold: 0
+  currentGems: 0
 --- !u!114 &1268175177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1124,7 +1126,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1087, y: 0}
+  m_AnchoredPosition: {x: 1423, y: -22.5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1666008922
@@ -1459,7 +1461,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 43, y: -12.500427}
+  m_AnchoredPosition: {x: 43, y: -12.500397}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2074580116
@@ -1548,7 +1550,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -310.2889, y: -418.8553, z: -859.8898, w: -421.2188}
+  m_margin: {x: -783.60504, y: -418.8553, z: -1012.5727, w: -421.2188}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
