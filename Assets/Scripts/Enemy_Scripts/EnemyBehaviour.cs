@@ -2,28 +2,39 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
+using UnityEngine.UI;
+using Slider = UnityEngine.UI.Slider;
 
 public class EnemyBehaviour : MonoBehaviour
 {
     [SerializeField] private EnemyData enemyData;
-    [SerializeField] private TextMeshProUGUI textMeshPro;
+    [SerializeField] private TextMeshProUGUI textMeshPro; 
     // Runtime health — initialised from enemyData on Start.
     private int currentHealth;
     private bool isDead = false;
     private Coroutine attackCoroutine;
 
+    [SerializeField] private Slider _enemyHealthBar;
     // Reference to the CombatSystem manager — found at Start via FindObjectOfType.
     private CombatSystem combatSystem;
 
     public bool IsDead => isDead;
     public int CurrentHealth => currentHealth;
-
+    
+    
+    
     // -------------------------------------------------------------------------
     // Unity Lifecycle
     // -------------------------------------------------------------------------
 
     void Start()
     {
+        /*
+         * HealthBar starts
+         */
+        _enemyHealthBar.maxValue=enemyData.GetStartingHealth();
+        _enemyHealthBar.value = currentHealth;
         // CombatSystem lives on a separate manager GameObject — never GetComponent on self.
         combatSystem = FindObjectOfType<CombatSystem>();
 
@@ -70,6 +81,7 @@ public class EnemyBehaviour : MonoBehaviour
         if (isDead) return;
 
         currentHealth -= damage;
+        _enemyHealthBar.value = currentHealth;
         Debug.Log($"[Enemy] {enemyData.Name} took {damage} damage. HP: {currentHealth}");
 
         if (currentHealth <= 0)
