@@ -12,7 +12,7 @@ public class HeroBehaviour : MonoBehaviour
     private int currentHealth;
     private bool isHeroDead = false;
     private Coroutine attackCoroutine;
-
+    [SerializeField] private Slider _heroHealthBar;
     // Reference to the CombatSystem manager — found at Start via FindObjectOfType.
     private CombatSystem combatSystem;
 
@@ -25,6 +25,9 @@ public class HeroBehaviour : MonoBehaviour
 
     void Start()
     {
+        _heroHealthBar.maxValue = heroData.GetStartingHealth();
+        _heroHealthBar.value = currentHealth;
+        Debug.Log($"The healt of hero is: {heroData.GetStartingHealth()}");
         // CombatSystem lives on a separate manager GameObject — never GetComponent on self.
         combatSystem = FindObjectOfType<CombatSystem>();
 
@@ -69,8 +72,9 @@ public class HeroBehaviour : MonoBehaviour
     public void TakeDamage(int damage)
     {
         if (isHeroDead) return;
-
+    
         currentHealth -= damage;
+        _heroHealthBar.value = currentHealth;
         Debug.Log($"[Hero] {heroData.Name} took {damage} damage. HP: {currentHealth}");
 
         if (currentHealth <= 0)
