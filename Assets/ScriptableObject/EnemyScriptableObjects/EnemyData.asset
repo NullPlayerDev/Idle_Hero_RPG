@@ -15,5 +15,5 @@ MonoBehaviour:
   Name: Enemy
   VisualType: 1
   attackSpeed: 1
-  attackDamage: 0
+  attackDamage: 1
   hpType: 3

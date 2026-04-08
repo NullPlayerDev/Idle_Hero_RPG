@@ -1,20 +1,20 @@
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CombatSystem : MonoBehaviour
 {
-    [Header("Combatant Lists (populate via Inspector or spawning system)")]
-    [SerializeField] private List<HeroBehaviour> heroes   = new List<HeroBehaviour>();
+    [Header("Combatants")]
+    [SerializeField] private List<HeroBehaviour> heroes = new List<HeroBehaviour>();
     [SerializeField] private List<EnemyBehaviour> enemies = new List<EnemyBehaviour>();
 
     [SerializeField] private TextMeshProUGUI heroResultText;
     [SerializeField] private TextMeshProUGUI enemyResultText;
-    // -------------------------------------------------------------------------
-    // Registration — called by a spawning system at runtime
-    // -------------------------------------------------------------------------
 
+    // -------------------------
+    // Registration
+    // -------------------------
     public void RegisterHero(HeroBehaviour hero)
     {
         if (!heroes.Contains(hero))
@@ -27,69 +27,52 @@ public class CombatSystem : MonoBehaviour
             enemies.Add(enemy);
     }
 
-    // -------------------------------------------------------------------------
-    // Death Callbacks — called by HeroBehaviour / EnemyBehaviour before Destroy
-    // -------------------------------------------------------------------------
-
+    // -------------------------
+    // Death Handling
+    // -------------------------
     public void OnHeroDied(HeroBehaviour hero)
     {
         heroes.Remove(hero);
-        Debug.Log($"[CombatSystem] Hero removed. Heroes remaining: {heroes.Count}");
         CheckBattleEnd();
     }
 
     public void OnEnemyDied(EnemyBehaviour enemy)
     {
         enemies.Remove(enemy);
-        Debug.Log($"[CombatSystem] Enemy removed. Enemies remaining: {enemies.Count}");
         CheckBattleEnd();
     }
 
-    // -------------------------------------------------------------------------
-    // Target Selection — called by HeroBehaviour and EnemyBehaviour
-    // -------------------------------------------------------------------------
-
-    // Returns a random living enemy, or null if none exist.
+    // -------------------------
+    // Target Selection
+    // -------------------------
     public EnemyBehaviour GetRandomEnemy()
     {
-        // Clean out any nulls that slipped through (e.g. destroyed between frames).
         enemies.RemoveAll(e => e == null || e.IsDead);
-
         if (enemies.Count == 0) return null;
 
-        int index = Random.Range(0, enemies.Count);
-        return enemies[index];
+        return enemies[Random.Range(0, enemies.Count)];
     }
 
-    // Returns a random living hero, or null if none exist.
     public HeroBehaviour GetRandomHero()
     {
-        // Clean out any nulls that slipped through.
         heroes.RemoveAll(h => h == null || h.IsDead);
-
         if (heroes.Count == 0) return null;
 
-        int index = Random.Range(0, heroes.Count);
-        return heroes[index];
+        return heroes[Random.Range(0, heroes.Count)];
     }
 
-    // -------------------------------------------------------------------------
-    // Win / Loss Detection
-    // -------------------------------------------------------------------------
-
+    // -------------------------
+    // Win Condition
+    // -------------------------
     private void CheckBattleEnd()
     {
         if (enemies.Count == 0 && heroes.Count > 0)
         {
-            heroResultText.text = $"Hero wins!";
-            Debug.Log("[CombatSystem] *** HEROES WIN! ***");
-            OnHeroesWin();
+            heroResultText.text = "Hero wins!";
         }
         else if (heroes.Count == 0 && enemies.Count > 0)
         {
-            heroResultText.text = $"Enemy wins!";
-            Debug.Log("[CombatSystem] *** ENEMIES WIN! ***");
-            OnEnemiesWin();
+            enemyResultText.text = "Enemy wins!";
         }
     }
 

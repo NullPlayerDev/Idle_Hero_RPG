@@ -8,6 +8,8 @@ public class HeroBehaviour : MonoBehaviour
 {
     [SerializeField] private HeroData heroData;
     [SerializeField] private TextMeshProUGUI heroText;
+    [SerializeField] private GameObject  floatingTextManager;
+    private FloatingCombatText floatingCombatText;
     // Runtime health — initialised from heroData on Start.
     private int currentHealth;
     private bool isHeroDead = false;
@@ -25,17 +27,20 @@ public class HeroBehaviour : MonoBehaviour
 
     void Start()
     {
-        _heroHealthBar.maxValue = heroData.GetStartingHealth();
-        _heroHealthBar.value = currentHealth;
-        Debug.Log($"The healt of hero is: {heroData.GetStartingHealth()}");
+        floatingCombatText = floatingTextManager.GetComponent<FloatingCombatText>();
+
         // CombatSystem lives on a separate manager GameObject — never GetComponent on self.
         combatSystem = FindObjectOfType<CombatSystem>();
 
         if (combatSystem == null)
             Debug.LogError($"[HeroBehaviour] {heroData.Name}: CombatSystem not found in scene!");
 
-        // Initialise runtime health from the ScriptableObject.
+        // Initialise runtime health from the ScriptableObject FIRST,
+        // then apply to the slider so it starts full instead of empty.
         currentHealth = heroData.GetStartingHealth();
+        _heroHealthBar.maxValue = currentHealth;
+        _heroHealthBar.value = currentHealth;
+        Debug.Log($"The health of hero is: {heroData.GetStartingHealth()}");
 
         // Start the auto-attack loop.
         attackCoroutine = StartCoroutine(AttackRoutine());
@@ -64,7 +69,7 @@ public class HeroBehaviour : MonoBehaviour
 
         int damage = heroData.GetAttackDamage();
         target.TakeDamage(damage);
-        heroText.text = $"[Hero] {heroData.Name} health: {currentHealth}";
+       heroText.text = $"[Hero] {heroData.Name} health: {currentHealth}";
         Debug.Log($"[Hero] {heroData.Name} attacks {target.name} for {damage} damage.");
     }
 
@@ -75,8 +80,12 @@ public class HeroBehaviour : MonoBehaviour
     
         currentHealth -= damage;
         _heroHealthBar.value = currentHealth;
+        // Show damage as a negative number so it's clear it's not healing.
+        // NOTE: Show() is called here (on the hero side) so we don't double-fire
+        // from EnemyBehaviour.AttackHero(). EnemyBehaviour should NOT call Show().
+       // floatingCombatText.Show("-" + damage.ToString());
         Debug.Log($"[Hero] {heroData.Name} took {damage} damage. HP: {currentHealth}");
-
+        FloatingCombatText.Instance.Show(damage.ToString(),transform);
         if (currentHealth <= 0)
             Die();
     }
