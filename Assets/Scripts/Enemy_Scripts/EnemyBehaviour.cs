@@ -10,6 +10,8 @@ public class EnemyBehaviour : MonoBehaviour
 {
     [SerializeField] private EnemyData enemyData;
     [SerializeField] private TextMeshProUGUI textMeshPro; 
+    [SerializeField] private GameObject  floatingTextManager;
+    private FloatingCombatText floatingCombatText;
     // Runtime health — initialised from enemyData on Start.
     private int currentHealth;
     private bool isDead = false;
@@ -30,19 +32,18 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Start()
     {
-        /*
-         * HealthBar starts
-         */
-        _enemyHealthBar.maxValue=enemyData.GetStartingHealth();
-        _enemyHealthBar.value = currentHealth;
+        floatingCombatText = floatingTextManager.GetComponent<FloatingCombatText>();
+
         // CombatSystem lives on a separate manager GameObject — never GetComponent on self.
         combatSystem = FindObjectOfType<CombatSystem>();
 
         if (combatSystem == null)
             Debug.LogError($"[EnemyBehaviour] {enemyData.Name}: CombatSystem not found in scene!");
 
-        // Initialise runtime health from the ScriptableObject.
+        // Initialise runtime health FIRST, then apply to slider so it starts full.
         currentHealth = enemyData.GetStartingHealth();
+        _enemyHealthBar.maxValue = currentHealth;
+        _enemyHealthBar.value = currentHealth;
 
         // Start the auto-attack loop.
         attackCoroutine = StartCoroutine(AttackRoutine());
@@ -70,7 +71,8 @@ public class EnemyBehaviour : MonoBehaviour
         if (target == null || target.IsDead) return;
 
         int damage = enemyData.GetAttackDamage();
-        target.TakeDamage(damage);
+        target.TakeDamage(damage); // TakeDamage() on HeroBehaviour calls Show() internally
+        FloatingCombatText.Instance.Show(damage.ToString(),transform);
         textMeshPro.text = $"[Enemy] {enemyData.Name} Health: {currentHealth}";
         Debug.Log($"[Enemy] {enemyData.Name} attacks {target.name} for {damage} damage.");
     }
@@ -82,6 +84,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         currentHealth -= damage;
         _enemyHealthBar.value = currentHealth;
+        
         Debug.Log($"[Enemy] {enemyData.Name} took {damage} damage. HP: {currentHealth}");
 
         if (currentHealth <= 0)
