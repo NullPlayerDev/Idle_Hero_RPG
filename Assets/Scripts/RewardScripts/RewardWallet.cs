@@ -6,8 +6,10 @@ public class RewardWallet : MonoBehaviour
     public static RewardWallet Instance;
     public int currentGold;
     public int currentGems;
-     public event Action<int> OnGoldChanged; 
-     
+
+    public event Action<int> OnGoldChanged;
+    public event Action<int> OnGemsChanged;
+
     public int CurrentGold
     {
         get => currentGold;
@@ -19,6 +21,7 @@ public class RewardWallet : MonoBehaviour
         get => currentGems;
         set => currentGems = value;
     }
+
     private void Awake()
     {
         if (Instance == null)
@@ -33,86 +36,79 @@ public class RewardWallet : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    // -------------------------
+    // Gold
+    // -------------------------
     void LoadGold()
     {
         CurrentGold = PlayerPrefs.GetInt("Gold", 0);
         OnGoldChanged?.Invoke(CurrentGold);
     }
+
     public void AddGold(int gold)
     {
         currentGold += gold;
         SaveGold();
-        OnGoldChanged?.Invoke(gold);
+        OnGoldChanged?.Invoke(currentGold); // fire with TOTAL, not just the added amount
     }
-    // Spend gold
+
     public bool SpendGold(int amount)
     {
         if (!CanAfford(amount)) return false;
-
         CurrentGold -= amount;
         SaveGold();
         OnGoldChanged?.Invoke(CurrentGold);
         return true;
     }
 
-    // Check if enough gold
     public bool CanAfford(int amount)
     {
         return CurrentGold >= amount;
     }
-    // Save system
+
     void SaveGold()
     {
         PlayerPrefs.SetInt("Gold", CurrentGold);
         PlayerPrefs.Save();
     }
-/*
- * -----Gems Part Codes are here-------
- * 
- */  
-  
+
+    // -------------------------
+    // Gems
+    // -------------------------
     void LoadGems()
     {
-        CurrentGems = PlayerPrefs.GetInt("Gems", 0);
-        OnGoldChanged?.Invoke(currentGems);
+        currentGems = PlayerPrefs.GetInt("Gems", 0);
+        OnGemsChanged?.Invoke(currentGems); // BUG FIX 1: was firing OnGoldChanged
     }
+
     public void AddGems(int gems)
     {
         currentGems += gems;
-        SaveGold();
-        OnGoldChanged?.Invoke(gems);
+        SaveGems();                          // BUG FIX 2: was calling SaveGold() so gems were never saved
+        OnGemsChanged?.Invoke(currentGems); // fire with TOTAL, not just the added amount
     }
-    // Spend gold
+
     public bool SpendGems(int amount)
     {
         if (!CanAffordGems(amount)) return false;
-
         currentGems -= amount;
         SaveGems();
-        OnGoldChanged?.Invoke(currentGems);
+        OnGemsChanged?.Invoke(currentGems); // BUG FIX 3: was firing OnGoldChanged
         return true;
     }
 
-    // Check if enough gold
     public bool CanAffordGems(int amount)
     {
         return currentGems >= amount;
     }
-    
+
     void SaveGems()
     {
         PlayerPrefs.SetInt("Gems", currentGems);
         PlayerPrefs.Save();
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    void Start() { }
+    void Update() { }
 }

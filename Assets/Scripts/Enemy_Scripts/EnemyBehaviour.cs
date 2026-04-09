@@ -11,6 +11,7 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private EnemyData enemyData;
     [SerializeField] private TextMeshProUGUI textMeshPro; 
     [SerializeField] private GameObject  floatingTextManager;
+    [SerializeField] private GameObject textPrefab;
     private FloatingCombatText floatingCombatText;
     // Runtime health — initialised from enemyData on Start.
     private int currentHealth;
@@ -81,12 +82,13 @@ public class EnemyBehaviour : MonoBehaviour
     public void TakeDamage(int damage)
     {
         if (isDead) return;
-
+        var go = Instantiate(textPrefab, transform.position, Quaternion.identity,transform);
+        go.GetComponent<TextMesh>().text = $" -{damage}";
         currentHealth -= damage;
         _enemyHealthBar.value = currentHealth;
         
         Debug.Log($"[Enemy] {enemyData.Name} took {damage} damage. HP: {currentHealth}");
-
+        FloatingCombatText.Instance.Show(damage.ToString(),transform);
         if (currentHealth <= 0)
             Die();
     }

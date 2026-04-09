@@ -9,6 +9,7 @@ public class HeroBehaviour : MonoBehaviour
     [SerializeField] private HeroData heroData;
     [SerializeField] private TextMeshProUGUI heroText;
     [SerializeField] private GameObject  floatingTextManager;
+    [SerializeField] private GameObject textPrefab;
     private FloatingCombatText floatingCombatText;
     // Runtime health — initialised from heroData on Start.
     private int currentHealth;
@@ -77,7 +78,8 @@ public class HeroBehaviour : MonoBehaviour
     public void TakeDamage(int damage)
     {
         if (isHeroDead) return;
-    
+       var go= Instantiate(textPrefab, transform.position, Quaternion.identity,transform);
+       go.GetComponent<TextMesh>().text = $" -{damage}";
         currentHealth -= damage;
         _heroHealthBar.value = currentHealth;
         // Show damage as a negative number so it's clear it's not healing.

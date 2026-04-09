@@ -1,28 +1,46 @@
+using System;
 using UnityEngine;
-using UnityEngine.Analytics;
+using Random = UnityEngine.Random;
 
 public class RewardCalculator : MonoBehaviour
 {
-    private RewardEnums rewardEnum;
-    private int stage, currentGold,finalGold;
+
+    private int stage, currentGold, finalGold;
     private bool isFinalStage;
-    private int totalGold,_totalGems;
-    private bool isConditionTooGood,isConditionTooBad,isStageWon,isTheStageFinished;
+    private int totalGold;
+    private bool isConditionTooGood, isConditionTooBad, isStageWon, isTheStageFinished;
     private RewardEnums.GoldRewardTier goldTier;
     [SerializeField] private RewardWallet _rewardWallet;
-    
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private int earned = 1;
+    public bool IsTheStageFinished
     {
-        rewardEnum = GetComponent<RewardEnums>();
+        get => isTheStageFinished;
+        set => isTheStageFinished = value;
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool IsStageWon
     {
-        //CalculateReward();
+        get => isStageWon;
+        set => isStageWon = value;
     }
+
+    public bool IsConditionTooBad
+    {
+        get => isConditionTooBad;
+        set => isConditionTooBad = value;
+    }
+
+    public bool IsConditionTooGood
+    {
+        get => isConditionTooGood;
+        set => isConditionTooGood = value;
+    }
+    void Start()
+    {
+       
+    }
+
+    void Update() { }
 
     public void CalculateReward()
     {
@@ -30,101 +48,84 @@ public class RewardCalculator : MonoBehaviour
         CalculateGemsReward();
     }
 
-    public void RandomlyReward()
-    {
-        /*
-         
-         */
-    }
-    
-    //Reward per kill
+    public void RandomlyReward() { }
+
+    // Reward per kill
     public int CalculateBasicReward(RewardEnums.GoldRewardTier rewardType)
     {
-        //it will be done using the stage type
         return RewardEnums.GoldReward(rewardType);
     }
-    public int  CalculateGoldsReward()
+
+    // MAIN function for gold rewards
+    public int CalculateGoldsReward()
     {
         goldTier = RewardEnums.GoldTier(stage);
-        /*
-         * So the final gold would be
-         * FinalGold = (BaseGold/currentGold + Gold Based on Stages + Variance) * RewardEnum.GoldBonus(rewardtier.type)
-         */
-       //finalGold = currentGold + CalculateBasicReward() + Variance() + RewardEnums.GoldBonus();
-       int multiplier = RewardEnums.GoldBonus(RewardEnums.GoldBonus(stage));
-       finalGold = currentGold + CalculateBasicReward(goldTier) + Variance() * multiplier;
-       //saving the gold in the wallet
-       //adding the gold in the wallet
-       _rewardWallet.CurrentGold=finalGold;
-       _rewardWallet.AddGold(finalGold);
-       // finalGold = currentGold + Variance();
+        int multiplier = RewardEnums.GoldBonus(RewardEnums.GoldBonus(stage));
+        finalGold = currentGold + CalculateBasicReward(goldTier) + Variance() * multiplier;
+        _rewardWallet.AddGold(finalGold);
         return finalGold;
     }
 
     public int Variance()
     {
-        /*
-         * If total so far is 100 gold
-         * if palyer's condition isTooGood =>(-10 to -20)
-         * if player's condition isTooBad => (+10 to +20)
-         * else Normal => finalGold = totalGold 
-         */
-        if (totalGold >= 100 && isConditionTooGood)
+        if (totalGold >= 10 && isConditionTooGood)
         {
             totalGold -= Random.Range(10, 20);
             isConditionTooGood = false;
         }
         else if (isConditionTooBad)
         {
-            totalGold += Random.Range(10, 20);
+            totalGold += Random.Range(30, 40);
             isConditionTooBad = false;
         }
-
-        if (totalGold % 5 != 0)
+        else
         {
-            Mathf.Ceil(totalGold);
+            totalGold += 5;
         }
+        if (totalGold % 5 != 0)
+            Mathf.Ceil(totalGold);
+
         finalGold = totalGold;
         return finalGold;
-        
     }
+
+    // Returns gems earned THIS stage only (never a running total).
+    // Resets all flags — call exactly once per stage end.
     public int CalculateGemsReward()
     {
-        /*
-         * Per Stage Completion => 1 gem
-         * EXTRA GEMS
-         * if stage is won => 3 Gems
-         * if (total_gold >= 100 || total_gold<100) && isConditionTooBad = > 3 Gems
-         * if(total_gold >= 100 || total_gold<100) && isConditionTooGood = > 1 Gems
-         * if total_gold< = 100 =+> 1 Gem 
-         */
-        if (isTheStageFinished)
-        {
-            _totalGems++;
-        }
+        //if (!isTheStageFinished) return 0; // stage not finished — earn nothing
+
+        //int earned = 1; // base: 1 gem per stage completion
+        isTheStageFinished = false;
 
         if (isStageWon)
         {
-            _totalGems += 3;
+            earned += 2;
+            isStageWon = false;
         }
 
         if (totalGold >= 100 && isConditionTooGood)
         {
-            _totalGems += 1;
+            earned += 5;
         }
-        else if ((totalGold >= 100 || totalGold < 100) && isConditionTooBad)
+        else if (isConditionTooBad)
         {
-            _totalGems += 3;
+            earned += 10;
         }
-        else _totalGems++;
-
-        return _totalGems;
-
+        else
+        {
+            earned += 2;
+        }
+        Debug.Log("totalGems: " + earned);
+        return earned;
     }
 
+    // Called once per stage end by GameManager.
+    // Calculates and immediately deposits gems into the wallet.
     public void RewardInWallet()
     {
-        RewardWallet.Instance.AddGems( CalculateGemsReward());
+        int gemsEarned = CalculateGemsReward();
+        if (gemsEarned > 0)
+            RewardWallet.Instance.AddGems(gemsEarned);
     }
-    
 }
