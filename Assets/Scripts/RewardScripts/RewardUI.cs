@@ -14,6 +14,6 @@ public class RewardUI  : MonoBehaviour
    private void Update()
    {
       goldText.text = $"Total gold: {RewardWallet.Instance.CurrentGold.ToString()}";
-      gemText.text = $"Total gold: {RewardWallet.Instance.CurrentGems.ToString()}";
+      gemText.text = $"Total Gems: {RewardWallet.Instance.CurrentGems.ToString()}";
    }
 }
