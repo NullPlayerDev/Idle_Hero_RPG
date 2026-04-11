@@ -1395,6 +1395,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 854460328591747085, guid: 4a97f8fcd03b44a41a4f2193a99a8018, type: 3}
       insertIndex: 3
       addedObject: {fileID: 1705644991}
+    - targetCorrespondingSourceObject: {fileID: 854460328591747085, guid: 4a97f8fcd03b44a41a4f2193a99a8018, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1705644994}
   m_SourcePrefab: {fileID: 100100000, guid: 4a97f8fcd03b44a41a4f2193a99a8018, type: 3}
 --- !u!1 &989937111
 GameObject:
@@ -1695,6 +1698,10 @@ PrefabInstance:
     - target: {fileID: 3399210450118807596, guid: f76aa94cc3401fa45b75a8fb9c646670, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6733467119877506413, guid: f76aa94cc3401fa45b75a8fb9c646670, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 6.0947266
       objectReference: {fileID: 0}
     - target: {fileID: 8374696488019779423, guid: f76aa94cc3401fa45b75a8fb9c646670, type: 3}
       propertyPath: m_Name
@@ -3122,6 +3129,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FloatingCombatText
   textPrefab: {fileID: 603789704468033626, guid: 979901bfa44a53849a2deaac903deaf9, type: 3}
+--- !u!95 &1705644994
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705644988}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0ec9e3d308817874f98afe66699735da, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1716961031
 GameObject:
   m_ObjectHideFlags: 0
