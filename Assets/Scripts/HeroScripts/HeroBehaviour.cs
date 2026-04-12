@@ -18,7 +18,7 @@ public class HeroBehaviour : MonoBehaviour
     [SerializeField] private Slider _heroHealthBar;
     // Reference to the CombatSystem manager — found at Start via FindObjectOfType.
     private CombatSystem combatSystem;
-
+    [SerializeField] private Animator heroAnimator;
     public bool IsDead => isHeroDead;
     public int CurrentHealth => currentHealth;
 
@@ -65,9 +65,10 @@ public class HeroBehaviour : MonoBehaviour
 
         // Ask the CombatSystem for a valid enemy target.
         EnemyBehaviour target = combatSystem.GetRandomEnemy();
-
+        
         if (target == null || target.IsDead) return;
 
+        heroAnimator.SetBool("isAttacking", true);
         int damage = heroData.GetAttackDamage();
         target.TakeDamage(damage);
        heroText.text = $"[Hero] {heroData.Name} health: {currentHealth}";
@@ -91,7 +92,10 @@ public class HeroBehaviour : MonoBehaviour
         if (currentHealth <= 0)
             Die();
     }
-
+    public void OnAttackAnimationEnd()
+    {
+        heroAnimator.SetBool("isAttacking", false);
+    }
     private void Die()
     {
         if (isHeroDead) return;   // Guard: Die() can only execute once.
@@ -114,12 +118,17 @@ public class HeroBehaviour : MonoBehaviour
         float cooldown = heroData.GetAttackCooldown();
 
         // Small initial delay so the scene has time to fully initialise.
-        yield return new WaitForSeconds(1f);
-
+        yield return new WaitForSeconds(5f);
+      
         while (!isHeroDead)
         {
             AttackEnemy();
+            yield return new WaitForSeconds(0.5f); // adjust to match animation length
+
+            heroAnimator.SetBool("isAttacking", false);
             yield return new WaitForSeconds(cooldown);
+
+           
         }
     }
 }
