@@ -67,10 +67,10 @@ public static class HeroNums
     {
         switch (speed)
         {
-            case AttackSpeed.VERY_FAST: return 0.5f;
-            case AttackSpeed.MEDIUM:   return 1.0f;
-            case AttackSpeed.SLOW:     return 1.5f;
-            default:                   return 1.0f;
+            case AttackSpeed.VERY_FAST: return 4f;
+            case AttackSpeed.MEDIUM:   return 8f;
+            case AttackSpeed.SLOW:     return 10f;
+            default:                   return 6f;
         }
     }
 

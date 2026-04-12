@@ -92,7 +92,6 @@ public class CombatSystem : MonoBehaviour
         }
         else if (heroes.Count == 0 && enemies.Count > 0)
         {
-            
             enemyResultText.text = "Enemy wins!";
         }
         isStageEnded = true;

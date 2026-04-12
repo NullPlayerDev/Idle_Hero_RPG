@@ -114,7 +114,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         float cooldown = enemyData.GetAttackCooldown();
         // Small initial delay so the scene has time to fully initialise.
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(5f);
 
         while (!isDead)
         {
