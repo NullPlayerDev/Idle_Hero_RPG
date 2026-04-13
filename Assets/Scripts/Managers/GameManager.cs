@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using UnityEngine.UI;
 using Button = UnityEngine.UIElements.Button;
@@ -43,6 +44,10 @@ public class GameManager : MonoBehaviour
        
     }
 
+    public void CobatSceneTransition()
+    {
+        SceneManager.LoadScene("CombatScene");
+    }
     public void DeleteGame()
     {
         PlayerPrefs.DeleteAll();
