@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   Name: Enemy
   VisualType: 1
-  attackSpeed: 0
-  attackDamage: 3
+  attackSpeed: 1
+  attackDamage: 2
   hpType: 3

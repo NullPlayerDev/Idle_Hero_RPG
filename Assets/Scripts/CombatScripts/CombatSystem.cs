@@ -26,7 +26,7 @@ public class CombatSystem : MonoBehaviour
     [SerializeField] private RewardCalculator rewardCalculator;
 
     public event Action OnStageEnded;
-
+    [SerializeField] private GameObject _resultObject;
     private bool isStageEnded = false;
     private bool battleStarted = false;
     private int total_Stages_Won = 0;
@@ -210,7 +210,7 @@ public class CombatSystem : MonoBehaviour
     private void CheckBattleEnd()
     {
         CleanLists();
-
+        _resultObject.SetActive(true);
         if (enemies.Count == 0 && heroes.Count > 0)
         {
             rewardCalculator.IsStageWon = true;
