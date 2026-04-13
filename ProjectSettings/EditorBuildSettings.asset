@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HealthBarScene.unity
     guid: c0e9f1ef72707364ebab3910b10fd369
+  - enabled: 1
+    path: Assets/Scenes/CombatScene.unity
+    guid: 11582ed434c78c24b933c0403a1cc496
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

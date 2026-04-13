@@ -1,4 +1,4 @@
-
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -8,17 +8,19 @@ public class HeroBehaviour : MonoBehaviour
 {
     [SerializeField] private HeroData heroData;
     [SerializeField] private TextMeshProUGUI heroText;
-    [SerializeField] private GameObject  floatingTextManager;
     [SerializeField] private GameObject textPrefab;
-    private FloatingCombatText floatingCombatText;
-    // Runtime health — initialised from heroData on Start.
+    [SerializeField] private Slider _heroHealthBar;
+    [SerializeField] private Animator heroAnimator;
+
     private int currentHealth;
     private bool isHeroDead = false;
-    private Coroutine attackCoroutine;
-    [SerializeField] private Slider _heroHealthBar;
-    // Reference to the CombatSystem manager — found at Start via FindObjectOfType.
     private CombatSystem combatSystem;
-    [SerializeField] private Animator heroAnimator;
+
+    // These two flags are SET by Animation Events on the attack clip.
+    // The coroutine simply waits on them — no timers, no state name checks.
+    private bool attackHitFrame = false;   // set at the "hit" frame of the swing
+    private bool attackFinished = false;   // set at the very last frame of the clip
+
     public bool IsDead => isHeroDead;
     public int CurrentHealth => currentHealth;
 
@@ -28,107 +30,119 @@ public class HeroBehaviour : MonoBehaviour
 
     void Start()
     {
-        floatingCombatText = floatingTextManager.GetComponent<FloatingCombatText>();
-
-        // CombatSystem lives on a separate manager GameObject — never GetComponent on self.
         combatSystem = FindObjectOfType<CombatSystem>();
-
         if (combatSystem == null)
-            Debug.LogError($"[HeroBehaviour] {heroData.Name}: CombatSystem not found in scene!");
+        {
+            Debug.LogError("[HeroBehaviour] CombatSystem not found!");
+            return;
+        }
 
-        // Initialise runtime health from the ScriptableObject FIRST,
-        // then apply to the slider so it starts full instead of empty.
         currentHealth = heroData.GetStartingHealth();
         _heroHealthBar.maxValue = currentHealth;
         _heroHealthBar.value = currentHealth;
-        Debug.Log($"The health of hero is: {heroData.GetStartingHealth()}");
+        heroText.text = $"{heroData.Name} HP: {currentHealth}";
 
-        // Start the auto-attack loop.
-        attackCoroutine = StartCoroutine(AttackRoutine());
-    }
-
-    void OnDestroy()
-    {
-        // Stop the coroutine cleanly when the GameObject is destroyed.
-        if (attackCoroutine != null)
-            StopCoroutine(attackCoroutine);
+        combatSystem.RegisterHero(this);
     }
 
     // -------------------------------------------------------------------------
-    // Combat
+    // Animation Events — add these two events to your attack animation clip:
+    //
+    //   1. At the "hit" frame (when weapon connects):
+    //      Function: OnAttackHit
+    //
+    //   2. At the very last frame of the clip:
+//        Function: OnAttackEnd
+    //
+    // To add them: select the animation clip → open Animation window →
+    // drag the playhead to the right frame → click "Add Event" → type the function name.
     // -------------------------------------------------------------------------
 
-    // Called by the attack coroutine every cooldown interval.
-    private void AttackEnemy()
+    // Called by Animation Event at the hit frame
+    public void OnAttackHit()
     {
-        if (isHeroDead) return;
+        attackHitFrame = true;
+    }
 
-        // Ask the CombatSystem for a valid enemy target.
-        EnemyBehaviour target = combatSystem.GetRandomEnemy();
-        
-        if (target == null || target.IsDead) return;
+    // Called by Animation Event at the last frame
+    public void OnAttackEnd()
+    {
+        attackFinished = true;
+    }
 
+    // -------------------------------------------------------------------------
+    // Called by CombatSystem during Hero Phase
+    // -------------------------------------------------------------------------
+
+    public void ExecuteAttack(EnemyBehaviour target, Action onFinished)
+    {
+        if (isHeroDead) { onFinished?.Invoke(); return; }
+        StartCoroutine(AttackCoroutine(target, onFinished));
+    }
+
+    private IEnumerator AttackCoroutine(EnemyBehaviour target, Action onFinished)
+    {
+        // Reset flags before starting
+        attackHitFrame = false;
+        attackFinished = false;
+
+        // Play the attack animation
         heroAnimator.SetBool("isAttacking", true);
-        int damage = heroData.GetAttackDamage();
-        target.TakeDamage(damage);
-       heroText.text = $"[Hero] {heroData.Name} health: {currentHealth}";
-        Debug.Log($"[Hero] {heroData.Name} attacks {target.name} for {damage} damage.");
+
+        // Wait until the hit-frame event fires
+        yield return new WaitUntil(() => attackHitFrame);
+
+        // Deal damage exactly at the hit frame
+        if (target != null && !target.IsDead)
+        {
+            int damage = heroData.GetAttackDamage();
+            target.TakeDamage(damage);
+            Debug.Log($"[Hero] {heroData.Name} hit {target.name} for {damage}.");
+        }
+
+        // Wait until the end-frame event fires (clip fully played)
+        yield return new WaitUntil(() => attackFinished);
+
+        // Return to idle
+        heroAnimator.SetBool("isAttacking", false);
+        heroText.text = $"{heroData.Name} HP: {currentHealth}";
+
+        // Tell CombatSystem this hero's turn is done
+        onFinished?.Invoke();
     }
 
-    // Called by CombatSystem or EnemyBehaviour when this hero takes a hit.
+    // -------------------------------------------------------------------------
+    // Receiving Damage
+    // -------------------------------------------------------------------------
+
     public void TakeDamage(int damage)
     {
         if (isHeroDead) return;
-       var go= Instantiate(textPrefab, transform.position, Quaternion.identity,transform);
-       go.GetComponent<TextMesh>().text = $" -{damage}";
+
         currentHealth -= damage;
         _heroHealthBar.value = currentHealth;
-        // Show damage as a negative number so it's clear it's not healing.
-        // NOTE: Show() is called here (on the hero side) so we don't double-fire
-        // from EnemyBehaviour.AttackHero(). EnemyBehaviour should NOT call Show().
-       // floatingCombatText.Show("-" + damage.ToString());
-        Debug.Log($"[Hero] {heroData.Name} took {damage} damage. HP: {currentHealth}");
-        FloatingCombatText.Instance.Show(damage.ToString(),transform);
-        if (currentHealth <= 0)
-            Die();
+
+        var go = Instantiate(textPrefab, transform.position, Quaternion.identity, transform);
+        go.GetComponent<TextMesh>().text = $"-{damage}";
+        FloatingCombatText.Instance.Show(damage.ToString(), transform);
+
+        heroText.text = $"{heroData.Name} HP: {currentHealth}";
+        Debug.Log($"[Hero] {heroData.Name} took {damage}. HP left: {currentHealth}");
+
+        if (currentHealth <= 0) Die();
     }
-    public void OnAttackAnimationEnd()
-    {
-        heroAnimator.SetBool("isAttacking", false);
-    }
+
+    // -------------------------------------------------------------------------
+    // Death
+    // -------------------------------------------------------------------------
+
     private void Die()
     {
-        if (isHeroDead) return;   // Guard: Die() can only execute once.
-
+        if (isHeroDead) return;
         isHeroDead = true;
+        heroAnimator.SetBool("isAttacking", false);
         Debug.Log($"[Hero] {heroData.Name} died.");
-
-        // Notify the CombatSystem before destroying.
         combatSystem?.OnHeroDied(this);
-
         Destroy(gameObject);
-    }
-
-    // -------------------------------------------------------------------------
-    // Coroutines
-    // -------------------------------------------------------------------------
-
-    private IEnumerator AttackRoutine()
-    {
-        float cooldown = heroData.GetAttackCooldown();
-
-        // Small initial delay so the scene has time to fully initialise.
-        yield return new WaitForSeconds(5f);
-      
-        while (!isHeroDead)
-        {
-            AttackEnemy();
-            yield return new WaitForSeconds(0.5f); // adjust to match animation length
-
-            heroAnimator.SetBool("isAttacking", false);
-            yield return new WaitForSeconds(cooldown);
-
-           
-        }
     }
 }
