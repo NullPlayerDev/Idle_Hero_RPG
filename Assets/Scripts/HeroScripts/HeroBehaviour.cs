@@ -30,7 +30,7 @@ public class HeroBehaviour : MonoBehaviour
 
     void Start()
     {
-        combatSystem = FindObjectOfType<CombatSystem>();
+        combatSystem = FindFirstObjectByType<CombatSystem>();
         if (combatSystem == null)
         {
             Debug.LogError("[HeroBehaviour] CombatSystem not found!");
@@ -82,17 +82,27 @@ public class HeroBehaviour : MonoBehaviour
 
     private IEnumerator AttackCoroutine(EnemyBehaviour target, Action onFinished)
     {
-        // Reset flags before starting
         attackHitFrame = false;
         attackFinished = false;
 
-        // Play the attack animation
         heroAnimator.SetBool("isAttacking", true);
 
-        // Wait until the hit-frame event fires
-        yield return new WaitUntil(() => attackHitFrame);
+        // Wait one frame for the Animator to transition into the Attack state
+        yield return null;
+        yield return null;
 
-        // Deal damage exactly at the hit frame
+        // Wait until the attack state is actually playing
+        yield return new WaitUntil(() =>
+            heroAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack"));
+
+        AnimatorStateInfo stateInfo = heroAnimator.GetCurrentAnimatorStateInfo(0);
+        float clipLength = stateInfo.length;
+
+        // Hit at ~55% through the clip (matches your OnAttackHit at 0.85s / 1.53s ≈ 55%)
+        yield return new WaitUntil(() =>
+            heroAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.55f
+            || !heroAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack"));
+
         if (target != null && !target.IsDead)
         {
             int damage = heroData.GetAttackDamage();
@@ -100,17 +110,15 @@ public class HeroBehaviour : MonoBehaviour
             Debug.Log($"[Hero] {heroData.Name} hit {target.name} for {damage}.");
         }
 
-        // Wait until the end-frame event fires (clip fully played)
-        yield return new WaitUntil(() => attackFinished);
+        // Wait until the clip is 98% done (don't wait for 100% - it may loop)
+        yield return new WaitUntil(() =>
+            heroAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.98f
+            || !heroAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack"));
 
-        // Return to idle
         heroAnimator.SetBool("isAttacking", false);
         heroText.text = $"{heroData.Name} HP: {currentHealth}";
-
-        // Tell CombatSystem this hero's turn is done
         onFinished?.Invoke();
     }
-
     // -------------------------------------------------------------------------
     // Receiving Damage
     // -------------------------------------------------------------------------
