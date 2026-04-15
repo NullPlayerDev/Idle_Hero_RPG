@@ -22,6 +22,7 @@ public class EnemyBehaviour : MonoBehaviour
     private bool attackFinished = false;
 
     public bool IsDead => isDead;
+    
     public int CurrentHealth => currentHealth;
 
     // -------------------------------------------------------------------------
@@ -30,7 +31,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Start()
     {
-        combatSystem = FindObjectOfType<CombatSystem>();
+        combatSystem = FindFirstObjectByType<CombatSystem>();
         if (combatSystem == null)
         {
             Debug.LogError("[EnemyBehaviour] CombatSystem not found!");
@@ -82,17 +83,23 @@ public class EnemyBehaviour : MonoBehaviour
 
     private IEnumerator AttackCoroutine(HeroBehaviour target, Action onFinished)
     {
-        // Reset flags before starting
         attackHitFrame = false;
         attackFinished = false;
 
-        // Play the attack animation
         enemyAnimator.SetBool("isAttacking", true);
 
-        // Wait until the hit-frame event fires
-        yield return new WaitUntil(() => attackHitFrame);
+        yield return null;
+        yield return null;
 
-        // Deal damage exactly at the hit frame
+        // Wait until the attack state is actually playing
+        yield return new WaitUntil(() =>
+            enemyAnimator.GetCurrentAnimatorStateInfo(0).IsName("EnemyAttackAnimation"));
+
+        // Hit at ~45% through the clip (OnAttackHit at 0.9s / 2.016s ≈ 45%)
+        yield return new WaitUntil(() =>
+            enemyAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.45f
+            || !enemyAnimator.GetCurrentAnimatorStateInfo(0).IsName("EnemyAttackAnimation"));
+
         if (target != null && !target.IsDead)
         {
             int damage = enemyData.GetAttackDamage();
@@ -100,17 +107,15 @@ public class EnemyBehaviour : MonoBehaviour
             Debug.Log($"[Enemy] {enemyData.Name} hit {target.name} for {damage}.");
         }
 
-        // Wait until the end-frame event fires (clip fully played)
-        yield return new WaitUntil(() => attackFinished);
+        // Wait until 98% done
+        yield return new WaitUntil(() =>
+            enemyAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.98f
+            || !enemyAnimator.GetCurrentAnimatorStateInfo(0).IsName("EnemyAttackAnimation"));
 
-        // Return to idle
         enemyAnimator.SetBool("isAttacking", false);
         textMeshPro.text = $"{enemyData.Name} HP: {currentHealth}";
-
-        // Tell CombatSystem this enemy's turn is done
         onFinished?.Invoke();
     }
-
     // -------------------------------------------------------------------------
     // Receiving Damage
     // -------------------------------------------------------------------------

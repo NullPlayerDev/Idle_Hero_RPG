@@ -823,6 +823,7 @@ MonoBehaviour:
   expectedEnemies: 1
   delayBetweenTurns: 1
   rewardCalculator: {fileID: 1369531211}
+  _resultObject: {fileID: 0}
 --- !u!1 &738466815
 GameObject:
   m_ObjectHideFlags: 0
