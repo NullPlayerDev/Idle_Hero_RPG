@@ -11,7 +11,7 @@ public class HeroBehaviour : MonoBehaviour
     [SerializeField] private GameObject textPrefab;
     [SerializeField] private Slider _heroHealthBar;
     [SerializeField] private Animator heroAnimator;
-
+    [SerializeField] private ParticleSystem particles;
     private int currentHealth;
     private bool isHeroDead = false;
     private CombatSystem combatSystem;
@@ -84,7 +84,7 @@ public class HeroBehaviour : MonoBehaviour
     {
         attackHitFrame = false;
         attackFinished = false;
-
+        particles.Stop();
         heroAnimator.SetBool("isAttacking", true);
 
         // Wait one frame for the Animator to transition into the Attack state
@@ -129,7 +129,7 @@ public class HeroBehaviour : MonoBehaviour
 
         currentHealth -= damage;
         _heroHealthBar.value = currentHealth;
-
+        particles.Play();
         var go = Instantiate(textPrefab, transform.position, Quaternion.identity, transform);
         go.GetComponent<TextMesh>().text = $"-{damage}";
         FloatingCombatText.Instance.Show(damage.ToString(), transform);
