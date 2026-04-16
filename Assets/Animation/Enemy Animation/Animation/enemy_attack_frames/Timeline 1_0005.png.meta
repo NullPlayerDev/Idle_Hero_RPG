@@ -96,6 +96,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -103,12 +116,12 @@ TextureImporter:
       name: Timeline 1_0005_0
       rect:
         serializedVersion: 2
-        x: 460
-        y: 523
-        width: 570
-        height: 282
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 462
+        y: 502
+        width: 577
+        height: 437
+      alignment: 9
+      pivot: {x: 0.3508415, y: 0.09875261}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 484e8b5b89cff4f429cbfa12aa3a44de
     internalID: 0
     vertices: []
     indices: 

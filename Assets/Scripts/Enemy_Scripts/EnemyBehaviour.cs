@@ -12,7 +12,7 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private GameObject textPrefab;
     [SerializeField] private Slider _enemyHealthBar;
     [SerializeField] private Animator enemyAnimator;
-
+    [SerializeField] private ParticleSystem particles;
     private int currentHealth;
     private bool isDead = false;
     private CombatSystem combatSystem;
@@ -83,6 +83,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     private IEnumerator AttackCoroutine(HeroBehaviour target, Action onFinished)
     {
+        particles.Stop();
         attackHitFrame = false;
         attackFinished = false;
 
@@ -126,7 +127,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         currentHealth -= damage;
         _enemyHealthBar.value = currentHealth;
-
+        particles.Play();
         var go = Instantiate(textPrefab, transform.position, Quaternion.identity, transform);
         go.GetComponent<TextMesh>().text = $"-{damage}";
         FloatingCombatText.Instance.Show(damage.ToString(), transform);
