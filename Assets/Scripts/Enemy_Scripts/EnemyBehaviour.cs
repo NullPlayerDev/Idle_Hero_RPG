@@ -12,17 +12,18 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private GameObject textPrefab;
     [SerializeField] private Slider _enemyHealthBar;
     [SerializeField] private Animator enemyAnimator;
-    [SerializeField] private ParticleSystem particles;
+
     private int currentHealth;
     private bool isDead = false;
     private CombatSystem combatSystem;
 
-    // These two flags are SET by Animation Events on the attack clip.
+    // Set by Animation Events on the attack clip:
+    //   OnAttackHit  → at the weapon-connects frame
+    //   OnAttackEnd  → at the very last frame of the clip
     private bool attackHitFrame = false;
     private bool attackFinished = false;
 
     public bool IsDead => isDead;
-    
     public int CurrentHealth => currentHealth;
 
     // -------------------------------------------------------------------------
@@ -31,7 +32,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Start()
     {
-        combatSystem = FindFirstObjectByType<CombatSystem>();
+        combatSystem = FindObjectOfType<CombatSystem>();
         if (combatSystem == null)
         {
             Debug.LogError("[EnemyBehaviour] CombatSystem not found!");
@@ -47,60 +48,39 @@ public class EnemyBehaviour : MonoBehaviour
     }
 
     // -------------------------------------------------------------------------
-    // Animation Events — add these two events to your attack animation clip:
-    //
-    //   1. At the "hit" frame (when weapon connects):
-    //      Function: OnAttackHit
-    //
-    //   2. At the very last frame of the clip:
-    //      Function: OnAttackEnd
-    //
-    // To add them: select the animation clip → open Animation window →
-    // drag the playhead to the right frame → click "Add Event" → type the function name.
+    // Animation Events
+    // Add these two events to your attack animation clip:
+    //   1. At the "hit" frame  → Function: OnAttackHit
+    //   2. At the last frame   → Function: OnAttackEnd
     // -------------------------------------------------------------------------
 
-    // Called by Animation Event at the hit frame
-    public void OnAttackHit()
-    {
-        attackHitFrame = true;
-    }
-
-    // Called by Animation Event at the last frame
-    public void OnAttackEnd()
-    {
-        attackFinished = true;
-    }
+    public void OnAttackHit()  { attackHitFrame = true; }
+    public void OnAttackEnd()  { attackFinished = true; }
 
     // -------------------------------------------------------------------------
     // Called by CombatSystem during Enemy Phase
+    // `suggestedTarget` is the lowest-HP hero at the moment this enemy's turn
+    // begins; we re-check at the actual hit frame in case it died mid-swing.
     // -------------------------------------------------------------------------
 
-    public void ExecuteAttack(HeroBehaviour target, Action onFinished)
+    public void ExecuteAttack(HeroBehaviour suggestedTarget, Action onFinished)
     {
         if (isDead) { onFinished?.Invoke(); return; }
-        StartCoroutine(AttackCoroutine(target, onFinished));
+        StartCoroutine(AttackCoroutine(onFinished));
     }
 
-    private IEnumerator AttackCoroutine(HeroBehaviour target, Action onFinished)
+    private IEnumerator AttackCoroutine(Action onFinished)
     {
-        particles.Stop();
         attackHitFrame = false;
         attackFinished = false;
 
         enemyAnimator.SetBool("isAttacking", true);
 
-        yield return null;
-        yield return null;
+        // Wait for the hit frame
+        yield return new WaitUntil(() => attackHitFrame);
 
-        // Wait until the attack state is actually playing
-        yield return new WaitUntil(() =>
-            enemyAnimator.GetCurrentAnimatorStateInfo(0).IsName("EnemyAttackAnimation"));
-
-        // Hit at ~45% through the clip (OnAttackHit at 0.9s / 2.016s ≈ 45%)
-        yield return new WaitUntil(() =>
-            enemyAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.45f
-            || !enemyAnimator.GetCurrentAnimatorStateInfo(0).IsName("EnemyAttackAnimation"));
-
+        // Re-fetch the current lowest-HP hero at the moment of impact
+        HeroBehaviour target = combatSystem.GetLowestHealthHero();
         if (target != null && !target.IsDead)
         {
             int damage = enemyData.GetAttackDamage();
@@ -108,15 +88,15 @@ public class EnemyBehaviour : MonoBehaviour
             Debug.Log($"[Enemy] {enemyData.Name} hit {target.name} for {damage}.");
         }
 
-        // Wait until 98% done
-        yield return new WaitUntil(() =>
-            enemyAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.98f
-            || !enemyAnimator.GetCurrentAnimatorStateInfo(0).IsName("EnemyAttackAnimation"));
+        // Wait for the animation to fully finish
+        yield return new WaitUntil(() => attackFinished);
 
         enemyAnimator.SetBool("isAttacking", false);
         textMeshPro.text = $"{enemyData.Name} HP: {currentHealth}";
+
         onFinished?.Invoke();
     }
+
     // -------------------------------------------------------------------------
     // Receiving Damage
     // -------------------------------------------------------------------------
@@ -127,7 +107,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         currentHealth -= damage;
         _enemyHealthBar.value = currentHealth;
-        particles.Play();
+
         var go = Instantiate(textPrefab, transform.position, Quaternion.identity, transform);
         go.GetComponent<TextMesh>().text = $"-{damage}";
         FloatingCombatText.Instance.Show(damage.ToString(), transform);
@@ -146,6 +126,9 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (isDead) return;
         isDead = true;
+        // Unblock any coroutine still waiting on the animation flags
+        attackHitFrame = true;
+        attackFinished = true;
         enemyAnimator.SetBool("isAttacking", false);
         Debug.Log($"[Enemy] {enemyData.Name} died.");
         combatSystem?.OnEnemyDied(this);

@@ -1,9 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class CombatSystem : MonoBehaviour
 {
@@ -20,19 +20,18 @@ public class CombatSystem : MonoBehaviour
     [SerializeField] private int expectedHeroes = 1;
     [Tooltip("How many total enemies are in this scene — battle starts once all register")]
     [SerializeField] private int expectedEnemies = 1;
+    [Tooltip("Pause between each individual attacker")]
+    [SerializeField] private float delayBetweenAttackers = 0.2f;
     [Tooltip("Pause between hero phase and enemy phase")]
-    [SerializeField] private float delayBetweenTurns = 0.5f;
+    [SerializeField] private float delayBetweenPhases = 0.5f;
 
     [SerializeField] private RewardCalculator rewardCalculator;
 
     public event Action OnStageEnded;
-    [SerializeField] private GameObject _resultObject;
+
     private bool isStageEnded = false;
     private bool battleStarted = false;
     private int total_Stages_Won = 0;
-
-    private int heroAttacksPending = 0;
-    private int enemyAttacksPending = 0;
 
     public bool IsStageEnded => isStageEnded;
 
@@ -46,8 +45,7 @@ public class CombatSystem : MonoBehaviour
     }
 
     // -------------------------------------------------------------------------
-    // Registration — heroes and enemies call these in their own Start()
-    // Once everyone has registered, the battle loop starts automatically
+    // Registration
     // -------------------------------------------------------------------------
 
     public void RegisterHero(HeroBehaviour hero)
@@ -70,7 +68,6 @@ public class CombatSystem : MonoBehaviour
         TryStartBattle();
     }
 
-    // Starts the battle only once ALL expected combatants have checked in
     private void TryStartBattle()
     {
         if (battleStarted) return;
@@ -90,74 +87,60 @@ public class CombatSystem : MonoBehaviour
     {
         while (!isStageEnded)
         {
-            // HERO PHASE 
+            // ── HERO PHASE ────────────────────────────────────────────────────
             Debug.Log("[CombatSystem] >>> HERO PHASE");
-
             CleanLists();
             if (isStageEnded) break;
 
-            heroAttacksPending = heroes.Count;
-            Debug.Log($"[CombatSystem] {heroAttacksPending} hero(es) will attack.");
-
+            // Each hero attacks one at a time, sequentially
             foreach (HeroBehaviour hero in new List<HeroBehaviour>(heroes))
             {
-                EnemyBehaviour target = GetRandomEnemy();
-                if (target != null)
-                {
-                    hero.ExecuteAttack(target, OnHeroAttackFinished);
-                }
-                else
-                {
-                    heroAttacksPending--;
-                }
+                if (isStageEnded) break;
+                if (hero == null || hero.IsDead) continue;
+
+                // Target the enemy with the LOWEST current health
+                EnemyBehaviour target = GetLowestHealthEnemy();
+                if (target == null) break; // no enemies left
+
+                bool attackDone = false;
+                hero.ExecuteAttack(target, () => attackDone = true);
+                yield return new WaitUntil(() => attackDone);
+
+                yield return new WaitForSeconds(delayBetweenAttackers);
             }
 
-            yield return new WaitUntil(() => heroAttacksPending <= 0);
             Debug.Log("[CombatSystem] <<< Hero phase complete.");
-
             if (isStageEnded) break;
-            yield return new WaitForSeconds(delayBetweenTurns);
 
-            // ── ENEMY PHASE ──────────────────────────────────────────────────
+            yield return new WaitForSeconds(delayBetweenPhases);
+
+            // ── ENEMY PHASE ───────────────────────────────────────────────────
             Debug.Log("[CombatSystem] >>> ENEMY PHASE");
-
             CleanLists();
             if (isStageEnded) break;
 
-            enemyAttacksPending = enemies.Count;
-            Debug.Log($"[CombatSystem] {enemyAttacksPending} enemy/enemies will attack.");
-
+            // Each enemy attacks one at a time, sequentially
             foreach (EnemyBehaviour enemy in new List<EnemyBehaviour>(enemies))
             {
-                HeroBehaviour target = GetRandomHero();
-                if (target != null)
-                {
-                    enemy.ExecuteAttack(target, OnEnemyAttackFinished);
-                }
-                else
-                {
-                    enemyAttacksPending--;
-                }
+                if (isStageEnded) break;
+                if (enemy == null || enemy.IsDead) continue;
+
+                // Target the hero with the LOWEST current health
+                HeroBehaviour target = GetLowestHealthHero();
+                if (target == null) break; // no heroes left
+
+                bool attackDone = false;
+                enemy.ExecuteAttack(target, () => attackDone = true);
+                yield return new WaitUntil(() => attackDone);
+
+                yield return new WaitForSeconds(delayBetweenAttackers);
             }
 
-            yield return new WaitUntil(() => enemyAttacksPending <= 0);
             Debug.Log("[CombatSystem] <<< Enemy phase complete.");
-
             if (isStageEnded) break;
-            yield return new WaitForSeconds(delayBetweenTurns);
+
+            yield return new WaitForSeconds(delayBetweenPhases);
         }
-    }
-
-    private void OnHeroAttackFinished()
-    {
-        heroAttacksPending--;
-        Debug.Log($"[CombatSystem] Hero attack finished. Pending: {heroAttacksPending}");
-    }
-
-    private void OnEnemyAttackFinished()
-    {
-        enemyAttacksPending--;
-        Debug.Log($"[CombatSystem] Enemy attack finished. Pending: {enemyAttacksPending}");
     }
 
     // -------------------------------------------------------------------------
@@ -167,35 +150,38 @@ public class CombatSystem : MonoBehaviour
     public void OnHeroDied(HeroBehaviour hero)
     {
         heroes.Remove(hero);
-        // Decrement so the WaitUntil doesn't hang if a hero dies mid-animation
-        heroAttacksPending = Mathf.Max(0, heroAttacksPending - 1);
         CheckBattleEnd();
     }
 
     public void OnEnemyDied(EnemyBehaviour enemy)
     {
         enemies.Remove(enemy);
-        enemyAttacksPending = Mathf.Max(0, enemyAttacksPending - 1);
         CheckBattleEnd();
     }
 
     // -------------------------------------------------------------------------
-    // Target Selection
+    // Target Selection — lowest HP first
     // -------------------------------------------------------------------------
 
-    public EnemyBehaviour GetRandomEnemy()
+    /// <summary>Returns the living enemy with the lowest current HP.</summary>
+    public EnemyBehaviour GetLowestHealthEnemy()
     {
         CleanLists();
         if (enemies.Count == 0) return null;
-        return enemies[Random.Range(0, enemies.Count)];
+        return enemies.OrderBy(e => e.CurrentHealth).First();
     }
 
-    public HeroBehaviour GetRandomHero()
+    /// <summary>Returns the living hero with the lowest current HP.</summary>
+    public HeroBehaviour GetLowestHealthHero()
     {
         CleanLists();
         if (heroes.Count == 0) return null;
-        return heroes[Random.Range(0, heroes.Count)];
+        return heroes.OrderBy(h => h.CurrentHealth).First();
     }
+
+    // Keep legacy random methods in case other scripts reference them
+    public EnemyBehaviour GetRandomEnemy() => GetLowestHealthEnemy();
+    public HeroBehaviour GetRandomHero() => GetLowestHealthHero();
 
     // -------------------------------------------------------------------------
     // Helpers
@@ -210,7 +196,7 @@ public class CombatSystem : MonoBehaviour
     private void CheckBattleEnd()
     {
         CleanLists();
-        _resultObject.SetActive(true);
+
         if (enemies.Count == 0 && heroes.Count > 0)
         {
             rewardCalculator.IsStageWon = true;
