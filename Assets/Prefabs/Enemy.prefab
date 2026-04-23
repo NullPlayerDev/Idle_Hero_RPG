@@ -594,7 +594,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 3.84, y: 4.89}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -616,6 +616,7 @@ MonoBehaviour:
   textPrefab: {fileID: 603789704468033626, guid: 5069a415519091947b75b3bcc9a715c3, type: 3}
   _enemyHealthBar: {fileID: 7557626727146330841}
   enemyAnimator: {fileID: 7377707922915640791}
+  particles: {fileID: 0}
 --- !u!114 &6152083916283008347
 MonoBehaviour:
   m_ObjectHideFlags: 0
