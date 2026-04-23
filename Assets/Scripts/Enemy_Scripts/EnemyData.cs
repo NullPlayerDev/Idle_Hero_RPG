@@ -3,7 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EnemyData", menuName = "Scriptable Objects/EnemyData")]
 public class EnemyData : ScriptableObject
 {
-    [Header("Basic Information")]
+    [Header("Basic Information")] 
+    public int Id;
     public string Name;
     public EnemyEnums.VisualTypes VisualType;
     public RewardEnums RewardType;

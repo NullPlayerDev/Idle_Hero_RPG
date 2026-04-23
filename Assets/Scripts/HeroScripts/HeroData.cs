@@ -7,7 +7,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "HeroData", menuName = "Scriptable Objects/HeroData")]
 public class HeroData : ScriptableObject
 {
-    [Header("Basic Information")]
+    [Header("Basic Information")] 
+    public int ID;
     public string Name;
     public HeroNums.VisualTypes VisualType;
 

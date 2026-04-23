@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 937f2a8626b3a0c4e9f6ed5e4c513655, type: 3}
   m_Name: EnemyData
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  Id: 1
   Name: Enemy
   VisualType: 0
   attackSpeed: 0

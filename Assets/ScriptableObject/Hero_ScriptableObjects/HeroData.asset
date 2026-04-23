@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57be74e805794b04b84b51a10da82c42, type: 3}
   m_Name: HeroData
   m_EditorClassIdentifier: Assembly-CSharp::HeroData
+  ID: 1
   Name: Hero
   VisualType: 0
   attackSpeed: 0
