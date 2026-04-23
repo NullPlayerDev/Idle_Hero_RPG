@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 937f2a8626b3a0c4e9f6ed5e4c513655, type: 3}
-  m_Name: EnemyData
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  Id: 1
-  Name: Enemy
+  m_Script: {fileID: 11500000, guid: 57be74e805794b04b84b51a10da82c42, type: 3}
+  m_Name: HeroData 2
+  m_EditorClassIdentifier: Assembly-CSharp::HeroData
+  ID: 1
+  Name: Hero
   VisualType: 0
   attackSpeed: 0
-  attackDamage: 1
+  attackDamage: 3
   hpType: 2

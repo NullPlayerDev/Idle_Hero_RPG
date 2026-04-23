@@ -10,7 +10,7 @@ public class CombatSystem : MonoBehaviour
     [Header("Combatants")]
     [SerializeField] private List<HeroBehaviour> heroes = new List<HeroBehaviour>();
     [SerializeField] private List<EnemyBehaviour> enemies = new List<EnemyBehaviour>();
-    [SerializeField]private EnemySpawner enemySpawner;
+
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI heroResultText;
     [SerializeField] private TextMeshProUGUI enemyResultText;
@@ -67,6 +67,12 @@ public class CombatSystem : MonoBehaviour
         }
         TryStartBattle();
     }
+
+    /// <summary>Call this from HeroSpawner BEFORE instantiating heroes.</summary>
+    public void SetExpectedHeroes(int count) => expectedHeroes = count;
+
+    /// <summary>Call this from EnemySpawner BEFORE instantiating enemies.</summary>
+    public void SetExpectedEnemies(int count) => expectedEnemies = count;
 
     private void TryStartBattle()
     {
@@ -209,8 +215,6 @@ public class CombatSystem : MonoBehaviour
             enemyResultText.text = "Enemy wins!";
             EndStage();
         }
-
-        enemySpawner.Level++;
     }
 
     private void EndStage()
