@@ -11,15 +11,16 @@ public class HeroBehaviour : MonoBehaviour
     [SerializeField] private GameObject textPrefab;
     [SerializeField] private Slider _heroHealthBar;
     [SerializeField] private Animator heroAnimator;
-    [SerializeField] private ParticleSystem particles;
+
     private int currentHealth;
     private bool isHeroDead = false;
     private CombatSystem combatSystem;
 
-    // These two flags are SET by Animation Events on the attack clip.
-    // The coroutine simply waits on them — no timers, no state name checks.
-    private bool attackHitFrame = false;   // set at the "hit" frame of the swing
-    private bool attackFinished = false;   // set at the very last frame of the clip
+    // Set by Animation Events on the attack clip:
+    //   OnAttackHit  → at the weapon-connects frame
+    //   OnAttackEnd  → at the very last frame of the clip
+    private bool attackHitFrame = false;
+    private bool attackFinished = false;
 
     public bool IsDead => isHeroDead;
     public int CurrentHealth => currentHealth;
@@ -30,7 +31,7 @@ public class HeroBehaviour : MonoBehaviour
 
     void Start()
     {
-        combatSystem = FindFirstObjectByType<CombatSystem>();
+        combatSystem = FindObjectOfType<CombatSystem>();
         if (combatSystem == null)
         {
             Debug.LogError("[HeroBehaviour] CombatSystem not found!");
@@ -46,63 +47,39 @@ public class HeroBehaviour : MonoBehaviour
     }
 
     // -------------------------------------------------------------------------
-    // Animation Events — add these two events to your attack animation clip:
-    //
-    //   1. At the "hit" frame (when weapon connects):
-    //      Function: OnAttackHit
-    //
-    //   2. At the very last frame of the clip:
-//        Function: OnAttackEnd
-    //
-    // To add them: select the animation clip → open Animation window →
-    // drag the playhead to the right frame → click "Add Event" → type the function name.
+    // Animation Events
+    // Add these two events to your attack animation clip:
+    //   1. At the "hit" frame  → Function: OnAttackHit
+    //   2. At the last frame   → Function: OnAttackEnd
     // -------------------------------------------------------------------------
 
-    // Called by Animation Event at the hit frame
-    public void OnAttackHit()
-    {
-        attackHitFrame = true;
-    }
-
-    // Called by Animation Event at the last frame
-    public void OnAttackEnd()
-    {
-        attackFinished = true;
-    }
+    public void OnAttackHit()  { attackHitFrame = true; }
+    public void OnAttackEnd()  { attackFinished = true; }
 
     // -------------------------------------------------------------------------
     // Called by CombatSystem during Hero Phase
+    // `suggestedTarget` is the lowest-HP enemy at the moment this hero's turn
+    // begins; we re-check at the actual hit frame in case it died mid-swing.
     // -------------------------------------------------------------------------
 
-    public void ExecuteAttack(EnemyBehaviour target, Action onFinished)
+    public void ExecuteAttack(EnemyBehaviour suggestedTarget, Action onFinished)
     {
         if (isHeroDead) { onFinished?.Invoke(); return; }
-        StartCoroutine(AttackCoroutine(target, onFinished));
+        StartCoroutine(AttackCoroutine(onFinished));
     }
 
-    private IEnumerator AttackCoroutine(EnemyBehaviour target, Action onFinished)
+    private IEnumerator AttackCoroutine(Action onFinished)
     {
         attackHitFrame = false;
         attackFinished = false;
-        particles.Stop();
+
         heroAnimator.SetBool("isAttacking", true);
 
-        // Wait one frame for the Animator to transition into the Attack state
-        yield return null;
-        yield return null;
+        // Wait for the hit frame
+        yield return new WaitUntil(() => attackHitFrame);
 
-        // Wait until the attack state is actually playing
-        yield return new WaitUntil(() =>
-            heroAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack"));
-
-        AnimatorStateInfo stateInfo = heroAnimator.GetCurrentAnimatorStateInfo(0);
-        float clipLength = stateInfo.length;
-
-        // Hit at ~55% through the clip (matches your OnAttackHit at 0.85s / 1.53s ≈ 55%)
-        yield return new WaitUntil(() =>
-            heroAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.55f
-            || !heroAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack"));
-
+        // Re-fetch the current lowest-HP enemy at the moment of impact
+        EnemyBehaviour target = combatSystem.GetLowestHealthEnemy();
         if (target != null && !target.IsDead)
         {
             int damage = heroData.GetAttackDamage();
@@ -110,15 +87,15 @@ public class HeroBehaviour : MonoBehaviour
             Debug.Log($"[Hero] {heroData.Name} hit {target.name} for {damage}.");
         }
 
-        // Wait until the clip is 98% done (don't wait for 100% - it may loop)
-        yield return new WaitUntil(() =>
-            heroAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.98f
-            || !heroAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack"));
+        // Wait for the animation to fully finish
+        yield return new WaitUntil(() => attackFinished);
 
         heroAnimator.SetBool("isAttacking", false);
         heroText.text = $"{heroData.Name} HP: {currentHealth}";
+
         onFinished?.Invoke();
     }
+
     // -------------------------------------------------------------------------
     // Receiving Damage
     // -------------------------------------------------------------------------
@@ -129,7 +106,7 @@ public class HeroBehaviour : MonoBehaviour
 
         currentHealth -= damage;
         _heroHealthBar.value = currentHealth;
-        particles.Play();
+
         var go = Instantiate(textPrefab, transform.position, Quaternion.identity, transform);
         go.GetComponent<TextMesh>().text = $"-{damage}";
         FloatingCombatText.Instance.Show(damage.ToString(), transform);
@@ -148,6 +125,9 @@ public class HeroBehaviour : MonoBehaviour
     {
         if (isHeroDead) return;
         isHeroDead = true;
+        // Unblock any coroutine still waiting on the animation flags
+        attackHitFrame = true;
+        attackFinished = true;
         heroAnimator.SetBool("isAttacking", false);
         Debug.Log($"[Hero] {heroData.Name} died.");
         combatSystem?.OnHeroDied(this);
