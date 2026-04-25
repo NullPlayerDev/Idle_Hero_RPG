@@ -15,6 +15,6 @@ MonoBehaviour:
   ID: 1
   Name: Hero
   VisualType: 0
-  attackSpeed: 0
+  attackSpeed: 1
   attackDamage: 3
   hpType: 2

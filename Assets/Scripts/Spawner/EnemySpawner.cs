@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject fastEnemyPrefab;
     [SerializeField] private GameObject tankEnemyPrefab;
     [SerializeField] private GameObject rangedEnemyPrefab;
-    [SerializeField] private GameObject bossEnemyPrefab;
+    [SerializeField] private GameObject magicEnemyPrefab;
 
     [Header("Spawn Points")]
     [Tooltip("World positions where enemies will appear (assigned in order)")]
@@ -24,8 +24,7 @@ public class EnemySpawner : MonoBehaviour
     // -------------------------------------------------------------------------
     // Level property — set this before SpawnEnemiesForLevel() is called
     // -------------------------------------------------------------------------
-
-    private int level;
+    [SerializeField] private int level = 1;
     public int Level
     {
         get => level;
@@ -39,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         combatSystem = FindObjectOfType<CombatSystem>();
-        SpawnEnemiesForLevel();
+        //SpawnEnemiesForLevel();
     }
 
     // -------------------------------------------------------------------------
@@ -153,14 +152,14 @@ public class EnemySpawner : MonoBehaviour
 
             case 10:
                 // Boss level
-                wave.Add(bossEnemyPrefab);
+                wave.Add(magicEnemyPrefab);
                 wave.Add(tankEnemyPrefab);
                 wave.Add(rangedEnemyPrefab);
                 break;
 
             default:
                 // For levels beyond 10 keep scaling: add one extra tank per extra level
-                wave.Add(bossEnemyPrefab);
+                wave.Add(magicEnemyPrefab);
                 int extras = Mathf.Min(lvl - 10, spawnPoints.Count - 1);
                 for (int i = 0; i < extras; i++)
                     wave.Add(tankEnemyPrefab);

@@ -1,116 +1,90 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Lives in CombatScene.
+/// On Start() reads SelectedHeroIds from HeroSelectionManager,
+/// finds the matching prefab by ID, and spawns them at the spawn points.
+///
+/// Inspector setup:
+///   - heroPrefabs list: one entry per hero. Set heroId to match HeroData.ID,
+///     drag in the prefab.
+///   - spawnPoints: 4 Transforms (order: BOTTOM_LEFT, BOTTOM_RIGHT, TOP_LEFT, TOP_RIGHT)
+///   - combatSystem: drag in or leave null (auto-found via FindObjectOfType)
+/// </summary>
 public class HeroSpawner : MonoBehaviour
 {
-    // -------------------------------------------------------------------------
-    // Inspector
-    // -------------------------------------------------------------------------
+    /*
+    [System.Serializable]
+    public class HeroPrefabEntry
+    {
+        [Tooltip("Must match the HeroData.ID on this hero's prefab")]
+        public int        heroId;
+        public GameObject prefab;
+    }
+    */
+
+    [Header("Hero Prefabs — ID must match HeroData.ID")]
+    [SerializeField] private List<GameObject> heroPrefabs = new List<GameObject>();
+
+    [Header("Spawn Points (BOTTOM_LEFT, BOTTOM_RIGHT, TOP_LEFT, TOP_RIGHT)")]
+    [SerializeField] private List<Transform> spawnPoints = new List<Transform>();
 
     [Header("References")]
     [SerializeField] private CombatSystem combatSystem;
 
-    [Header("Hero Prefabs")]
-    [Tooltip("Prefab that has HeroBehaviour + HeroData assigned for each type")]
-    [SerializeField] private GameObject fastHeroPrefab;
-    [SerializeField] private GameObject tankHeroPrefab;
-    [SerializeField] private GameObject rangedHeroPrefab;
-    [SerializeField] private GameObject bossHeroPrefab;
-
-    [Header("Spawn Points")]
-    [Tooltip("Index matches HeroNums.SpawnPosition: 0=TOP_LEFT, 1=TOP_RIGHT, 2=BOTTOM_LEFT, 3=BOTTOM_RIGHT")]
-    [SerializeField] private List<Transform> spawnPoints = new List<Transform>();
-
-    // -------------------------------------------------------------------------
-    // Unity Lifecycle
-    // -------------------------------------------------------------------------
-
-    void Start()
+    private void Start()
     {
-        combatSystem = FindObjectOfType<CombatSystem>();
-        SpawnHeroesForStage();
+        if (combatSystem == null)
+            combatSystem = FindObjectOfType<CombatSystem>();
+
+        SpawnSelectedHeroes();
     }
 
-    // -------------------------------------------------------------------------
-    // Public API
-    // -------------------------------------------------------------------------
-
-    /// <summary>
-    /// Spawns the hero lineup for the current stage.
-    /// Call this once per combat scene, or again after a re-roll.
-    /// </summary>
-    public void SpawnHeroesForStage()
+    public void SpawnSelectedHeroes()
     {
-        List<HeroSpawnEntry> lineup = BuildHeroLineup();
-
-        // Tell CombatSystem how many heroes to wait for before starting the battle
-        combatSystem.SetExpectedHeroes(lineup.Count);
-
-        foreach (HeroSpawnEntry entry in lineup)
+        if (HeroSelectionManager.Instance == null)
         {
-            Transform spawnPoint = GetSpawnPoint(entry.Position);
-
-            GameObject hero = Instantiate(entry.Prefab, spawnPoint.position, spawnPoint.rotation);
-            hero.name = $"{entry.Prefab.name}_{entry.Position}";
-
-            Debug.Log($"[HeroSpawner] Spawned {hero.name} at {entry.Position}");
+            Debug.LogError("[HeroSpawner] HeroSelectionManager not found! Make sure it exists in PlayerSelection scene and persists.");
+            return;
         }
 
-        Debug.Log($"[HeroSpawner] {lineup.Count} hero(es) ready for battle.");
-    }
+        List<int> selectedIds = HeroSelectionManager.Instance.SelectedHeroIds;
 
-    // -------------------------------------------------------------------------
-    // Lineup Definition — edit this to change which heroes appear
-    // -------------------------------------------------------------------------
-
-    /// <summary>
-    /// Returns the list of heroes and their spawn positions for this stage.
-    /// Add, remove, or reorder entries freely — just make sure each
-    /// SpawnPosition is used at most once (two heroes can't share a slot).
-    /// </summary>
-    private List<HeroSpawnEntry> BuildHeroLineup()
-    {
-        return new List<HeroSpawnEntry>
+        if (selectedIds == null || selectedIds.Count == 0)
         {
-            new HeroSpawnEntry(fastHeroPrefab,   HeroNums.SpawnPosition.BOTTOM_LEFT),
-            new HeroSpawnEntry(tankHeroPrefab,   HeroNums.SpawnPosition.BOTTOM_RIGHT),
-            new HeroSpawnEntry(rangedHeroPrefab, HeroNums.SpawnPosition.TOP_LEFT),
-            new HeroSpawnEntry(bossHeroPrefab,   HeroNums.SpawnPosition.TOP_RIGHT),
-        };
-    }
-
-    // -------------------------------------------------------------------------
-    // Helpers
-    // -------------------------------------------------------------------------
-
-    /// <summary>
-    /// Looks up the spawn point by casting SpawnPosition to its int index.
-    /// Falls back to this transform if the list slot is missing.
-    /// </summary>
-    private Transform GetSpawnPoint(HeroNums.SpawnPosition position)
-    {
-        int index = (int)position;
-
-        if (index >= 0 && index < spawnPoints.Count && spawnPoints[index] != null)
-            return spawnPoints[index];
-
-        Debug.LogWarning($"[HeroSpawner] No spawn point at index {index} ({position}), falling back to spawner position.");
-        return transform;
-    }
-
-    // -------------------------------------------------------------------------
-    // Inner type — bundles a prefab with its desired spawn slot
-    // -------------------------------------------------------------------------
-
-    private struct HeroSpawnEntry
-    {
-        public GameObject Prefab;
-        public HeroNums.SpawnPosition Position;
-
-        public HeroSpawnEntry(GameObject prefab, HeroNums.SpawnPosition position)
-        {
-            Prefab   = prefab;
-            Position = position;
+            Debug.LogWarning("[HeroSpawner] No heroes selected — nothing to spawn.");
+            return;
         }
+
+        combatSystem.SetExpectedHeroes(selectedIds.Count);
+
+        for (int i = 0; i < selectedIds.Count; i++)
+        {
+            int heroId = selectedIds[i];
+            GameObject prefab = GetPrefabById(heroId);
+
+            if (prefab == null)
+            {
+                Debug.LogError($"[HeroSpawner] No prefab for hero ID {heroId}. Add it to the HeroPrefabs list in the Inspector.");
+                continue;
+            }
+
+            Transform spawnPoint = i < spawnPoints.Count ? spawnPoints[i] : transform;
+            GameObject hero = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
+            hero.name = $"Hero_ID{heroId}_Slot{i}";
+
+            Debug.Log($"[HeroSpawner] Spawned hero ID {heroId} at slot {i}.");
+        }
+
+        Debug.Log($"[HeroSpawner] {selectedIds.Count} hero(es) spawned for combat.");
+    }
+
+    private GameObject GetPrefabById(int id)
+    {
+        foreach (GameObject entry in heroPrefabs)
+            if (entry.GetComponent<HeroData>().ID== id)
+                return entry;
+        return null;
     }
 }
