@@ -16,7 +16,7 @@ public class HeroData : ScriptableObject
     public HeroNums.AttackSpeed attackSpeed;
     public HeroNums.AttackDamage attackDamage;
     public HeroNums.HP hpType;
-
+    public bool isSelected;
     // Returns a fresh runtime health value based on hpType.
     // Call this when spawning the hero — do NOT read it as a persistent field.
     public int GetStartingHealth()

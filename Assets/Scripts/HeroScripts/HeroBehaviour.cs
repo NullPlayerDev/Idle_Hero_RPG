@@ -22,6 +22,11 @@ public class HeroBehaviour : MonoBehaviour
     private bool attackHitFrame = false;
     private bool attackFinished = false;
 
+    public HeroData HeroData
+    {
+        get => heroData;
+        set => heroData = value;
+    }
     public bool IsDead => isHeroDead;
     public int CurrentHealth => currentHealth;
 
@@ -53,18 +58,21 @@ public class HeroBehaviour : MonoBehaviour
     //   2. At the last frame   → Function: OnAttackEnd
     // -------------------------------------------------------------------------
 
-    public void OnAttackHit()  { attackHitFrame = true; }
-    public void OnAttackEnd()  { attackFinished = true; }
+    public void OnAttackHit() { attackHitFrame = true; }
+    public void OnAttackEnd() { attackFinished = true; }
 
     // -------------------------------------------------------------------------
     // Called by CombatSystem during Hero Phase
-    // `suggestedTarget` is the lowest-HP enemy at the moment this hero's turn
-    // begins; we re-check at the actual hit frame in case it died mid-swing.
     // -------------------------------------------------------------------------
 
     public void ExecuteAttack(EnemyBehaviour suggestedTarget, Action onFinished)
     {
-        if (isHeroDead) { onFinished?.Invoke(); return; }
+        // Guard: don't start a coroutine on a dead or inactive GameObject
+        if (isHeroDead || !gameObject.activeInHierarchy)
+        {
+            onFinished?.Invoke();
+            return;
+        }
         StartCoroutine(AttackCoroutine(onFinished));
     }
 
@@ -125,12 +133,39 @@ public class HeroBehaviour : MonoBehaviour
     {
         if (isHeroDead) return;
         isHeroDead = true;
+
         // Unblock any coroutine still waiting on the animation flags
         attackHitFrame = true;
         attackFinished = true;
+
         heroAnimator.SetBool("isAttacking", false);
         Debug.Log($"[Hero] {heroData.Name} died.");
+
+        // Notify CombatSystem immediately so it stops targeting this hero
         combatSystem?.OnHeroDied(this);
+
+        // Play death animation, then destroy
+        StartCoroutine(DeathRoutine());
+    }
+
+    private IEnumerator DeathRoutine()
+    {
+        // Trigger your death animation — change "isDead" to match your Animator parameter name
+        heroAnimator.SetTrigger("isDead");
+
+        // Wait for the death clip to finish before removing the GameObject
+        float clipLength = GetAnimationClipLength("Death"); // change "Death" to your clip name
+        yield return new WaitForSeconds(clipLength > 0f ? clipLength : 0.8f);
+
         Destroy(gameObject);
+    }
+
+    // Returns the length of an animation clip by name, or 0 if not found
+    private float GetAnimationClipLength(string clipName)
+    {
+        if (heroAnimator == null || heroAnimator.runtimeAnimatorController == null) return 0f;
+        foreach (AnimationClip clip in heroAnimator.runtimeAnimatorController.animationClips)
+            if (clip.name == clipName) return clip.length;
+        return 0f;
     }
 }

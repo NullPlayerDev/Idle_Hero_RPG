@@ -35,6 +35,12 @@ public class CombatSystem : MonoBehaviour
 
     public bool IsStageEnded => isStageEnded;
 
+    public List<HeroBehaviour> Heroes
+    {
+        get => heroes;
+        set => heroes = value;
+    }
+
     // -------------------------------------------------------------------------
     // Unity Lifecycle
     // -------------------------------------------------------------------------
@@ -60,6 +66,8 @@ public class CombatSystem : MonoBehaviour
 
     public void RegisterEnemy(EnemyBehaviour enemy)
     {
+        // FIX: was incorrectly wrapped in a heroes.Count loop,
+        // causing enemies to never register when heroes hadn't spawned yet.
         if (!enemies.Contains(enemy))
         {
             enemies.Add(enemy);
@@ -74,7 +82,7 @@ public class CombatSystem : MonoBehaviour
     /// <summary>Call this from EnemySpawner BEFORE instantiating enemies.</summary>
     public void SetExpectedEnemies(int count) => expectedEnemies = count;
 
-    private void TryStartBattle()
+    public void TryStartBattle()
     {
         if (battleStarted) return;
         if (heroes.Count < expectedHeroes) return;
@@ -98,15 +106,13 @@ public class CombatSystem : MonoBehaviour
             CleanLists();
             if (isStageEnded) break;
 
-            // Each hero attacks one at a time, sequentially
             foreach (HeroBehaviour hero in new List<HeroBehaviour>(heroes))
             {
                 if (isStageEnded) break;
                 if (hero == null || hero.IsDead) continue;
 
-                // Target the enemy with the LOWEST current health
                 EnemyBehaviour target = GetLowestHealthEnemy();
-                if (target == null) break; // no enemies left
+                if (target == null) break;
 
                 bool attackDone = false;
                 hero.ExecuteAttack(target, () => attackDone = true);
@@ -125,15 +131,13 @@ public class CombatSystem : MonoBehaviour
             CleanLists();
             if (isStageEnded) break;
 
-            // Each enemy attacks one at a time, sequentially
             foreach (EnemyBehaviour enemy in new List<EnemyBehaviour>(enemies))
             {
                 if (isStageEnded) break;
                 if (enemy == null || enemy.IsDead) continue;
 
-                // Target the hero with the LOWEST current health
                 HeroBehaviour target = GetLowestHealthHero();
-                if (target == null) break; // no heroes left
+                if (target == null) break;
 
                 bool attackDone = false;
                 enemy.ExecuteAttack(target, () => attackDone = true);
@@ -195,6 +199,10 @@ public class CombatSystem : MonoBehaviour
 
     private void CleanLists()
     {
+        // FIX: only remove from the lists here — each behaviour's DeathRoutine
+        // handles Destroy(gameObject) after the death animation finishes.
+        // Never call Destroy() on the GameObjects here — that caused
+        // "Destroying assets is not permitted" errors.
         heroes.RemoveAll(h => h == null || h.IsDead);
         enemies.RemoveAll(e => e == null || e.IsDead);
     }

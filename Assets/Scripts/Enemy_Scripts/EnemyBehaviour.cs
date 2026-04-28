@@ -54,18 +54,21 @@ public class EnemyBehaviour : MonoBehaviour
     //   2. At the last frame   → Function: OnAttackEnd
     // -------------------------------------------------------------------------
 
-    public void OnAttackHit()  { attackHitFrame = true; }
-    public void OnAttackEnd()  { attackFinished = true; }
+    public void OnAttackHit() { attackHitFrame = true; }
+    public void OnAttackEnd() { attackFinished = true; }
 
     // -------------------------------------------------------------------------
     // Called by CombatSystem during Enemy Phase
-    // `suggestedTarget` is the lowest-HP hero at the moment this enemy's turn
-    // begins; we re-check at the actual hit frame in case it died mid-swing.
     // -------------------------------------------------------------------------
 
     public void ExecuteAttack(HeroBehaviour suggestedTarget, Action onFinished)
     {
-        if (isDead) { onFinished?.Invoke(); return; }
+        // Guard: don't start a coroutine on a dead or inactive GameObject
+        if (isDead || !gameObject.activeInHierarchy)
+        {
+            onFinished?.Invoke();
+            return;
+        }
         StartCoroutine(AttackCoroutine(onFinished));
     }
 
@@ -126,12 +129,39 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (isDead) return;
         isDead = true;
+
         // Unblock any coroutine still waiting on the animation flags
         attackHitFrame = true;
         attackFinished = true;
+
         enemyAnimator.SetBool("isAttacking", false);
         Debug.Log($"[Enemy] {enemyData.Name} died.");
+
+        // Notify CombatSystem immediately so it stops targeting this enemy
         combatSystem?.OnEnemyDied(this);
+
+        // Play death animation, then destroy
+        StartCoroutine(DeathRoutine());
+    }
+
+    private IEnumerator DeathRoutine()
+    {
+        // Trigger your death animation — change "isDead" to match your Animator parameter name
+        enemyAnimator.SetTrigger("isDead");
+
+        // Wait for the death clip to finish before removing the GameObject
+        float clipLength = GetAnimationClipLength("Death"); // change "Death" to your clip name
+        yield return new WaitForSeconds(clipLength > 0f ? clipLength : 0.8f);
+
         Destroy(gameObject);
+    }
+
+    // Returns the length of an animation clip by name, or 0 if not found
+    private float GetAnimationClipLength(string clipName)
+    {
+        if (enemyAnimator == null || enemyAnimator.runtimeAnimatorController == null) return 0f;
+        foreach (AnimationClip clip in enemyAnimator.runtimeAnimatorController.animationClips)
+            if (clip.name == clipName) return clip.length;
+        return 0f;
     }
 }

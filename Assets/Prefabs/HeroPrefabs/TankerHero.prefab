@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Fighter Hero HP: -2'
+  m_text: 'Hero HP: -2'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -502,7 +502,7 @@ GameObject:
   - component: {fileID: 2664996705112441849}
   - component: {fileID: 5683696010889931442}
   m_Layer: 0
-  m_Name: FighterHero
+  m_Name: TankerHero
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -601,7 +601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d584e90f0043af04e8d9bf084244a35a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeroBehaviour
-  heroData: {fileID: 11400000, guid: 650d192fea7870144b48d00c73372199, type: 2}
+  heroData: {fileID: 11400000, guid: b25e9c49cccce2d498e4ed3e5ec15d16, type: 2}
   heroText: {fileID: 9060221827274569342}
   textPrefab: {fileID: 603789704468033626, guid: 979901bfa44a53849a2deaac903deaf9, type: 3}
   _heroHealthBar: {fileID: 5202304589849811422}

@@ -22,8 +22,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private List<Transform> spawnPoints = new List<Transform>();
 
     // -------------------------------------------------------------------------
-    // Level property — set this before SpawnEnemiesForLevel() is called
+    // Level property — set by GameManager before SpawnEnemiesForLevel() is called
     // -------------------------------------------------------------------------
+
     [SerializeField] private int level = 1;
     public int Level
     {
@@ -35,44 +36,53 @@ public class EnemySpawner : MonoBehaviour
     // Unity Lifecycle
     // -------------------------------------------------------------------------
 
-    void Start()
+    private void Awake()
     {
-        combatSystem = FindObjectOfType<CombatSystem>();
-        //SpawnEnemiesForLevel();
+        // FIX: Resolve CombatSystem in Awake (not Start) so it is ready
+        // when GameManager calls SpawnEnemiesForLevel() immediately on scene load,
+        // which can happen before Start() has run on this object.
+        if (combatSystem == null)
+            combatSystem = FindObjectOfType<CombatSystem>();
     }
 
     // -------------------------------------------------------------------------
     // Public API
     // -------------------------------------------------------------------------
 
-    /// <summary>
-    /// Destroys any existing enemies then spawns a fresh wave for the current level.
-    /// Call this whenever you advance to a new stage/level.
-    /// </summary>
     public void SpawnEnemiesForLevel()
     {
-        // Build the list of prefabs that should appear on this level
+        if (combatSystem == null)
+        {
+            Debug.LogError("[EnemySpawner] CombatSystem reference is null — cannot spawn.");
+            return;
+        }
+
         List<GameObject> toSpawn = BuildWaveForLevel(level);
 
-        // Tell CombatSystem how many enemies to wait for before starting the battle
+        if (toSpawn.Count == 0)
+        {
+            Debug.LogWarning($"[EnemySpawner] BuildWaveForLevel({level}) returned an empty list. Check that your enemy prefabs are assigned in the Inspector.");
+            return;
+        }
+
+        // Tell CombatSystem how many enemies to wait for BEFORE instantiating any.
         combatSystem.SetExpectedEnemies(toSpawn.Count);
 
         for (int i = 0; i < toSpawn.Count; i++)
         {
-            // Pick a spawn point; fall back to this transform if we run out
+            if (toSpawn[i] == null)
+            {
+                Debug.LogError($"[EnemySpawner] Prefab at wave index {i} is null. Assign it in the Inspector.");
+                continue;
+            }
+
             Transform spawnPoint = (spawnPoints != null && i < spawnPoints.Count)
                 ? spawnPoints[i]
                 : transform;
 
             GameObject enemy = Instantiate(toSpawn[i], spawnPoint.position, spawnPoint.rotation);
-
-            // Name the object so logs are readable
             enemy.name = $"{toSpawn[i].name}_L{level}_{i}";
 
-            // EnemyBehaviour.Start() auto-registers with CombatSystem,
-            // but we must make sure expectedEnemies on CombatSystem is set
-            // to toSpawn.Count BEFORE instantiation (do that in the Inspector
-            // or via a SetExpectedEnemies() method on CombatSystem).
             Debug.Log($"[EnemySpawner] Spawned {enemy.name} at {spawnPoint.position}");
         }
 
@@ -80,13 +90,9 @@ public class EnemySpawner : MonoBehaviour
     }
 
     // -------------------------------------------------------------------------
-    // Wave Definitions — edit these to design your levels
+    // Wave Definitions
     // -------------------------------------------------------------------------
 
-    /// <summary>
-    /// Returns an ordered list of prefabs to spawn for the given level.
-    /// Add as many cases as you need.
-    /// </summary>
     private List<GameObject> BuildWaveForLevel(int lvl)
     {
         List<GameObject> wave = new List<GameObject>();
@@ -94,31 +100,26 @@ public class EnemySpawner : MonoBehaviour
         switch (lvl)
         {
             case 1:
-                // One basic fast enemy
                 wave.Add(fastEnemyPrefab);
                 break;
 
             case 2:
-                // Two fast enemies
                 wave.Add(fastEnemyPrefab);
                 wave.Add(fastEnemyPrefab);
                 break;
 
             case 3:
-                // A fast enemy + a tank
                 wave.Add(fastEnemyPrefab);
                 wave.Add(tankEnemyPrefab);
                 break;
 
             case 4:
-                // Two fast + one ranged
                 wave.Add(fastEnemyPrefab);
                 wave.Add(fastEnemyPrefab);
                 wave.Add(rangedEnemyPrefab);
                 break;
 
             case 5:
-                // Harder mix
                 wave.Add(tankEnemyPrefab);
                 wave.Add(rangedEnemyPrefab);
                 wave.Add(rangedEnemyPrefab);
@@ -151,14 +152,12 @@ public class EnemySpawner : MonoBehaviour
                 break;
 
             case 10:
-                // Boss level
                 wave.Add(magicEnemyPrefab);
                 wave.Add(tankEnemyPrefab);
                 wave.Add(rangedEnemyPrefab);
                 break;
 
             default:
-                // For levels beyond 10 keep scaling: add one extra tank per extra level
                 wave.Add(magicEnemyPrefab);
                 int extras = Mathf.Min(lvl - 10, spawnPoints.Count - 1);
                 for (int i = 0; i < extras; i++)
