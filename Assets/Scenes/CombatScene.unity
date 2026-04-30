@@ -3286,9 +3286,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 722183185}
-        m_TargetAssemblyTypeName: CombatSystem, Assembly-CSharp
-        m_MethodName: TryStartBattle
+      - m_Target: {fileID: 1417060547}
+        m_TargetAssemblyTypeName: HeroSpawner, Assembly-CSharp
+        m_MethodName: SpawnSelectedHeroes
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3298,9 +3298,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1417060547}
-        m_TargetAssemblyTypeName: HeroSpawner, Assembly-CSharp
-        m_MethodName: SpawnSelectedHeroes
+      - m_Target: {fileID: 722183185}
+        m_TargetAssemblyTypeName: CombatSystem, Assembly-CSharp
+        m_MethodName: TryStartBattle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
