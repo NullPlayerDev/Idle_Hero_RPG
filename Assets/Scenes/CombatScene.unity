@@ -215,6 +215,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1417060547}
+        m_TargetAssemblyTypeName: HeroSpawner, Assembly-CSharp
+        m_MethodName: SpawnSelectedHeroes
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &40629594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -746,6 +758,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1417060547}
+        m_TargetAssemblyTypeName: HeroSpawner, Assembly-CSharp
+        m_MethodName: SpawnSelectedHeroes
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &508839778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -894,6 +918,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1417060547}
+        m_TargetAssemblyTypeName: HeroSpawner, Assembly-CSharp
+        m_MethodName: SpawnSelectedHeroes
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &514526443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1033,6 +1069,18 @@ MonoBehaviour:
       - m_Target: {fileID: 524455820}
         m_TargetAssemblyTypeName: Heroselectionui, Assembly-CSharp
         m_MethodName: SelectHero
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1417060547}
+        m_TargetAssemblyTypeName: HeroSpawner, Assembly-CSharp
+        m_MethodName: SpawnSelectedHeroes
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1551,6 +1599,18 @@ MonoBehaviour:
       - m_Target: {fileID: 642034759}
         m_TargetAssemblyTypeName: Heroselectionui, Assembly-CSharp
         m_MethodName: SelectHero
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1417060547}
+        m_TargetAssemblyTypeName: HeroSpawner, Assembly-CSharp
+        m_MethodName: SpawnSelectedHeroes
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4013,11 +4073,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeroSpawner
   heroPrefabs:
-  - {fileID: 7787043621301912839, guid: 74a8e7b5a5c897040aa7a9cb3ffd7f2e, type: 3}
-  - {fileID: 7787043621301912839, guid: 74a8e7b5a5c897040aa7a9cb3ffd7f2e, type: 3}
-  - {fileID: 7787043621301912839, guid: 74a8e7b5a5c897040aa7a9cb3ffd7f2e, type: 3}
-  - {fileID: 7787043621301912839, guid: 74a8e7b5a5c897040aa7a9cb3ffd7f2e, type: 3}
-  - {fileID: 7787043621301912839, guid: 74a8e7b5a5c897040aa7a9cb3ffd7f2e, type: 3}
+  - {fileID: 3643994605115420895, guid: cace89bb5e39d344d9e8e3b085f07810, type: 3}
+  - {fileID: 3643994605115420895, guid: 21ff4a1680dbc6348b8cffa53d8b8c1c, type: 3}
+  - {fileID: 3643994605115420895, guid: 7698f464bf1680d42b94e2d59c64c432, type: 3}
+  - {fileID: 3643994605115420895, guid: c818119684bbfbb4b973aeeeba444046, type: 3}
+  - {fileID: 3643994605115420895, guid: 90787da531ad11346a6efc82d0a12aa1, type: 3}
   spawnPoints:
   - {fileID: 2059305690}
   - {fileID: 580098479}

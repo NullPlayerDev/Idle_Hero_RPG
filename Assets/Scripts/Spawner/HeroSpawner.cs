@@ -49,7 +49,10 @@ public class HeroSpawner : MonoBehaviour
 
         for (int i = 0; i < combatSystem.Heroes.Count; i++)
         {
-            Transform spawnPoint = i < spawnPoints.Count ? spawnPoints[i] : transform;
+            //Transform spawnPoint = spawnPoints[i];
+            Transform spawnPoint = (spawnPoints != null && i < spawnPoints.Count)
+                ? spawnPoints[i]
+                : transform;
             GameObject hero = Instantiate(combatSystem.Heroes[i].gameObject, spawnPoint.position, spawnPoint.rotation);
             
             Debug.Log($"[HeroSpawner] Spawned hero ID {hero.GetComponent<HeroData>().ID} at slot {i} → {spawnPoint.position}");
@@ -94,7 +97,7 @@ public class HeroSpawner : MonoBehaviour
     /// The correct path is: prefab → HeroBehaviour component → heroData field → ID.
     /// GetComponent<HeroData>() always returned null, so nothing ever spawned.
     /// </summary>
-    private GameObject GetPrefabById(int id)
+    public GameObject GetPrefabById(int id)
     {
         foreach (GameObject prefab in heroPrefabs)
         {

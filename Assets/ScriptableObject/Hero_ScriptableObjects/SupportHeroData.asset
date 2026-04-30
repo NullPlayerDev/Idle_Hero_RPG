@@ -18,3 +18,4 @@ MonoBehaviour:
   attackSpeed: 2
   attackDamage: 1
   hpType: 2
+  isSelected: 0

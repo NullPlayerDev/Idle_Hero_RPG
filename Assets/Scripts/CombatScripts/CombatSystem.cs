@@ -145,10 +145,8 @@ public class CombatSystem : MonoBehaviour
 
                 yield return new WaitForSeconds(delayBetweenAttackers);
             }
-
             Debug.Log("[CombatSystem] <<< Enemy phase complete.");
             if (isStageEnded) break;
-
             yield return new WaitForSeconds(delayBetweenPhases);
         }
     }
