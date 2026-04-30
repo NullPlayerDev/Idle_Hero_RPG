@@ -11,7 +11,7 @@ public class HeroBehaviour : MonoBehaviour
     [SerializeField] private GameObject textPrefab;
     [SerializeField] private Slider _heroHealthBar;
     [SerializeField] private Animator heroAnimator;
-
+    [SerializeField] private GameObject heroPrefab;
     private int currentHealth;
     private bool isHeroDead = false;
     private CombatSystem combatSystem;
@@ -22,6 +22,11 @@ public class HeroBehaviour : MonoBehaviour
     private bool attackHitFrame = false;
     private bool attackFinished = false;
 
+    public GameObject HeroPrefab
+    {
+        get => heroPrefab;
+        set => heroPrefab = value;
+    }
     public HeroData HeroData
     {
         get => heroData;

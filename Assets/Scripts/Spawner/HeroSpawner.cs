@@ -49,13 +49,12 @@ public class HeroSpawner : MonoBehaviour
 
         for (int i = 0; i < combatSystem.Heroes.Count; i++)
         {
+            HeroBehaviour hb = combatSystem.Heroes[i].gameObject.GetComponent<HeroBehaviour>();
             //Transform spawnPoint = spawnPoints[i];
-            Transform spawnPoint = (spawnPoints != null && i < spawnPoints.Count)
-                ? spawnPoints[i]
-                : transform;
-            GameObject hero = Instantiate(combatSystem.Heroes[i].gameObject, spawnPoint.position, spawnPoint.rotation);
+            Transform spawnPoint = spawnPoints[i];
+            GameObject hero = Instantiate(hb.HeroPrefab, spawnPoint.position, spawnPoint.rotation);
             
-            Debug.Log($"[HeroSpawner] Spawned hero ID {hero.GetComponent<HeroData>().ID} at slot {i} → {spawnPoint.position}");
+            //Debug.Log($"[HeroSpawner] Spawned hero ID {hero.GetComponent<HeroData>().ID} at slot {i} → {spawnPoint.position}");
         }
         /*List<int> selectedIds = HeroSelectionManager.Instance.SelectedHeroIds;
 

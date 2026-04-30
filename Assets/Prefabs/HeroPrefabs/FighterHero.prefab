@@ -606,6 +606,7 @@ MonoBehaviour:
   textPrefab: {fileID: 603789704468033626, guid: 979901bfa44a53849a2deaac903deaf9, type: 3}
   _heroHealthBar: {fileID: 5202304589849811422}
   heroAnimator: {fileID: 5683696010889931442}
+  heroPrefab: {fileID: 3643994605115420895}
 --- !u!114 &2664996705112441849
 MonoBehaviour:
   m_ObjectHideFlags: 0

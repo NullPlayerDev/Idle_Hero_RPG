@@ -7,6 +7,7 @@ public class Heroselectionui : MonoBehaviour
     [SerializeField] private int id;
      private CombatSystem combatSystem;
     [SerializeField] private GameObject heroPlayer;
+    //[SerializeField] private Transform spawnPoint;
     private HeroData heroData;
     private HeroBehaviour heroBehaviour;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

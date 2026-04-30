@@ -215,18 +215,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1417060547}
-        m_TargetAssemblyTypeName: HeroSpawner, Assembly-CSharp
-        m_MethodName: SpawnSelectedHeroes
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &40629594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -758,18 +746,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1417060547}
-        m_TargetAssemblyTypeName: HeroSpawner, Assembly-CSharp
-        m_MethodName: SpawnSelectedHeroes
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &508839778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -918,18 +894,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1417060547}
-        m_TargetAssemblyTypeName: HeroSpawner, Assembly-CSharp
-        m_MethodName: SpawnSelectedHeroes
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &514526443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1069,18 +1033,6 @@ MonoBehaviour:
       - m_Target: {fileID: 524455820}
         m_TargetAssemblyTypeName: Heroselectionui, Assembly-CSharp
         m_MethodName: SelectHero
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1417060547}
-        m_TargetAssemblyTypeName: HeroSpawner, Assembly-CSharp
-        m_MethodName: SpawnSelectedHeroes
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1608,18 +1560,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1417060547}
-        m_TargetAssemblyTypeName: HeroSpawner, Assembly-CSharp
-        m_MethodName: SpawnSelectedHeroes
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &642034757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1769,6 +1709,7 @@ MonoBehaviour:
   delayBetweenAttackers: 0.2
   delayBetweenPhases: 0.5
   rewardCalculator: {fileID: 1369531211}
+  heroSelectionPanel: {fileID: 1841338798}
 --- !u!1 &738466815
 GameObject:
   m_ObjectHideFlags: 0
@@ -2300,7 +2241,7 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -3255,7 +3196,7 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -4586,7 +4527,7 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -4814,7 +4755,7 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -5365,10 +5306,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 524455816}
-  - {fileID: 642034755}
-  - {fileID: 508839776}
   - {fileID: 514526441}
+  - {fileID: 524455816}
+  - {fileID: 508839776}
+  - {fileID: 642034755}
   - {fileID: 40629592}
   - {fileID: 1122850910}
   m_Father: {fileID: 1254574177}

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CombatSystem : MonoBehaviour
 {
@@ -34,7 +35,7 @@ public class CombatSystem : MonoBehaviour
     private int total_Stages_Won = 0;
 
     public bool IsStageEnded => isStageEnded;
-
+    [SerializeField] private GameObject heroSelectionPanel;
     public List<HeroBehaviour> Heroes
     {
         get => heroes;
@@ -99,6 +100,7 @@ public class CombatSystem : MonoBehaviour
 
     private IEnumerator BattleLoop()
     {
+        heroSelectionPanel.gameObject.SetActive(false);
         while (!isStageEnded)
         {
             // ── HERO PHASE ────────────────────────────────────────────────────
