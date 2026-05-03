@@ -535,7 +535,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 7.664, y: 2.2568, z: 0}
-  m_LocalScale: {x: 0.8114, y: 0.7764, z: 1}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4732904215735633105}
@@ -617,6 +617,8 @@ MonoBehaviour:
   textPrefab: {fileID: 603789704468033626, guid: 5069a415519091947b75b3bcc9a715c3, type: 3}
   _enemyHealthBar: {fileID: 7557626727146330841}
   enemyAnimator: {fileID: 7377707922915640791}
+  chestRewardsPrefab: {fileID: 6485787238022635086, guid: f8f4f2dfe9e055d46ba927b468199ba0, type: 3}
+  chestRewards: {fileID: 11400000, guid: 235b916a6dd71154fbea247d50fba317, type: 2}
 --- !u!114 &6152083916283008347
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class CombatSystem : MonoBehaviour
     [Header("Combatants")]
     [SerializeField] private List<HeroBehaviour> heroes = new List<HeroBehaviour>();
     [SerializeField] private List<EnemyBehaviour> enemies = new List<EnemyBehaviour>();
-
+    [SerializeField] private EnemySpawner enemySpawner;
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI heroResultText;
     [SerializeField] private TextMeshProUGUI enemyResultText;
@@ -36,6 +36,8 @@ public class CombatSystem : MonoBehaviour
 
     public bool IsStageEnded => isStageEnded;
     [SerializeField] private GameObject heroSelectionPanel;
+    [SerializeField] private GameObject resultPanel;
+    [SerializeField] private TextMeshProUGUI resultText;
     public List<HeroBehaviour> Heroes
     {
         get => heroes;
@@ -49,6 +51,7 @@ public class CombatSystem : MonoBehaviour
     private void Start()
     {
         rewardCalculator = FindAnyObjectByType<RewardCalculator>();
+        enemySpawner = FindAnyObjectByType<EnemySpawner>();
     }
 
     // -------------------------------------------------------------------------
@@ -88,16 +91,22 @@ public class CombatSystem : MonoBehaviour
         if (battleStarted) return;
         if (heroes.Count < expectedHeroes) return;
         if (enemies.Count < expectedEnemies) return;
-
+        heroSelectionPanel.SetActive(false);
+        //enemySpawner.BuildLevelBasedOnHeroNumber();
+        //enemySpawner.SpawnEnemiesForLevel();
         battleStarted = true;
         Debug.Log("[CombatSystem] All combatants registered — starting battle!");
-        StartCoroutine(BattleLoop());
+        //StartCoroutine(BattleLoop());
     }
 
     // -------------------------------------------------------------------------
     // Core Turn Loop
     // -------------------------------------------------------------------------
-
+    public void PanelOff()
+    {
+        heroSelectionPanel.SetActive(false);
+        StartCoroutine(BattleLoop());
+    }
     private IEnumerator BattleLoop()
     {
         heroSelectionPanel.gameObject.SetActive(false);
@@ -210,19 +219,25 @@ public class CombatSystem : MonoBehaviour
     private void CheckBattleEnd()
     {
         CleanLists();
-
+       
         if (enemies.Count == 0 && heroes.Count > 0)
         {
+            resultPanel.SetActive(true);
             rewardCalculator.IsStageWon = true;
             total_Stages_Won++;
-            heroResultText.text = "Hero wins!";
+            //heroResultText.text = "Hero wins!";
+            resultText.text = "Hero Wins!";
             EndStage();
         }
         else if (heroes.Count == 0)
         {
-            enemyResultText.text = "Enemy wins!";
+            resultPanel.SetActive(true);
+            //enemyResultText.text = "Enemy wins!";
+            resultText.text = "Enemy wins!";
             EndStage();
         }
+
+        GameManager.Instance.HandleStageEnded();
     }
 
     private void EndStage()

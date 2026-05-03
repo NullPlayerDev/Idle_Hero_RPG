@@ -24,10 +24,10 @@ public class GameManager : MonoBehaviour
     [Header("Scene Names — must match Build Settings exactly")]
     [SerializeField] private string selectionSceneName = "PlayerSelection";
     [SerializeField] private string combatSceneName    = "CombatScene";
-
+    [SerializeField] private GameObject resultPanel;
     [Header("Reward Calculator (assign if in same scene as GameManager)")]
     [SerializeField] private RewardCalculator rewardCalculator;
-
+    
     private int _currentLevel   = 1;
     private int _totalStagesWon = 0;
 
@@ -45,8 +45,8 @@ public class GameManager : MonoBehaviour
         else { Destroy(gameObject); return; }
     }
 
-    private void OnEnable()  => SceneManager.sceneLoaded += OnSceneLoaded;
-    private void OnDisable() => SceneManager.sceneLoaded -= OnSceneLoaded;
+    /*private void OnEnable()  => SceneManager.sceneLoaded += OnSceneLoaded;
+    private void OnDisable() => SceneManager.sceneLoaded -= OnSceneLoaded;*/
 
     private void Start()
     {
@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
     // Scene load hook
     // -------------------------------------------------------------------------
 
+    /*
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == combatSceneName)
@@ -91,6 +92,7 @@ public class GameManager : MonoBehaviour
         Debug.Log($"[GameManager] Confirmed. Loading CombatScene for level {_currentLevel}.");
         SceneManager.LoadScene(combatSceneName);
     }
+    */
 
     // -------------------------------------------------------------------------
     // Internal
@@ -109,27 +111,31 @@ public class GameManager : MonoBehaviour
 
     private void SpawnLevel()
     {
+        /*
         EnemySpawner enemySpawner = FindObjectOfType<EnemySpawner>();
         if (enemySpawner != null)
         {
             enemySpawner.Level = _currentLevel;
-            enemySpawner.SpawnEnemiesForLevel();
+            enemySpawner.BuildLevelBasedOnHeroNumber();
         }
         else Debug.LogWarning("[GameManager] EnemySpawner not found.");
+        */
 
+        /*
         HeroSpawner heroSpawner = FindObjectOfType<HeroSpawner>();
         if (heroSpawner != null)
             heroSpawner.SpawnSelectedHeroes();
-        else Debug.LogWarning("[GameManager] HeroSpawner not found.");
+        else Debug.LogWarning("[GameManager] HeroSpawner not found.");*/
     }
 
-    private void HandleStageEnded()
+    public void HandleStageEnded()
     {
+        /*resultPanel.SetActive(true);
         if (rewardCalculator != null)
         {
             rewardCalculator.CalculateGoldsReward();
             rewardCalculator.RewardInWallet();
-        }
+        }*/
 
         _totalStagesWon++;
         OnStageEnded?.Invoke();
@@ -143,7 +149,7 @@ public class GameManager : MonoBehaviour
             _currentLevel++;
         }
 
-        SceneManager.LoadScene(selectionSceneName);
+        //SceneManager.LoadScene(selectionSceneName);
     }
 
     public void DeleteGame()

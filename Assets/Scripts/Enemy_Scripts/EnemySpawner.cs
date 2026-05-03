@@ -12,11 +12,11 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Enemy Prefabs")]
     [Tooltip("Prefab that has EnemyBehaviour + EnemyData assigned for each type")]
-    [SerializeField] private GameObject fastEnemyPrefab;
-    [SerializeField] private GameObject tankEnemyPrefab;
+    [SerializeField] private List<GameObject> enemyPrefab;
+   [SerializeField] List<GameObject> wave = new List<GameObject>();
+    /*[SerializeField] private GameObject tankEnemyPrefab;
     [SerializeField] private GameObject rangedEnemyPrefab;
-    [SerializeField] private GameObject magicEnemyPrefab;
-
+    [SerializeField] private GameObject magicEnemyPrefab;*/
     [Header("Spawn Points")]
     [Tooltip("World positions where enemies will appear (assigned in order)")]
     [SerializeField] private List<Transform> spawnPoints = new List<Transform>();
@@ -57,7 +57,7 @@ public class EnemySpawner : MonoBehaviour
             return;
         }
 
-        List<GameObject> toSpawn = BuildWaveForLevel(level);
+        List<GameObject> toSpawn = wave;
 
         if (toSpawn.Count == 0)
         {
@@ -66,11 +66,11 @@ public class EnemySpawner : MonoBehaviour
         }
 
         // Tell CombatSystem how many enemies to wait for BEFORE instantiating any.
-        combatSystem.SetExpectedEnemies(toSpawn.Count);
-
-        for (int i = 0; i < toSpawn.Count; i++)
+        //combatSystem.SetExpectedEnemies(wave.Count);
+    Debug.LogWarning("Total wave count is: " + wave.Count);
+        for (int i = 0; i < wave.Count; i++)
         {
-            if (toSpawn[i] == null)
+            if (wave[i] == null)
             {
                 Debug.LogError($"[EnemySpawner] Prefab at wave index {i} is null. Assign it in the Inspector.");
                 continue;
@@ -90,10 +90,24 @@ public class EnemySpawner : MonoBehaviour
     }
 
     // -------------------------------------------------------------------------
-    // Wave Definitions
+    // The enemies will be spawned based on 
+    // Heroes Number
     // -------------------------------------------------------------------------
-
-    private List<GameObject> BuildWaveForLevel(int lvl)
+    public void  BuildLevelBasedOnHeroNumber()
+    {
+     
+     
+            int k= Random.Range(0, 3);
+            wave.Add(enemyPrefab[k]);
+        //return wave;
+    }
+    
+    
+    //--------------------------------------------
+    // This one is based on the Level
+    //----------------------------------------------
+    
+    /*private List<GameObject> BuildWaveForLevel(int lvl)
     {
         List<GameObject> wave = new List<GameObject>();
 
@@ -166,5 +180,5 @@ public class EnemySpawner : MonoBehaviour
         }
 
         return wave;
-    }
+    }*/
 }

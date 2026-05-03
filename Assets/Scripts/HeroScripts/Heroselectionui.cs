@@ -6,6 +6,7 @@ public class Heroselectionui : MonoBehaviour
 {
     [SerializeField] private int id;
      private CombatSystem combatSystem;
+     private EnemySpawner enemySpawner;
     [SerializeField] private GameObject heroPlayer;
     //[SerializeField] private Transform spawnPoint;
     private HeroData heroData;
@@ -15,6 +16,7 @@ public class Heroselectionui : MonoBehaviour
     {
         combatSystem  = GameObject.Find("CombatManager").GetComponent<CombatSystem>();
         heroBehaviour = heroPlayer.GetComponent<HeroBehaviour>();
+        enemySpawner = FindAnyObjectByType<EnemySpawner>();
         heroData = heroBehaviour.HeroData;
     } 
 
@@ -27,6 +29,7 @@ public class Heroselectionui : MonoBehaviour
     public void SelectHero()
     {
         combatSystem.Heroes.Add(heroBehaviour);
+        enemySpawner.BuildLevelBasedOnHeroNumber();
         heroData.isSelected = true;
         //return id;
     }

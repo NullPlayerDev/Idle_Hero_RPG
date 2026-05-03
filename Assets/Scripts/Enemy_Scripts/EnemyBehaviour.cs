@@ -12,19 +12,23 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private GameObject textPrefab;
     [SerializeField] private Slider _enemyHealthBar;
     [SerializeField] private Animator enemyAnimator;
-
+    [SerializeField] private GameObject chestRewardsPrefab;
     private int currentHealth;
+  
     private bool isDead = false;
     private CombatSystem combatSystem;
-
+    private GameObject  chest;
     // Set by Animation Events on the attack clip:
     //   OnAttackHit  → at the weapon-connects frame
     //   OnAttackEnd  → at the very last frame of the clip
     private bool attackHitFrame = false;
     private bool attackFinished = false;
-
+    private ChestTiers chestTiers;
+    [SerializeField] private ChestRewards chestRewards;
+    private RewardWallet rewardWallet;
     public bool IsDead => isDead;
     public int CurrentHealth => currentHealth;
+    
 
     // -------------------------------------------------------------------------
     // Unity Lifecycle
@@ -33,12 +37,13 @@ public class EnemyBehaviour : MonoBehaviour
     void Start()
     {
         combatSystem = FindObjectOfType<CombatSystem>();
+        rewardWallet = FindObjectOfType<RewardWallet>();
         if (combatSystem == null)
         {
             Debug.LogError("[EnemyBehaviour] CombatSystem not found!");
             return;
         }
-
+        chestTiers =  FindObjectOfType<ChestTiers>();
         currentHealth = enemyData.GetStartingHealth();
         _enemyHealthBar.maxValue = currentHealth;
         _enemyHealthBar.value = currentHealth;
@@ -127,6 +132,10 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void Die()
     {
+        //chestTiers.ChestDrop();
+         Instantiate(chestRewardsPrefab, transform.position, Quaternion.identity);
+        rewardWallet.CurrentGems += chestRewards.gem;
+        rewardWallet.CurrentGold += chestRewards.gold;
         if (isDead) return;
         isDead = true;
 
@@ -152,7 +161,6 @@ public class EnemyBehaviour : MonoBehaviour
         // Wait for the death clip to finish before removing the GameObject
         float clipLength = GetAnimationClipLength("Death"); // change "Death" to your clip name
         yield return new WaitForSeconds(clipLength > 0f ? clipLength : 0.8f);
-
         Destroy(gameObject);
     }
 
