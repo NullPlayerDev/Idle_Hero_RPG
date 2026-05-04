@@ -520,7 +520,7 @@ GameObject:
   - component: {fileID: 7377707922915640791}
   m_Layer: 0
   m_Name: BossEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -617,6 +617,7 @@ MonoBehaviour:
   textPrefab: {fileID: 603789704468033626, guid: 5069a415519091947b75b3bcc9a715c3, type: 3}
   _enemyHealthBar: {fileID: 7557626727146330841}
   enemyAnimator: {fileID: 7377707922915640791}
+  chestRewardsPrefab: {fileID: 8088106864538892992, guid: 0436736bc21df2342b6a623ee4eac76c, type: 3}
   chestRewards: {fileID: 11400000, guid: 235b916a6dd71154fbea247d50fba317, type: 2}
 --- !u!114 &6152083916283008347
 MonoBehaviour:

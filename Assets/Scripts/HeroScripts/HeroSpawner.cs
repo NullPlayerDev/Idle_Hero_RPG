@@ -30,14 +30,7 @@ public class HeroSpawner : MonoBehaviour
         if (combatSystem == null)
             combatSystem = FindObjectOfType<CombatSystem>();
     }
-
-    private void Start()
-    {
-        // FIX: Do NOT call SpawnSelectedHeroes() here.
-        // GameManager.SpawnLevel() is the single place that drives spawning.
-        // Calling it here as well caused heroes to be registered twice and
-        // expectedHeroes to be overwritten mid-spawn.
-    }
+    
 
     public void SpawnSelectedHeroes()
     {

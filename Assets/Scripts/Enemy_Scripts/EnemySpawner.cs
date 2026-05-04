@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -21,16 +23,21 @@ public class EnemySpawner : MonoBehaviour
     [Tooltip("World positions where enemies will appear (assigned in order)")]
     [SerializeField] private List<Transform> spawnPoints = new List<Transform>();
 
+    public List<GameObject> Wave
+    {
+        get => wave;
+        set => wave = value;
+    }
     // -------------------------------------------------------------------------
     // Level property — set by GameManager before SpawnEnemiesForLevel() is called
     // -------------------------------------------------------------------------
 
-    [SerializeField] private int level = 1;
-    public int Level
+   // [SerializeField] private int level = 1;
+    /*public int Level
     {
         get => level;
         set => level = value;
-    }
+    }*/
 
     // -------------------------------------------------------------------------
     // Unity Lifecycle
@@ -42,9 +49,16 @@ public class EnemySpawner : MonoBehaviour
         // when GameManager calls SpawnEnemiesForLevel() immediately on scene load,
         // which can happen before Start() has run on this object.
         if (combatSystem == null)
-            combatSystem = FindObjectOfType<CombatSystem>();
+            combatSystem = FindAnyObjectByType<CombatSystem>();
     }
 
+    private void Update()
+    {
+        if (combatSystem == null)
+        {
+            combatSystem = FindAnyObjectByType<CombatSystem>();
+        }
+    }
     // -------------------------------------------------------------------------
     // Public API
     // -------------------------------------------------------------------------
@@ -61,32 +75,40 @@ public class EnemySpawner : MonoBehaviour
 
         if (toSpawn.Count == 0)
         {
-            Debug.LogWarning($"[EnemySpawner] BuildWaveForLevel({level}) returned an empty list. Check that your enemy prefabs are assigned in the Inspector.");
+            Debug.LogWarning($"[EnemySpawner] BuildWaveForLevel({GameManager.Instance.CurrentLevel}) returned an empty list. Check that your enemy prefabs are assigned in the Inspector.");
             return;
         }
 
-        // Tell CombatSystem how many enemies to wait for BEFORE instantiating any.
-        //combatSystem.SetExpectedEnemies(wave.Count);
-    Debug.LogWarning("Total wave count is: " + wave.Count);
-        for (int i = 0; i < wave.Count; i++)
+        if (GameManager.Instance.CurrentLevel % 10 == 0)
         {
-            if (wave[i] == null)
+            Transform spawnPoint = spawnPoints[2];
+            GameObject enemy = Instantiate(toSpawn[4], spawnPoint.position, spawnPoint.rotation);
+        }
+        else
+        {
+            // Tell CombatSystem how many enemies to wait for BEFORE instantiating any.
+            //combatSystem.SetExpectedEnemies(wave.Count);
+            Debug.LogWarning("Total wave count is: " + wave.Count);
+            for (int i = 0; i < wave.Count; i++)
             {
-                Debug.LogError($"[EnemySpawner] Prefab at wave index {i} is null. Assign it in the Inspector.");
-                continue;
+                if (wave[i] == null)
+                {
+                    Debug.LogError($"[EnemySpawner] Prefab at wave index {i} is null. Assign it in the Inspector.");
+                    continue;
+                }
+
+                Transform spawnPoint = (spawnPoints != null && i < spawnPoints.Count)
+                    ? spawnPoints[i]
+                    : transform;
+
+                GameObject enemy = Instantiate(toSpawn[i], spawnPoint.position, spawnPoint.rotation);
+                enemy.name = $"{toSpawn[i].name}_L{GameManager.Instance.CurrentLevel}_{i}";
+
+                Debug.Log($"[EnemySpawner] Spawned {enemy.name} at {spawnPoint.position}");
             }
-
-            Transform spawnPoint = (spawnPoints != null && i < spawnPoints.Count)
-                ? spawnPoints[i]
-                : transform;
-
-            GameObject enemy = Instantiate(toSpawn[i], spawnPoint.position, spawnPoint.rotation);
-            enemy.name = $"{toSpawn[i].name}_L{level}_{i}";
-
-            Debug.Log($"[EnemySpawner] Spawned {enemy.name} at {spawnPoint.position}");
         }
 
-        Debug.Log($"[EnemySpawner] Level {level} wave ready — {toSpawn.Count} enemy/enemies.");
+        Debug.Log($"[EnemySpawner] Level {GameManager.Instance.CurrentLevel} wave ready — {toSpawn.Count} enemy/enemies.");
     }
 
     // -------------------------------------------------------------------------
@@ -95,10 +117,8 @@ public class EnemySpawner : MonoBehaviour
     // -------------------------------------------------------------------------
     public void  BuildLevelBasedOnHeroNumber()
     {
-     
-     
-            int k= Random.Range(0, 3);
-            wave.Add(enemyPrefab[k]);
+      int k= Random.Range(0, 3);
+      wave.Add(enemyPrefab[k]);
         //return wave;
     }
     

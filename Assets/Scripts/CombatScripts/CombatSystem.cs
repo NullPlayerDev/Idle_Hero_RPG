@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class CombatSystem : MonoBehaviour
 {
+    public static CombatSystem Instance{get; private set;}
     [Header("Combatants")]
     [SerializeField] private List<HeroBehaviour> heroes = new List<HeroBehaviour>();
     [SerializeField] private List<EnemyBehaviour> enemies = new List<EnemyBehaviour>();
@@ -44,12 +45,31 @@ public class CombatSystem : MonoBehaviour
         set => heroes = value;
     }
 
+    public List<EnemyBehaviour> Enemies
+    {
+        get => enemies;
+        set => enemies = value;
+    }
+
+    public bool BattleStarted
+    {
+        get => battleStarted;
+        set => battleStarted = value;
+    }
     // -------------------------------------------------------------------------
     // Unity Lifecycle
     // -------------------------------------------------------------------------
 
     private void Start()
     {
+        if (Instance!=null && Instance!=this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
         rewardCalculator = FindAnyObjectByType<RewardCalculator>();
         enemySpawner = FindAnyObjectByType<EnemySpawner>();
     }
@@ -206,20 +226,21 @@ public class CombatSystem : MonoBehaviour
     // Helpers
     // -------------------------------------------------------------------------
 
-    private void CleanLists()
+    public void CleanLists()
     {
         // FIX: only remove from the lists here — each behaviour's DeathRoutine
         // handles Destroy(gameObject) after the death animation finishes.
         // Never call Destroy() on the GameObjects here — that caused
         // "Destroying assets is not permitted" errors.
+        //heroes.Clear();
+        //enemies.Clear();
         heroes.RemoveAll(h => h == null || h.IsDead);
         enemies.RemoveAll(e => e == null || e.IsDead);
     }
 
     private void CheckBattleEnd()
     {
-        CleanLists();
-       
+        //CleanLists();
         if (enemies.Count == 0 && heroes.Count > 0)
         {
             resultPanel.SetActive(true);
@@ -236,16 +257,22 @@ public class CombatSystem : MonoBehaviour
             resultText.text = "Enemy wins!";
             EndStage();
         }
-
-        GameManager.Instance.HandleStageEnded();
+        //CleanLists();
     }
 
     private void EndStage()
     {
+        enemySpawner.Wave.Clear();
+        heroes.Clear();
+        enemies.Clear();
+        GameManager.Instance.HandleStageEnded();
         if (isStageEnded) return;
         isStageEnded = true;
         Debug.Log("[CombatSystem] Stage ended.");
         OnStageEnded?.Invoke();
+        
+        //CleanLists();
+        GameManager.Instance.GameLoop();
     }
 
     public bool ISConditionGood()

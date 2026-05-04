@@ -1,11 +1,24 @@
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class RewardUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI goldText;
     [SerializeField] private TextMeshProUGUI gemText;
 
+    public TextMeshProUGUI GoldText
+    {
+        get => goldText;
+        set => goldText = value;
+    }
+
+    public TextMeshProUGUI GemText
+    {
+        get => gemText;
+        set => gemText = value;
+    }
     private void Start()
     {
         // Guard: Inspector references not assigned
@@ -31,6 +44,14 @@ public class RewardUI : MonoBehaviour
         // Populate immediately with current values
         UpdateGoldText(RewardWallet.Instance.CurrentGold);
         UpdateGemText(RewardWallet.Instance.CurrentGems);
+    }
+
+    private void Update()
+    {
+        if (goldText == null || gemText == null)
+        { 
+            
+        }
     }
 
     private void OnDestroy()

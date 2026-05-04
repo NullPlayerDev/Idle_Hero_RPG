@@ -3974,7 +3974,7 @@ MonoBehaviour:
   - {fileID: 7787043621301912839, guid: 3f08c2f42b569d348b3f1b744881313a, type: 3}
   - {fileID: 7787043621301912839, guid: b9f624a02c4cd964fa7a2ec77a0d6ded, type: 3}
   - {fileID: 7787043621301912839, guid: 7295f291ff45e8848b45a7b53fcbfcd8, type: 3}
-  - {fileID: 7787043621301912839, guid: 7295f291ff45e8848b45a7b53fcbfcd8, type: 3}
+  - {fileID: 7787043621301912839, guid: 073d8a2598882f34281ea23aff7ef9f4, type: 3}
   wave: []
   spawnPoints:
   - {fileID: 993653315}
@@ -3982,7 +3982,6 @@ MonoBehaviour:
   - {fileID: 905173518}
   - {fileID: 1471223309}
   - {fileID: 1584719845}
-  level: 2
 --- !u!1001 &1369531209
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5849,6 +5848,9 @@ MonoBehaviour:
   combatSceneName: CombatScene
   resultPanel: {fileID: 1874527159}
   rewardCalculator: {fileID: 1369531211}
+  winningPanel: {fileID: 1874527159}
+  _currentLevel: 1
+  gameSelectionPanel: {fileID: 1841338798}
 --- !u!4 &2051186031
 Transform:
   m_ObjectHideFlags: 0

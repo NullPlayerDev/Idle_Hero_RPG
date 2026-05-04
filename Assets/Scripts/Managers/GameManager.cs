@@ -2,35 +2,21 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-/// <summary>
-/// Sits on a DontDestroyOnLoad GameObject.
-///
-/// Scene flow:
-///   PlayerSelection  →  SetupForLevel() unlocks buttons
-///                       Player clicks HeroSelectButtons (by ID)
-///                       Player clicks "Start Battle" → ConfirmHeroSelection()
-///                       → LoadScene("CombatScene")
-///
-///   CombatScene      →  OnSceneLoaded fires → SpawnLevel()
-///                       HeroSpawner reads IDs from HeroSelectionManager
-///                       EnemySpawner reads current level
-///                       CombatSystem runs the fight
-///                       OnStageEnded → rewards → LoadScene("PlayerSelection")
-/// </summary>
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-
+    private CombatSystem  _combatSystem;
     [Header("Scene Names — must match Build Settings exactly")]
     [SerializeField] private string selectionSceneName = "PlayerSelection";
     [SerializeField] private string combatSceneName    = "CombatScene";
     [SerializeField] private GameObject resultPanel;
     [Header("Reward Calculator (assign if in same scene as GameManager)")]
     [SerializeField] private RewardCalculator rewardCalculator;
-    
-    private int _currentLevel   = 1;
-    private int _totalStagesWon = 0;
 
+    [SerializeField] private GameObject winningPanel;
+    [SerializeField] private int _currentLevel   = 1;
+    private int _totalStagesWon = 0;
+    [SerializeField] private GameObject gameSelectionPanel;
     public event Action<int> OnSelectionPhaseStarted;
     public event Action      OnCombatStarted;
     public event Action      OnStageEnded;
@@ -38,11 +24,21 @@ public class GameManager : MonoBehaviour
     // -------------------------------------------------------------------------
     // Lifecycle
     // -------------------------------------------------------------------------
-
+    public int CurrentLevel
+    {
+        get => _currentLevel;
+        set => _currentLevel = value;
+    }
     private void Awake()
     {
-        if (Instance == null) { Instance = this; DontDestroyOnLoad(gameObject); }
-        else { Destroy(gameObject); return; }
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     /*private void OnEnable()  => SceneManager.sceneLoaded += OnSceneLoaded;
@@ -97,7 +93,18 @@ public class GameManager : MonoBehaviour
     // -------------------------------------------------------------------------
     // Internal
     // -------------------------------------------------------------------------
-
+    public void GameLoop()
+    {
+       
+        DestroyAllObjects();
+        OnSelectionPhaseStarted?.Invoke(_currentLevel);
+        //SceneManager.LoadScene("CombatScene");
+        gameSelectionPanel.SetActive(true);
+        winningPanel.SetActive(false);
+        BeginSelectionPhase(_currentLevel);
+        CombatSystem.Instance.BattleStarted = false;
+        //CombatSystem.Instance.TryStartBattle();
+    }
     private void BeginSelectionPhase(int level)
     {
         if (HeroSelectionManager.Instance == null)
@@ -136,22 +143,37 @@ public class GameManager : MonoBehaviour
             rewardCalculator.CalculateGoldsReward();
             rewardCalculator.RewardInWallet();
         }*/
-
+        //DestroyAllObjects();
         _totalStagesWon++;
         OnStageEnded?.Invoke();
+        
+        //This is needed because the totalStagesWon will give extra 
+        // Tier or power to the player
         if (_totalStagesWon >= 10)
         {
             _totalStagesWon = 0;
-            _currentLevel   = 1;
+           
         }
-        else
-        {
-            _currentLevel++;
-        }
+        
+        _currentLevel++;
+        
 
         //SceneManager.LoadScene(selectionSceneName);
     }
 
+    public void DestroyAllObjects()
+    {
+        foreach (var hero in GameObject.FindGameObjectsWithTag("Hero"))
+        {
+            Destroy(hero);
+        }
+
+        foreach (var enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            Destroy(enemy);
+        }
+        CombatSystem.Instance.CleanLists();
+    }
     public void DeleteGame()
     {
         PlayerPrefs.DeleteAll();
