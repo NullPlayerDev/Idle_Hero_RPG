@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int _currentLevel   = 1;
     private int _totalStagesWon = 0;
     [SerializeField] private GameObject gameSelectionPanel;
+    [SerializeField] private TextMeshProUGUI levelCounterText;
     public event Action<int> OnSelectionPhaseStarted;
     public event Action      OnCombatStarted;
     public event Action      OnStageEnded;
@@ -48,6 +50,7 @@ public class GameManager : MonoBehaviour
     {
         // Game always starts in PlayerSelection scene
         BeginSelectionPhase(_currentLevel);
+        levelCounterText.text = $"Level {_currentLevel}";
     }
 
     // -------------------------------------------------------------------------
@@ -157,7 +160,7 @@ public class GameManager : MonoBehaviour
         }
         rewardCalculator.CalculateReward();
         _currentLevel++;
-        
+        levelCounterText.text = $"Level {_currentLevel}";
 
         //SceneManager.LoadScene(selectionSceneName);
     }

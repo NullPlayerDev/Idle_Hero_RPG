@@ -14,7 +14,6 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private Animator enemyAnimator;
     [SerializeField] private GameObject chestRewardsPrefab;
     private int currentHealth;
-  
     private bool isDead = false;
     private CombatSystem combatSystem;
     private GameObject  chest;
@@ -133,7 +132,11 @@ public class EnemyBehaviour : MonoBehaviour
     private void Die()
     {
         //chestTiers.ChestDrop();
-         Instantiate(chestRewardsPrefab, transform.position, Quaternion.identity);
+        if (this.enemyData.hpType == EnemyEnums.HP.HIGH || this.enemyData.hpType == EnemyEnums.HP.VERY_HIGH)
+        {
+            Instantiate(chestRewardsPrefab, transform.position, Quaternion.identity);
+        }
+
         rewardWallet.CurrentGems += chestRewards.gem;
         rewardWallet.CurrentGold += chestRewards.gold;
         if (isDead) return;

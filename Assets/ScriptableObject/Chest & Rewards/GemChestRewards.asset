@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be0fa4ef83044c4080055625af1de97, type: 3}
   m_Name: GemChestRewards
   m_EditorClassIdentifier: Assembly-CSharp::ChestRewards
-  gold: 50
+  gold: 5
   gem: 0

@@ -51,16 +51,16 @@ public static class EnemyEnums
     public static int GetMaxHealth(HP health)
     {
         int lvl = GameManager.Instance.CurrentLevel;
-        int enemyHp = 30 * (int)Mathf.Pow(1.1f, lvl);
+        int enemyHp = 30 * (int)Mathf.Pow(1.8f, lvl);
         switch (health)
         {
             case HP.LOW:
                 return enemyHp;
             case HP.MEDIUM:
-                 enemyHp = 50 *(int) Mathf.Pow(1.1f, lvl);
+                 enemyHp = 50 *(int) Mathf.Pow(1.6f, lvl);
                 return enemyHp;
             case HP.HIGH: 
-                enemyHp = 60 * (int)Mathf.Pow(1.1f, lvl);
+                enemyHp = 60 * (int)Mathf.Pow(1.5f, lvl);
                 return enemyHp;
             case HP.VERY_HIGH:
                 return 100;
@@ -90,10 +90,10 @@ public static class EnemyEnums
     {
         switch (damage)
         {
-            case AttackDamage.LOW_PER_HIT:  return 2;
-            case AttackDamage.MEDIUM_HIGH:  return 5;
-            case AttackDamage.STANDARD:     return 10;
-            case AttackDamage.HIGH_PER_HIT: return 15;
+            case AttackDamage.LOW_PER_HIT:  return Random.Range(2,5);
+            case AttackDamage.MEDIUM_HIGH:  return Random.Range(5,8);
+            case AttackDamage.STANDARD:     return Random.Range(10,15);
+            case AttackDamage.HIGH_PER_HIT: return Random.Range(15,18);
             case AttackDamage.BOSS_HIT:     return Random.Range(40,50);
             default:                        return 20;
         }
