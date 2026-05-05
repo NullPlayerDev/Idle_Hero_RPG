@@ -1,6 +1,11 @@
 
+using System.Diagnostics;
+using System.Linq.Expressions;
+using UnityEngine;
+
 public static class EnemyEnums
 {
+    
     public enum VisualTypes
     {
         FAST,
@@ -14,14 +19,16 @@ public static class EnemyEnums
         LOW,
         MEDIUM,
         HIGH,
-        VERY_HIGH
+        VERY_HIGH,
+        BOSS_HP
     }
 
     public enum AttackSpeed
     {
         VERY_FAST,
         MEDIUM,
-        SLOW
+        SLOW,
+        BOSS_SPEED
     }
 
     public enum AttackDamage
@@ -29,7 +36,8 @@ public static class EnemyEnums
         LOW_PER_HIT,
         MEDIUM_HIGH,
         STANDARD,
-        HIGH_PER_HIT
+        HIGH_PER_HIT,
+        BOSS_HIT
     }
 
     public enum DEATHTYPE
@@ -38,17 +46,29 @@ public static class EnemyEnums
         NORMAL,
         HARD
     }
-
+    
     // Returns the max HP value for the given HP type.
     public static int GetMaxHealth(HP health)
     {
+        int lvl = GameManager.Instance.CurrentLevel;
+        int enemyHp = 30 * (int)Mathf.Pow(1.1f, lvl);
         switch (health)
         {
-            case HP.LOW:       return 40;
-            case HP.MEDIUM:    return 60;
-            case HP.HIGH:      return 80;
-            case HP.VERY_HIGH: return 100;
-            default:           return 20;
+            case HP.LOW:
+                return enemyHp;
+            case HP.MEDIUM:
+                 enemyHp = 50 *(int) Mathf.Pow(1.1f, lvl);
+                return enemyHp;
+            case HP.HIGH: 
+                enemyHp = 60 * (int)Mathf.Pow(1.1f, lvl);
+                return enemyHp;
+            case HP.VERY_HIGH:
+                return 100;
+            case HP.BOSS_HP:
+                enemyHp = Random.Range(350,400) *(int) Mathf.Pow(1.1f, lvl);
+                return enemyHp;
+            default:     
+                return 20;
         }
     }
 
@@ -60,6 +80,7 @@ public static class EnemyEnums
             case AttackSpeed.VERY_FAST: return 4f;
             case AttackSpeed.MEDIUM:   return 8f;
             case AttackSpeed.SLOW:     return 10f;
+            case AttackSpeed.BOSS_SPEED: return 30f;
             default:                   return 6f;
         }
     }
@@ -73,6 +94,7 @@ public static class EnemyEnums
             case AttackDamage.MEDIUM_HIGH:  return 5;
             case AttackDamage.STANDARD:     return 10;
             case AttackDamage.HIGH_PER_HIT: return 15;
+            case AttackDamage.BOSS_HIT:     return Random.Range(40,50);
             default:                        return 20;
         }
     }

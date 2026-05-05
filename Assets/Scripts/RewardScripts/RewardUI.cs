@@ -44,14 +44,15 @@ public class RewardUI : MonoBehaviour
         // Populate immediately with current values
         UpdateGoldText(RewardWallet.Instance.CurrentGold);
         UpdateGemText(RewardWallet.Instance.CurrentGems);
+        Debug.Log(RewardWallet.Instance.CurrentGems);
     }
 
     private void Update()
     {
-        if (goldText == null || gemText == null)
+        /*if (goldText == null || gemText == null)
         { 
             
-        }
+        }*/
     }
 
     private void OnDestroy()

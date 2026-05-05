@@ -29,4 +29,6 @@ public class EnemyData : ScriptableObject
     {
         return EnemyEnums.GetAttackDamage(attackDamage);
     }
+
+   
 }

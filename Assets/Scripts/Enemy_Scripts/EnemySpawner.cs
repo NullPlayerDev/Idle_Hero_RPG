@@ -82,16 +82,16 @@ public class EnemySpawner : MonoBehaviour
         if (GameManager.Instance.CurrentLevel % 10 == 0)
         {
             Transform spawnPoint = spawnPoints[2];
-            GameObject enemy = Instantiate(toSpawn[4], spawnPoint.position, spawnPoint.rotation);
+            Instantiate(enemyPrefab[4], spawnPoint.position, spawnPoint.rotation);
         }
         else
         {
             // Tell CombatSystem how many enemies to wait for BEFORE instantiating any.
             //combatSystem.SetExpectedEnemies(wave.Count);
             Debug.LogWarning("Total wave count is: " + wave.Count);
-            for (int i = 0; i < wave.Count; i++)
+            for (int i = 0; i < toSpawn.Count; i++)
             {
-                if (wave[i] == null)
+                if (toSpawn[i] == null)
                 {
                     Debug.LogError($"[EnemySpawner] Prefab at wave index {i} is null. Assign it in the Inspector.");
                     continue;

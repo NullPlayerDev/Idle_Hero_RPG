@@ -35,7 +35,11 @@ public class CombatSystem : MonoBehaviour
     private bool battleStarted = false;
     private int total_Stages_Won = 0;
 
-    public bool IsStageEnded => isStageEnded;
+    public bool IsStageEnded
+    {
+        get => isStageEnded;
+        set => isStageEnded = value;
+    }
     [SerializeField] private GameObject heroSelectionPanel;
     [SerializeField] private GameObject resultPanel;
     [SerializeField] private TextMeshProUGUI resultText;
@@ -50,7 +54,6 @@ public class CombatSystem : MonoBehaviour
         get => enemies;
         set => enemies = value;
     }
-
     public bool BattleStarted
     {
         get => battleStarted;

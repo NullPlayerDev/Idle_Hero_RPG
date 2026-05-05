@@ -103,6 +103,7 @@ public class GameManager : MonoBehaviour
         winningPanel.SetActive(false);
         BeginSelectionPhase(_currentLevel);
         CombatSystem.Instance.BattleStarted = false;
+        CombatSystem.Instance.IsStageEnded = false;
         //CombatSystem.Instance.TryStartBattle();
     }
     private void BeginSelectionPhase(int level)
@@ -154,7 +155,7 @@ public class GameManager : MonoBehaviour
             _totalStagesWon = 0;
            
         }
-        
+        rewardCalculator.CalculateReward();
         _currentLevel++;
         
 

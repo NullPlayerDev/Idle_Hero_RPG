@@ -4036,7 +4036,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4700596449979458051, guid: 3ab330ed21d79224fbb8b7acb787bac8, type: 3}
       propertyPath: currentGems
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6953432907985351729, guid: 3ab330ed21d79224fbb8b7acb787bac8, type: 3}
       propertyPath: gemText
