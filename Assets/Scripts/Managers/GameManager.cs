@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
     public event Action      OnCombatStarted;
     public event Action      OnStageEnded;
 
+    [SerializeField] private List<GameObject> heroSelectionButtonList;
     // -------------------------------------------------------------------------
     // Lifecycle
     // -------------------------------------------------------------------------
@@ -98,11 +100,16 @@ public class GameManager : MonoBehaviour
     // -------------------------------------------------------------------------
     public void GameLoop()
     {
-       
         DestroyAllObjects();
         OnSelectionPhaseStarted?.Invoke(_currentLevel);
         //SceneManager.LoadScene("CombatScene");
         gameSelectionPanel.SetActive(true);
+        if (_currentLevel <= 5)
+        {
+            
+            heroSelectionButtonList[_currentLevel].SetActive(true);
+            
+        }
         winningPanel.SetActive(false);
         BeginSelectionPhase(_currentLevel);
         CombatSystem.Instance.BattleStarted = false;

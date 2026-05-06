@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &40629592
 RectTransform:
   m_ObjectHideFlags: 0
@@ -882,7 +882,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &508839776
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1178,7 +1178,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &524455816
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1696,7 +1696,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &642034755
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6068,6 +6068,13 @@ MonoBehaviour:
   _currentLevel: 1
   gameSelectionPanel: {fileID: 1841338798}
   levelCounterText: {fileID: 665532131}
+  heroSelectionButtonList:
+  - {fileID: 514526440}
+  - {fileID: 524455815}
+  - {fileID: 508839775}
+  - {fileID: 642034754}
+  - {fileID: 40629591}
+  - {fileID: 1122850909}
 --- !u!4 &2051186031
 Transform:
   m_ObjectHideFlags: 0
