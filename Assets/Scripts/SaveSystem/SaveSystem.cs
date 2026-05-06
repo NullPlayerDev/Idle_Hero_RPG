@@ -1,16 +1,7 @@
 using System.IO;
 using UnityEngine;
 
-/// <summary>
-/// Static save/load utility. Writes JSON to Application.persistentDataPath.
-/// No MonoBehaviour needed — call from anywhere.
-///
-/// Usage:
-///   SaveSystem.Save(data);
-///   SaveData data = SaveSystem.Load();
-///   SaveSystem.Delete();
-///   bool exists = SaveSystem.SaveExists();
-/// </summary>
+
 public static class SaveSystem
 {
     private const string FILE_NAME    = "gamesave.json";
@@ -34,10 +25,28 @@ public static class SaveSystem
         Debug.Log($"[SaveSystem] Game saved → {SavePath}");
     }
 
+    public static void SaveLevel(int level)
+    {
+        PlayerSaveData data = new PlayerSaveData();
+        data.level = level;
+        string json = JsonUtility.ToJson(data, true);
+        File.WriteAllText(SavePath, json);
+    }
+
+    public static void LoadLevel(int level)
+    {
+        if (File.Exists(SavePath))
+        {
+            string json = File.ReadAllText(SavePath);
+            PlayerSaveData data = JsonUtility.FromJson<PlayerSaveData>(json);
+            GameManager.Instance.CurrentLevel= data.level;
+        }
+    }
     /// <summary>
     /// Reads the save file and returns a populated <see cref="SaveData"/>.
     /// Returns a fresh default SaveData if no file exists.
     /// </summary>
+    
     public static SaveData Load()
     {
         if (!SaveExists())

@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     {
         // Game always starts in PlayerSelection scene
         BeginSelectionPhase(_currentLevel);
+        SaveSystem.LoadLevel(_currentLevel);
         levelCounterText.text = $"Level {_currentLevel}";
     }
 
@@ -165,7 +166,7 @@ public class GameManager : MonoBehaviour
         rewardCalculator.CalculateReward();
         _currentLevel++;
         levelCounterText.text = $"Level {_currentLevel}";
-
+    SaveSystem.SaveLevel(_currentLevel);
         //SceneManager.LoadScene(selectionSceneName);
     }
 
@@ -187,4 +188,23 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.DeleteAll();
         Debug.Log("[GameManager] Save data cleared.");
     }
+
+    //------------------------------
+    // Save amd load
+    //------------------------------
+    public void SaveLevel(ref PlayerSaveData data)
+    {
+        data.level = _currentLevel;
+    } 
+    public void LoadLevel(PlayerSaveData data)
+    {
+        _currentLevel = data.level;
+    }
+    
+}
+
+[System.Serializable]
+public struct PlayerSaveData
+{
+    public int level;
 }
