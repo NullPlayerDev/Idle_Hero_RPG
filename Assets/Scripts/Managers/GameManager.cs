@@ -106,9 +106,7 @@ public class GameManager : MonoBehaviour
         gameSelectionPanel.SetActive(true);
         if (_currentLevel <= 5)
         {
-            
             heroSelectionButtonList[_currentLevel].SetActive(true);
-            
         }
         winningPanel.SetActive(false);
         BeginSelectionPhase(_currentLevel);
@@ -163,7 +161,6 @@ public class GameManager : MonoBehaviour
         if (_totalStagesWon >= 10)
         {
             _totalStagesWon = 0;
-           
         }
         rewardCalculator.CalculateReward();
         _currentLevel++;
