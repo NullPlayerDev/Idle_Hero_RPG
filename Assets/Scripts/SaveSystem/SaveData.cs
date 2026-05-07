@@ -13,15 +13,15 @@ public class SaveData
     public int gems;
 
     // ── Progression ───────────────────────────────────────────────────────────
-    public int currentLevel;
-    public int totalStagesWon;
+    public int  currentLevel   = 1;
+    public int  totalStagesWon = 0;
 
     // ── Hero selection (stores HeroData.ID of each selected hero) ────────────
     public List<int> selectedHeroIDs = new List<int>();
 
     // ── Meta ──────────────────────────────────────────────────────────────────
-    public string saveDate;          // human-readable timestamp for the slot UI
-    public int saveVersion = 1;      // bump this when the schema changes
+    public string saveDate;       // human-readable timestamp shown in UI
+    public int    saveVersion = 1;
 
     /// <summary>Stamps the current UTC time onto this save.</summary>
     public void StampDate() => saveDate = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm");

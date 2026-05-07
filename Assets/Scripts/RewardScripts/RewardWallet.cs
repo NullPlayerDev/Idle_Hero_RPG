@@ -1,114 +1,93 @@
 using System;
 using UnityEngine;
 
+/// <summary>
+/// Stores and exposes the player's gold and gems at runtime.
+/// Data is written to disk through SaveSystem — NOT PlayerPrefs.
+/// </summary>
 public class RewardWallet : MonoBehaviour
 {
-    public static RewardWallet Instance;
-    public int currentGold;
-    public int currentGems;
+    public static RewardWallet Instance { get; private set; }
+
+    private int _gold;
+    private int _gems;
 
     public event Action<int> OnGoldChanged;
     public event Action<int> OnGemsChanged;
 
+    // ── Properties ────────────────────────────────────────────────────────────
     public int CurrentGold
     {
-        get => currentGold;
-        set => currentGold = value;
+        get => _gold;
+        set { _gold = Mathf.Max(0, value); OnGoldChanged?.Invoke(_gold); }
     }
 
     public int CurrentGems
     {
-        get => currentGems;
-        set => currentGems = value;
+        get => _gems;
+        set { _gems = Mathf.Max(0, value); OnGemsChanged?.Invoke(_gems); }
     }
 
+    // ─────────────────────────────────────────────────────────────────────────
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-            LoadGold();
-            LoadGems();
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+        // Values are set by SaveSystem.Load() via SetGold / SetGems
     }
 
-    // -------------------------
-    // Gold
-    // -------------------------
-    void LoadGold()
+    // ── Gold ──────────────────────────────────────────────────────────────────
+
+    /// <summary>Hard-sets gold (called by SaveSystem on load / config override).</summary>
+    public void SetGold(int amount)
     {
-        CurrentGold = PlayerPrefs.GetInt("Gold", 0);
-        OnGoldChanged?.Invoke(CurrentGold);
+        _gold = Mathf.Max(0, amount);
+        OnGoldChanged?.Invoke(_gold);
     }
 
-    public void AddGold(int gold)
+    public void AddGold(int amount)
     {
-        currentGold += gold;
-        SaveGold();
-        OnGoldChanged?.Invoke(currentGold); // fire with TOTAL, not just the added amount
+        _gold += amount;
+        OnGoldChanged?.Invoke(_gold);
+        SaveSystem.Save();
     }
 
     public bool SpendGold(int amount)
     {
-        if (!CanAfford(amount)) return false;
-        CurrentGold -= amount;
-        SaveGold();
-        OnGoldChanged?.Invoke(CurrentGold);
+        if (_gold < amount) return false;
+        _gold -= amount;
+        OnGoldChanged?.Invoke(_gold);
+        SaveSystem.Save();
         return true;
     }
 
-    public bool CanAfford(int amount)
+    public bool CanAfford(int amount) => _gold >= amount;
+
+    // ── Gems ──────────────────────────────────────────────────────────────────
+
+    /// <summary>Hard-sets gems (called by SaveSystem on load / config override).</summary>
+    public void SetGems(int amount)
     {
-        return CurrentGold >= amount;
+        _gems = Mathf.Max(0, amount);
+        OnGemsChanged?.Invoke(_gems);
     }
 
-    void SaveGold()
+    public void AddGems(int amount)
     {
-        PlayerPrefs.SetInt("Gold", CurrentGold);
-        PlayerPrefs.Save();
-    }
-
-    // -------------------------
-    // Gems
-    // -------------------------
-    void LoadGems()
-    {
-        currentGems = PlayerPrefs.GetInt("Gems", 0);
-        OnGemsChanged?.Invoke(currentGems); // BUG FIX 1: was firing OnGoldChanged
-    }
-
-    public void AddGems(int gems)
-    {
-        currentGems += gems;
-        SaveGems();                          // BUG FIX 2: was calling SaveGold() so gems were never saved
-        OnGemsChanged?.Invoke(currentGems); // fire with TOTAL, not just the added amount
+        _gems += amount;
+        OnGemsChanged?.Invoke(_gems);
+        SaveSystem.Save();
     }
 
     public bool SpendGems(int amount)
     {
-        if (!CanAffordGems(amount)) return false;
-        currentGems -= amount;
-        SaveGems();
-        OnGemsChanged?.Invoke(currentGems); // BUG FIX 3: was firing OnGoldChanged
+        if (_gems < amount) return false;
+        _gems -= amount;
+        OnGemsChanged?.Invoke(_gems);
+        SaveSystem.Save();
         return true;
     }
 
-    public bool CanAffordGems(int amount)
-    {
-        return currentGems >= amount;
-    }
-
-    void SaveGems()
-    {
-        PlayerPrefs.SetInt("Gems", currentGems);
-        PlayerPrefs.Save();
-    }
-
-    void Start() { }
-    void Update() { }
+    public bool CanAffordGems(int amount) => _gems >= amount;
 }

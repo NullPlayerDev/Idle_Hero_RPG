@@ -1,36 +1,49 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;   // FIX: was UnityEngine.UIElements (wrong namespace — breaks button clicks)
 
 public class Heroselectionui : MonoBehaviour
 {
     [SerializeField] private int id;
-     private CombatSystem combatSystem;
-     private EnemySpawner enemySpawner;
-    [SerializeField] private GameObject heroPlayer;
-    //[SerializeField] private Transform spawnPoint;
-    private HeroData heroData;
+
+    private CombatSystem  combatSystem;
+    private EnemySpawner  enemySpawner;
     private HeroBehaviour heroBehaviour;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private HeroData      heroData;
+
+    [SerializeField] private GameObject heroPlayer;
+
     void Start()
     {
         combatSystem  = GameObject.Find("CombatManager").GetComponent<CombatSystem>();
+        enemySpawner  = FindAnyObjectByType<EnemySpawner>();
         heroBehaviour = heroPlayer.GetComponent<HeroBehaviour>();
-        enemySpawner = FindAnyObjectByType<EnemySpawner>();
-        heroData = heroBehaviour.HeroData;
-    } 
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        heroData      = heroBehaviour.HeroData;
     }
 
+    /// <summary>
+    /// Called by the UI Button's OnClick event.
+    /// Adds this hero to the combat list and marks it selected.
+    /// </summary>
     public void SelectHero()
     {
-        combatSystem.Heroes.Add(heroBehaviour);
+        if (heroData == null)
+        {
+            Debug.LogError($"[HeroSelectionUI] heroData is null on button ID {id}.");
+            return;
+        }
+
+        // Register in HeroSelectionManager (tracks IDs for save/load)
+        HeroSelectionManager.Instance?.ToggleHero(heroData.ID);
+
+        // Add to combat system hero list
+        if (!combatSystem.Heroes.Contains(heroBehaviour))
+            combatSystem.Heroes.Add(heroBehaviour);
+
+        // Rebuild enemy wave based on hero count
         enemySpawner.BuildLevelBasedOnHeroNumber();
+
         heroData.isSelected = true;
-        //return id;
+
+        Debug.Log($"[HeroSelectionUI] Hero ID {heroData.ID} selected.");
     }
 }
