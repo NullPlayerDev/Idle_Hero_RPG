@@ -17,6 +17,7 @@ public class EnemyBehaviour : MonoBehaviour
     private bool isDead = false;
     private CombatSystem combatSystem;
     private GameObject  chest;
+    [SerializeField] private ParticleSystem particles;
     // Set by Animation Events on the attack clip:
     //   OnAttackHit  → at the weapon-connects frame
     //   OnAttackEnd  → at the very last frame of the clip
@@ -82,10 +83,10 @@ public class EnemyBehaviour : MonoBehaviour
         attackFinished = false;
 
         enemyAnimator.SetBool("isAttacking", true);
-
+      
         // Wait for the hit frame
         yield return new WaitUntil(() => attackHitFrame);
-
+        
         // Re-fetch the current lowest-HP hero at the moment of impact
         HeroBehaviour target = combatSystem.GetLowestHealthHero();
         if (target != null && !target.IsDead)
@@ -94,7 +95,7 @@ public class EnemyBehaviour : MonoBehaviour
             target.TakeDamage(damage);
             Debug.Log($"[Enemy] {enemyData.Name} hit {target.name} for {damage}.");
         }
-
+        particles.Play();
         // Wait for the animation to fully finish
         yield return new WaitUntil(() => attackFinished);
 

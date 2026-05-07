@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,10 +17,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject      winningPanel;
     [SerializeField] private GameObject      gameSelectionPanel;
     [SerializeField] private TextMeshProUGUI levelCounterText;
-
     [Header("Reward Calculator")]
     [SerializeField] private RewardCalculator rewardCalculator;
 
+    ///to show how much reward after combat
+    [Header("Reward Calculator")]
+    [SerializeField]private GameObject rewardPanel;
+    [SerializeField] private TextMeshProUGUI goldText;
+    [SerializeField] private TextMeshProUGUI gemText;
     // ── Hero selection buttons ─────────────────────────────────────────────────
     // Index 0 = button shown at Level 1
     // Index 1 = button shown at Level 2
@@ -87,7 +92,11 @@ public class GameManager : MonoBehaviour
 
         CombatSystem.Instance.BattleStarted = false;
         CombatSystem.Instance.IsStageEnded  = false;
-
+        
+        // Reward Panel will be activated
+        rewardPanel.SetActive(true);
+        goldText.text =$"Gold Rewards: " +rewardCalculator.CalculateGoldsReward().ToString();
+        gemText.text =$"Gems Rewards: " +rewardCalculator.CalculateGemsReward().ToString();
         ShowButtonForLevel(_currentLevel);
         BeginSelectionPhase(_currentLevel);
     }
