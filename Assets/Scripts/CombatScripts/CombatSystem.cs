@@ -247,6 +247,7 @@ public class CombatSystem : MonoBehaviour
         if (enemies.Count == 0 && heroes.Count > 0)
         {
             resultPanel.SetActive(true);
+            heroSelectionPanel.SetActive(false);
             rewardCalculator.IsStageWon = true;
             total_Stages_Won++;
             //heroResultText.text = "Hero wins!";
@@ -256,13 +257,14 @@ public class CombatSystem : MonoBehaviour
         else if (heroes.Count == 0)
         {
             resultPanel.SetActive(true);
+            heroSelectionPanel.SetActive(false);
             //enemyResultText.text = "Enemy wins!";
             resultText.text = "Enemy wins!";
             EndStage();
         }
         //CleanLists();
     }
-
+ 
     private void EndStage()
     {
         enemySpawner.Wave.Clear();

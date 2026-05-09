@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     // Index 0 = button shown at Level 1
     // Index 1 = button shown at Level 2
     // etc.
-    [Header("Hero Selection Buttons (index 0 = Level 1)")]
+    [Header("Hero Selection Buttons")]
     [SerializeField] private List<GameObject> heroSelectionButtonList;
 
     // ── Runtime state ─────────────────────────────────────────────────────────
@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
         DestroyAllObjects();
 
         winningPanel.SetActive(false);
-        gameSelectionPanel.SetActive(true);
+        //gameSelectionPanel.SetActive(true);
 
         CombatSystem.Instance.BattleStarted = false;
         CombatSystem.Instance.IsStageEnded  = false;
@@ -143,24 +143,27 @@ public class GameManager : MonoBehaviour
         int index = level;
 
         // Clamp to last button once all heroes are unlocked
-        //index = Mathf.Clamp(index, 0, heroSelectionButtonList.Count - 1);
+        index = Mathf.Clamp(index, 0, heroSelectionButtonList.Count - 1);
 
-        if (heroSelectionButtonList[index] != null && _currentLevel<=4)
+        if (heroSelectionButtonList[index] != null)
         {
-            for (int i = 0; i < _currentLevel; i++)
+            if (_currentLevel <= 4)
             {
-                heroSelectionButtonList[i].SetActive(true);
-                Debug.Log($"[GameManager] Showing hero button index {index} for Level {level}.");
+                for (int i = 0; i < _currentLevel; i++)
+                {
+                    heroSelectionButtonList[i].SetActive(true);
+                    Debug.Log($"[GameManager] Showing hero button index {index} for Level {level}.");
+                }
             }
+            else
+            {
+                for (int i = 0; i < index; i++)
+                {
+                    heroSelectionButtonList[i].SetActive(true);
+                }
+            }
+        }
 
-        }
-        else
-        {
-            for (int i = 0; i < heroSelectionButtonList.Count; i++)
-            {
-                heroSelectionButtonList[i].SetActive(true);
-            }
-        }
     }
 
     // ─────────────────────────────────────────────────────────────────────────
