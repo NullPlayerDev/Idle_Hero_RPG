@@ -1,0 +1,754 @@
+fileFormatVersion: 2
+guid: d82a017273c8ae148b4a1f4f14ca6f1c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7868907805677584230
+    second: Enemy_5  Attack animation (1)_0
+  - first:
+      213: -4856281159198321177
+    second: Enemy_5  Attack animation (1)_1
+  - first:
+      213: -850404499786417254
+    second: Enemy_5  Attack animation (1)_2
+  - first:
+      213: 5407761760121262163
+    second: Enemy_5  Attack animation (1)_3
+  - first:
+      213: -7538243547948517578
+    second: Enemy_5  Attack animation (1)_4
+  - first:
+      213: 8795838913357639015
+    second: Enemy_5  Attack animation (1)_5
+  - first:
+      213: -1962859871100637717
+    second: Enemy_5  Attack animation (1)_6
+  - first:
+      213: 6327462084865641745
+    second: Enemy_5  Attack animation (1)_7
+  - first:
+      213: -5173699216223542921
+    second: Enemy_5  Attack animation (1)_8
+  - first:
+      213: -2515099235282397490
+    second: Enemy_5  Attack animation (1)_9
+  - first:
+      213: 5547187237615580716
+    second: Enemy_5  Attack animation (1)_10
+  - first:
+      213: -2187399629306585237
+    second: Enemy_5  Attack animation (1)_11
+  - first:
+      213: -397404564612139632
+    second: Enemy_5  Attack animation (1)_12
+  - first:
+      213: 3545858239216499426
+    second: Enemy_5  Attack animation (1)_13
+  - first:
+      213: -7548050919349705592
+    second: Enemy_5  Attack animation (1)_14
+  - first:
+      213: -6671583794020175350
+    second: Enemy_5  Attack animation (1)_15
+  - first:
+      213: 5786377087856743296
+    second: Enemy_5  Attack animation (1)_16
+  - first:
+      213: 6129354189815612243
+    second: Enemy_5  Attack animation (1)_17
+  - first:
+      213: 4563416225602044505
+    second: Enemy_5  Attack animation (1)_18
+  - first:
+      213: -7710499468427171719
+    second: Enemy_5  Attack animation (1)_19
+  - first:
+      213: -1328373003935196775
+    second: Enemy_5  Attack animation (1)_20
+  - first:
+      213: 1705883521575230478
+    second: Enemy_5  Attack animation (1)_21
+  - first:
+      213: -1004963269955871654
+    second: Enemy_5  Attack animation (1)_22
+  - first:
+      213: -296565277693365585
+    second: Enemy_5  Attack animation (1)_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Enemy_5  Attack animation (1)_0
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 2551
+        width: 499
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a900a40ca060cc290800000000000000
+      internalID: -7868907805677584230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5  Attack animation (1)_1
+      rect:
+        serializedVersion: 2
+        x: 1420
+        y: 2550
+        width: 500
+        height: 532
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e5df80f3060b9cb0800000000000000
+      internalID: -4856281159198321177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5  Attack animation (1)_2
+      rect:
+        serializedVersion: 2
+        x: 2301
+        y: 2550
+        width: 508
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9b36d2fc91c234f0800000000000000
+      internalID: -850404499786417254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5  Attack animation (1)_3
+      rect:
+        serializedVersion: 2
+        x: 3181
+        y: 2550
+        width: 507
+        height: 581
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35018f55baa3c0b40800000000000000
+      internalID: 5407761760121262163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5  Attack animation (1)_4
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 1820
+        width: 441
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 637f526be67c26790800000000000000
+      internalID: -7538243547948517578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5  Attack animation (1)_5
+      rect:
+        serializedVersion: 2
+        x: 1411
+        y: 1820
+        width: 443
+        height: 545
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76d6d3ca3e8111a70800000000000000
+      internalID: 8795838913357639015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5  Attack animation (1)_6
+      rect:
+        serializedVersion: 2
+        x: 2301
+        y: 1825
+        width: 640
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bed6d2fc85582c4e0800000000000000
+      internalID: -1962859871100637717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5  Attack animation (1)_7
+      rect:
+        serializedVersion: 2
+        x: 3180
+        y: 1819
+        width: 475
+        height: 504
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11d4b2aed39afc750800000000000000
+      internalID: 6327462084865641745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5  Attack animation (1)_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1089
+        width: 460
+        height: 540
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 771674a69f35338b0800000000000000
+      internalID: -5173699216223542921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5  Attack animation (1)_9
+      rect:
+        serializedVersion: 2
+        x: 1415
+        y: 1089
+        width: 437
+        height: 551
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec6d2223292981dd0800000000000000
+      internalID: -2515099235282397490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5  Attack animation (1)_10
+      rect:
+        serializedVersion: 2
+        x: 2300
+        y: 1088
+        width: 717
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2638a007619bfc40800000000000000
+      internalID: 5547187237615580716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5  Attack animation (1)_11
+      rect:
+        serializedVersion: 2
+        x: 3010
+        y: 1140
+        width: 28
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6f1c5160abc4a1e0800000000000000
+      internalID: -2187399629306585237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5  Attack animation (1)_12
+      rect:
+        serializedVersion: 2
+        x: 3179
+        y: 1082
+        width: 644
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 095bc2e67a22c7af0800000000000000
+      internalID: -397404564612139632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5  Attack animation (1)_13
+      rect:
+        serializedVersion: 2
+        x: 3835
+        y: 1160
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ea3464284b653130800000000000000
+      internalID: 3545858239216499426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5  Attack animation (1)_14
+      rect:
+        serializedVersion: 2
+        x: 3827
+        y: 1103
+        width: 27
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 884a99d1eafef3790800000000000000
+      internalID: -7548050919349705592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5  Attack animation (1)_15
+      rect:
+        serializedVersion: 2
+        x: 3856
+        y: 1114
+        width: 42
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a02bc2c03e5c963a0800000000000000
+      internalID: -6671583794020175350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5  Attack animation (1)_16
+      rect:
+        serializedVersion: 2
+        x: 3163
+        y: 982
+        width: 22
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 083192acd475d4050800000000000000
+      internalID: 5786377087856743296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5  Attack animation (1)_17
+      rect:
+        serializedVersion: 2
+        x: 3184
+        y: 982
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35303823927df0550800000000000000
+      internalID: 6129354189815612243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5  Attack animation (1)_18
+      rect:
+        serializedVersion: 2
+        x: 3199
+        y: 993
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 952834111e2845f30800000000000000
+      internalID: 4563416225602044505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5  Attack animation (1)_19
+      rect:
+        serializedVersion: 2
+        x: 3208
+        y: 982
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9786f8fd59dcef490800000000000000
+      internalID: -7710499468427171719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5  Attack animation (1)_20
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 358
+        width: 639
+        height: 454
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 999593b7acba09de0800000000000000
+      internalID: -1328373003935196775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5  Attack animation (1)_21
+      rect:
+        serializedVersion: 2
+        x: 1420
+        y: 358
+        width: 616
+        height: 499
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0c1fa356048ca710800000000000000
+      internalID: 1705883521575230478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5  Attack animation (1)_22
+      rect:
+        serializedVersion: 2
+        x: 2300
+        y: 358
+        width: 522
+        height: 526
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5c17f10b37ad02f0800000000000000
+      internalID: -1004963269955871654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5  Attack animation (1)_23
+      rect:
+        serializedVersion: 2
+        x: 3180
+        y: 358
+        width: 500
+        height: 532
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa23f52837362ebf0800000000000000
+      internalID: -296565277693365585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Enemy_5  Attack animation (1)_0: -7868907805677584230
+      Enemy_5  Attack animation (1)_1: -4856281159198321177
+      Enemy_5  Attack animation (1)_10: 5547187237615580716
+      Enemy_5  Attack animation (1)_11: -2187399629306585237
+      Enemy_5  Attack animation (1)_12: -397404564612139632
+      Enemy_5  Attack animation (1)_13: 3545858239216499426
+      Enemy_5  Attack animation (1)_14: -7548050919349705592
+      Enemy_5  Attack animation (1)_15: -6671583794020175350
+      Enemy_5  Attack animation (1)_16: 5786377087856743296
+      Enemy_5  Attack animation (1)_17: 6129354189815612243
+      Enemy_5  Attack animation (1)_18: 4563416225602044505
+      Enemy_5  Attack animation (1)_19: -7710499468427171719
+      Enemy_5  Attack animation (1)_2: -850404499786417254
+      Enemy_5  Attack animation (1)_20: -1328373003935196775
+      Enemy_5  Attack animation (1)_21: 1705883521575230478
+      Enemy_5  Attack animation (1)_22: -1004963269955871654
+      Enemy_5  Attack animation (1)_23: -296565277693365585
+      Enemy_5  Attack animation (1)_3: 5407761760121262163
+      Enemy_5  Attack animation (1)_4: -7538243547948517578
+      Enemy_5  Attack animation (1)_5: 8795838913357639015
+      Enemy_5  Attack animation (1)_6: -1962859871100637717
+      Enemy_5  Attack animation (1)_7: 6327462084865641745
+      Enemy_5  Attack animation (1)_8: -5173699216223542921
+      Enemy_5  Attack animation (1)_9: -2515099235282397490
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

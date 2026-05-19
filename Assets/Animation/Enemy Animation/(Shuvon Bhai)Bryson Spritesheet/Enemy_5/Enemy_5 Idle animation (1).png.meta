@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: d0f1baac747e8284a8229f95e2aa303f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2757029722358838565
+    second: Enemy_5 Idle animation (1)_0
+  - first:
+      213: 1005661414090088982
+    second: Enemy_5 Idle animation (1)_1
+  - first:
+      213: 1110695744806390157
+    second: Enemy_5 Idle animation (1)_2
+  - first:
+      213: 3201248320775506900
+    second: Enemy_5 Idle animation (1)_3
+  - first:
+      213: -1105649933837082489
+    second: Enemy_5 Idle animation (1)_4
+  - first:
+      213: -6197681063067968918
+    second: Enemy_5 Idle animation (1)_5
+  - first:
+      213: -6939134784635859319
+    second: Enemy_5 Idle animation (1)_6
+  - first:
+      213: -8586780567505854621
+    second: Enemy_5 Idle animation (1)_7
+  - first:
+      213: -5840500914342094346
+    second: Enemy_5 Idle animation (1)_8
+  - first:
+      213: -1523238466944057830
+    second: Enemy_5 Idle animation (1)_9
+  - first:
+      213: 5577233607529103411
+    second: Enemy_5 Idle animation (1)_10
+  - first:
+      213: 8749776333568189830
+    second: Enemy_5 Idle animation (1)_11
+  - first:
+      213: 7586147734057039400
+    second: Enemy_5 Idle animation (1)_12
+  - first:
+      213: 7164466275991180425
+    second: Enemy_5 Idle animation (1)_13
+  - first:
+      213: -3307317249518175165
+    second: Enemy_5 Idle animation (1)_14
+  - first:
+      213: 6619213281850754230
+    second: Enemy_5 Idle animation (1)_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Enemy_5 Idle animation (1)_0
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 2469
+        width: 499
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bda8b9b23101db9d0800000000000000
+      internalID: -2757029722358838565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5 Idle animation (1)_1
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 2469
+        width: 500
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61228275ab3d4fd00800000000000000
+      internalID: 1005661414090088982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5 Idle animation (1)_2
+      rect:
+        serializedVersion: 2
+        x: 2249
+        y: 2468
+        width: 499
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8909ba25ebf96f00800000000000000
+      internalID: 1110695744806390157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5 Idle animation (1)_3
+      rect:
+        serializedVersion: 2
+        x: 3028
+        y: 2468
+        width: 499
+        height: 535
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dbc3a5036e1d6c20800000000000000
+      internalID: 3201248320775506900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5 Idle animation (1)_4
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 1793
+        width: 503
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 780e4bf3e31f7a0f0800000000000000
+      internalID: -1105649933837082489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5 Idle animation (1)_5
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 1793
+        width: 514
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6a1bace8e96df9a0800000000000000
+      internalID: -6197681063067968918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5 Idle animation (1)_6
+      rect:
+        serializedVersion: 2
+        x: 2249
+        y: 1792
+        width: 526
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98e0931bdad33bf90800000000000000
+      internalID: -6939134784635859319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5 Idle animation (1)_7
+      rect:
+        serializedVersion: 2
+        x: 3028
+        y: 1792
+        width: 519
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36f169d8190a5d880800000000000000
+      internalID: -8586780567505854621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5 Idle animation (1)_8
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 1117
+        width: 509
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f99b4adc5f52fea0800000000000000
+      internalID: -5840500914342094346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5 Idle animation (1)_9
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 1117
+        width: 500
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1eb69d4fae5cdae0800000000000000
+      internalID: -1523238466944057830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5 Idle animation (1)_10
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 1117
+        width: 496
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3308426aa60566d40800000000000000
+      internalID: 5577233607529103411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5 Idle animation (1)_11
+      rect:
+        serializedVersion: 2
+        x: 3028
+        y: 1117
+        width: 500
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 685a37297337d6970800000000000000
+      internalID: 8749776333568189830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5 Idle animation (1)_12
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 441
+        width: 501
+        height: 530
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 826ba16cb29674960800000000000000
+      internalID: 7586147734057039400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5 Idle animation (1)_13
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 441
+        width: 499
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98458b97e1c4d6360800000000000000
+      internalID: 7164466275991180425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5 Idle animation (1)_14
+      rect:
+        serializedVersion: 2
+        x: 2249
+        y: 440
+        width: 497
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34c72f60c7c0a12d0800000000000000
+      internalID: -3307317249518175165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_5 Idle animation (1)_15
+      rect:
+        serializedVersion: 2
+        x: 3028
+        y: 440
+        width: 497
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b40345e86b2cdb50800000000000000
+      internalID: 6619213281850754230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Enemy_5 Idle animation (1)_0: -2757029722358838565
+      Enemy_5 Idle animation (1)_1: 1005661414090088982
+      Enemy_5 Idle animation (1)_10: 5577233607529103411
+      Enemy_5 Idle animation (1)_11: 8749776333568189830
+      Enemy_5 Idle animation (1)_12: 7586147734057039400
+      Enemy_5 Idle animation (1)_13: 7164466275991180425
+      Enemy_5 Idle animation (1)_14: -3307317249518175165
+      Enemy_5 Idle animation (1)_15: 6619213281850754230
+      Enemy_5 Idle animation (1)_2: 1110695744806390157
+      Enemy_5 Idle animation (1)_3: 3201248320775506900
+      Enemy_5 Idle animation (1)_4: -1105649933837082489
+      Enemy_5 Idle animation (1)_5: -6197681063067968918
+      Enemy_5 Idle animation (1)_6: -6939134784635859319
+      Enemy_5 Idle animation (1)_7: -8586780567505854621
+      Enemy_5 Idle animation (1)_8: -5840500914342094346
+      Enemy_5 Idle animation (1)_9: -1523238466944057830
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
