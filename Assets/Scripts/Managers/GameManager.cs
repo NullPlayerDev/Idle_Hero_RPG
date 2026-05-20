@@ -35,7 +35,8 @@ public class GameManager : MonoBehaviour
     // ── Runtime state ─────────────────────────────────────────────────────────
     private int _currentLevel   = 1;
     private int _totalStagesWon = 0;
-
+    private int environmentCounter = 0;
+    public List<GameObject> environmentObject = new List<GameObject>();
     public int CurrentLevel
     {
         get => _currentLevel;
@@ -76,6 +77,33 @@ public class GameManager : MonoBehaviour
         BeginSelectionPhase(_currentLevel);
     }
 
+    private void Update()
+    {
+        EnvironmentSelection();
+    }
+
+    public void EnvironmentSelection()
+    {
+        // Every 5 levels change environment
+        int targetEnvironment = _currentLevel / 5;
+
+        // Clamp so it never exceeds last environment
+        targetEnvironment = Mathf.Clamp(targetEnvironment, 0, environmentObject.Count - 1);
+        if (targetEnvironment == environmentCounter)
+            return;
+        // Disable previous environment
+        if (environmentCounter >= 0)
+        {
+            environmentObject[environmentCounter].SetActive(false);
+        }
+
+        // Enable new environment
+        environmentObject[targetEnvironment].SetActive(true);
+
+        // Save current environment
+        environmentCounter = targetEnvironment;
+     
+    }
     // ─────────────────────────────────────────────────────────────────────────
     // Game flow
     // ─────────────────────────────────────────────────────────────────────────

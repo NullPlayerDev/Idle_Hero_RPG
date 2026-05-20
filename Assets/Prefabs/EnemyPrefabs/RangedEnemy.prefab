@@ -184,8 +184,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 7.9, y: 0.000002861023}
-  m_SizeDelta: {x: 18.68, y: 7.929}
+  m_AnchoredPosition: {x: 9.31, y: -0.21}
+  m_SizeDelta: {x: 16.99, y: 6.241}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8883298802172691238
 CanvasRenderer:
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6576170021865656581, guid: 7b56fca0f924d604982d6264f632bc59, type: 3}
+  m_Sprite: {fileID: 7269450325362961754, guid: 4345734bf3030d147a5543f0a1966d5f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -588,7 +588,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_MaskInteraction: 0
   m_Sprite: {fileID: -7868907805677584230, guid: d82a017273c8ae148b4a1f4f14ca6f1c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -977,7 +977,7 @@ PrefabInstance:
     - target: {fileID: 2452036648420805146, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: ed814f11ee184d8448cd2a3147a97f19, type: 2}
+      objectReference: {fileID: 2100000, guid: 841e81c175b8d19488db4246c8d99201, type: 2}
     - target: {fileID: 3341922426499149845, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -992,7 +992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3341922426499149845, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -719.32
+      value: -721.58
       objectReference: {fileID: 0}
     - target: {fileID: 3341922426499149845, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1048,7 +1048,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8580142159098493579, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: lengthInSec
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8580142159098493579, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: playOnAwake
