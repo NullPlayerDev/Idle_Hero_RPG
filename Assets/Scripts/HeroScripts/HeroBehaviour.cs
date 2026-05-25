@@ -12,15 +12,17 @@ public class HeroBehaviour : MonoBehaviour
     [SerializeField] private Slider _heroHealthBar;
     [SerializeField] private Animator heroAnimator;
     [SerializeField] private GameObject heroPrefab;
+
     private int currentHealth;
     private bool isHeroDead = false;
     private CombatSystem combatSystem;
 
-    // Set by Animation Events on the attack clip:
-    //   OnAttackHit  → at the weapon-connects frame
-    //   OnAttackEnd  → at the very last frame of the clip
     private bool attackHitFrame = false;
     private bool attackFinished = false;
+
+    // ── Gear-boosted stats (set once in Start) ────────────────────────────────
+    private int   _effectiveDamage;
+    private float _effectiveCooldown;
 
     public GameObject HeroPrefab
     {
@@ -32,8 +34,8 @@ public class HeroBehaviour : MonoBehaviour
         get => heroData;
         set => heroData = value;
     }
-    public bool IsDead => isHeroDead;
-    public int CurrentHealth => currentHealth;
+    public bool IsDead       => isHeroDead;
+    public int  CurrentHealth => currentHealth;
 
     // -------------------------------------------------------------------------
     // Unity Lifecycle
@@ -48,19 +50,53 @@ public class HeroBehaviour : MonoBehaviour
             return;
         }
 
-        currentHealth = heroData.GetStartingHealth();
+        ApplyGearStats();
+
         _heroHealthBar.maxValue = currentHealth;
-        _heroHealthBar.value = currentHealth;
+        _heroHealthBar.value    = currentHealth;
         heroText.text = $"{heroData.Name} HP: {currentHealth}";
 
         combatSystem.RegisterHero(this);
     }
 
     // -------------------------------------------------------------------------
+    // Gear stat application
+    // Reads equipped gear from GearInventory and adds bonuses on top of HeroData.
+    // Called once per spawn — gear changes take effect next combat.
+    // -------------------------------------------------------------------------
+
+    private void ApplyGearStats()
+    {
+        int   baseHp       = heroData.GetStartingHealth();
+        int   baseDamage   = heroData.GetAttackDamage();
+        float baseCooldown = heroData.GetAttackCooldown();
+
+        if (GearInventory.Instance != null)
+        {
+            int   hpBonus    = GearInventory.Instance.TotalHpBonus();
+            int   dmgBonus   = GearInventory.Instance.TotalDamageBonus();
+            float spdBonus   = GearInventory.Instance.TotalSpeedBonus();
+
+            currentHealth      = baseHp + hpBonus;
+            _effectiveDamage   = baseDamage + dmgBonus;
+            // Clamp cooldown so it never drops below 0.5 seconds
+            _effectiveCooldown = Mathf.Max(0.5f, baseCooldown - spdBonus);
+
+            Debug.Log($"[HeroBehaviour] {heroData.Name} gear stats → " +
+                      $"HP:{currentHealth}(+{hpBonus})  DMG:{_effectiveDamage}(+{dmgBonus})  " +
+                      $"Cooldown:{_effectiveCooldown:F2}s(-{spdBonus:F2}s)");
+        }
+        else
+        {
+            // No GearInventory in scene — use raw base stats
+            currentHealth      = baseHp;
+            _effectiveDamage   = baseDamage;
+            _effectiveCooldown = baseCooldown;
+        }
+    }
+
+    // -------------------------------------------------------------------------
     // Animation Events
-    // Add these two events to your attack animation clip:
-    //   1. At the "hit" frame  → Function: OnAttackHit
-    //   2. At the last frame   → Function: OnAttackEnd
     // -------------------------------------------------------------------------
 
     public void OnAttackHit() { attackHitFrame = true; }
@@ -72,7 +108,6 @@ public class HeroBehaviour : MonoBehaviour
 
     public void ExecuteAttack(EnemyBehaviour suggestedTarget, Action onFinished)
     {
-        // Guard: don't start a coroutine on a dead or inactive GameObject
         if (isHeroDead || !gameObject.activeInHierarchy)
         {
             onFinished?.Invoke();
@@ -88,19 +123,17 @@ public class HeroBehaviour : MonoBehaviour
 
         heroAnimator.SetBool("isAttacking", true);
 
-        // Wait for the hit frame
         yield return new WaitUntil(() => attackHitFrame);
 
-        // Re-fetch the current lowest-HP enemy at the moment of impact
         EnemyBehaviour target = combatSystem.GetLowestHealthEnemy();
         if (target != null && !target.IsDead)
         {
-            int damage = heroData.GetAttackDamage();
+            // Use gear-boosted damage instead of raw heroData.GetAttackDamage()
+            int damage = _effectiveDamage;
             target.TakeDamage(damage);
             Debug.Log($"[Hero] {heroData.Name} hit {target.name} for {damage}.");
         }
 
-        // Wait for the animation to fully finish
         yield return new WaitUntil(() => attackFinished);
 
         heroAnimator.SetBool("isAttacking", false);
@@ -139,33 +172,24 @@ public class HeroBehaviour : MonoBehaviour
         if (isHeroDead) return;
         isHeroDead = true;
 
-        // Unblock any coroutine still waiting on the animation flags
         attackHitFrame = true;
         attackFinished = true;
 
         heroAnimator.SetBool("isAttacking", false);
         Debug.Log($"[Hero] {heroData.Name} died.");
 
-        // Notify CombatSystem immediately so it stops targeting this hero
         combatSystem?.OnHeroDied(this);
-
-        // Play death animation, then destroy
         StartCoroutine(DeathRoutine());
     }
 
     private IEnumerator DeathRoutine()
     {
-        // Trigger your death animation — change "isDead" to match your Animator parameter name
         heroAnimator.SetTrigger("isDead");
-
-        // Wait for the death clip to finish before removing the GameObject
-        float clipLength = GetAnimationClipLength("Death"); // change "Death" to your clip name
+        float clipLength = GetAnimationClipLength("Death");
         yield return new WaitForSeconds(clipLength > 0f ? clipLength : 0.8f);
-
         Destroy(gameObject);
     }
 
-    // Returns the length of an animation clip by name, or 0 if not found
     private float GetAnimationClipLength(string clipName)
     {
         if (heroAnimator == null || heroAnimator.runtimeAnimatorController == null) return 0f;

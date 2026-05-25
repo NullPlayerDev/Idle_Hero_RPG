@@ -67,11 +67,14 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        // Load save first — sets _currentLevel, gold, gems
+        // MUST be before SaveSystem.Load()
+        GearItem[] allGearItems = Resources.LoadAll<GearItem>("GearItems");
+        if (GearInventory.Instance != null)
+            GearInventory.Instance.Initialise(allGearItems);
+
         SaveSystem.Load();
         SaveConfigLoader.ProcessConfig();
 
-        // Now show the correct button for the loaded level
         RefreshLevelUI();
         ShowButtonForLevel(_currentLevel);
         BeginSelectionPhase(_currentLevel);
@@ -137,12 +140,14 @@ public class GameManager : MonoBehaviour
         OnStageEnded?.Invoke();
         rewardCalculator.CalculateReward();
 
+        // Drop gear every 3 levels
+        if (_currentLevel % 3 == 0 && ChestDropper.Instance != null)
+            ChestDropper.Instance.OpenChest();
+
         _currentLevel++;
         RefreshLevelUI();
-
         SaveSystem.Save();
     }
-
     // ─────────────────────────────────────────────────────────────────────────
     // Button logic — THE FIX
     // ─────────────────────────────────────────────────────────────────────────
@@ -191,7 +196,6 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-
     }
 
     // ─────────────────────────────────────────────────────────────────────────

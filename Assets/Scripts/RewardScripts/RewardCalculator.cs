@@ -11,10 +11,6 @@ public class RewardCalculator : MonoBehaviour
     private RewardEnums.GoldRewardTier goldTier;
     [SerializeField] private RewardWallet _rewardWallet;
 
-    // FIX 1: Removed 'private int earned = 1' as a class field.
-    // It was never reset between stages, causing gems to compound forever.
-    // It is now a local variable inside CalculateGemsReward().
-
     public bool IsTheStageFinished
     {
         get => isTheStageFinished;
@@ -40,33 +36,39 @@ public class RewardCalculator : MonoBehaviour
     }
 
     void Start() { }
-
     void Update() { }
 
     public void CalculateReward()
     {
         CalculateGoldsReward();
-
-        // FIX 2: Was calling CalculateGemsReward() directly, which only returned
-        // the value but never deposited it into the wallet.
-        // Now calls RewardInWallet() which correctly calls AddGems().
         RewardInWallet();
     }
 
     public void RandomlyReward() { }
 
-    // Reward per kill
     public int CalculateBasicReward(RewardEnums.GoldRewardTier rewardType)
     {
         return RewardEnums.GoldReward(rewardType);
     }
 
-    // MAIN function for gold rewards
+    // ── Gold ──────────────────────────────────────────────────────────────────
+
     public int CalculateGoldsReward()
     {
         goldTier = RewardEnums.GoldTier(stage);
         int multiplier = RewardEnums.GoldBonus(RewardEnums.GoldBonus(stage));
-        finalGold = currentGold + CalculateBasicReward(goldTier) + Variance() * multiplier;
+        int baseGold   = currentGold + CalculateBasicReward(goldTier) + Variance() * multiplier;
+
+        // Apply gear gold multiplier (uses best equipped item, not additive stack)
+        float gearMultiplier = GearInventory.Instance != null
+            ? GearInventory.Instance.BestGoldMultiplier()
+            : 1f;
+
+        finalGold = Mathf.RoundToInt(baseGold * gearMultiplier);
+
+        if (gearMultiplier > 1f)
+            Debug.Log($"[RewardCalculator] Gold gear bonus x{gearMultiplier:F2}: {baseGold} → {finalGold}");
+
         _rewardWallet.AddGold(finalGold);
         return finalGold;
     }
@@ -95,12 +97,10 @@ public class RewardCalculator : MonoBehaviour
         return finalGold;
     }
 
-    // Returns gems earned THIS stage only (never a running total).
-    // Resets all flags — call exactly once per stage end.
+    // ── Gems ──────────────────────────────────────────────────────────────────
+
     public int CalculateGemsReward()
     {
-        // FIX 1: 'earned' is now a LOCAL variable, so it resets to 1 every call.
-        // Previously it was a class field that kept accumulating across stages.
         int earned = 1; // base: 1 gem per stage completion
 
         isTheStageFinished = false;
@@ -124,12 +124,20 @@ public class RewardCalculator : MonoBehaviour
             earned += 2;
         }
 
-        Debug.Log("totalGems earned this stage: " + earned);
-        return earned;
+        // Apply gear gem multiplier
+        float gearMultiplier = GearInventory.Instance != null
+            ? GearInventory.Instance.BestGemMultiplier()
+            : 1f;
+
+        int boostedEarned = Mathf.RoundToInt(earned * gearMultiplier);
+
+        if (gearMultiplier > 1f)
+            Debug.Log($"[RewardCalculator] Gem gear bonus x{gearMultiplier:F2}: {earned} → {boostedEarned}");
+
+        Debug.Log("totalGems earned this stage: " + boostedEarned);
+        return boostedEarned;
     }
 
-    // Called once per stage end by GameManager (and now also by CalculateReward).
-    // Calculates and immediately deposits gems into the wallet.
     public void RewardInWallet()
     {
         int gemsEarned = CalculateGemsReward();

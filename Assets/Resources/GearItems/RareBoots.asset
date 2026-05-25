@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79c0148dc9b80f348b54c5433194e001, type: 3}
+  m_Name: RareBoots
+  m_EditorClassIdentifier: Assembly-CSharp::GearItem
+  id: 3
+  itemName: RareBoots
+  description: "This will upgrade Hero AttackSpeed\n "
+  rarity: 2
+  slot: 2
+  icon: {fileID: -6553797789081851561, guid: 396341d489b584e4f932fea40368e76d, type: 3}

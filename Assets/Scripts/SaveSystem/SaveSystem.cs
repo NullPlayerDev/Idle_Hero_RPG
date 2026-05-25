@@ -6,43 +6,34 @@ using UnityEngine;
 /// Handles all save / load / delete operations.
 /// Single save slot — one JSON file on disk.
 ///
+/// v2 change: also saves/loads GearInventory (bag + equipped).
+///
 /// IMPORTANT — Execution order:
 ///   SaveSystem is a static class. It only touches other singletons
-///   (GameManager, RewardWallet, HeroSelectionManager) when explicitly
-///   called. GameManager.Start() is the correct place to call Load().
+///   (GameManager, RewardWallet, HeroSelectionManager, GearInventory)
+///   when explicitly called. GameManager.Start() is the correct place to call Load().
 /// </summary>
 public static class SaveSystem
 {
     private const string FILE_NAME    = "gamesave.json";
-    private const int    SAVE_VERSION = 1;
+    private const int    SAVE_VERSION = 2;
 
     private static string SavePath => Path.Combine(Application.persistentDataPath, FILE_NAME);
 
     // ─── Public API ───────────────────────────────────────────────────────────
 
-    /// <summary>
-    /// Gathers current state from all singletons and writes to disk.
-    /// Safe to call any time after Start().
-    /// </summary>
     public static void Save()
     {
         SaveData data = CollectCurrentState();
         WriteToFile(data);
     }
 
-    /// <summary>
-    /// Reads the save file and pushes data into all singletons.
-    /// Call once from GameManager.Start() — NOT from Awake().
-    /// </summary>
     public static void Load()
     {
         SaveData data = ReadFromFile();
         ApplyToGame(data);
     }
 
-    /// <summary>
-    /// Deletes the save file and resets all singletons to defaults.
-    /// </summary>
     public static void DeleteAll()
     {
         if (File.Exists(SavePath))
@@ -77,10 +68,15 @@ public static class SaveSystem
         else Debug.LogWarning("[SaveSystem] Save: RewardWallet.Instance is null — wallet not saved.");
 
         if (HeroSelectionManager.Instance != null)
-        {
-            // Use the existing SelectedHeroIds list directly — no extra method needed
             data.selectedHeroIDs = new List<int>(HeroSelectionManager.Instance.SelectedHeroIds);
+
+        // ── Gear ──────────────────────────────────────────────────────────────
+        if (GearInventory.Instance != null)
+        {
+            data.inventoryGearIDs = GearInventory.Instance.CollectForSave();
+            data.equippedGearIDs  = GearInventory.Instance.CollectEquippedForSave();
         }
+        else Debug.LogWarning("[SaveSystem] Save: GearInventory.Instance is null — gear not saved.");
 
         data.StampDate();
         data.saveVersion = SAVE_VERSION;
@@ -110,6 +106,11 @@ public static class SaveSystem
             HeroSelectionManager.Instance.SelectedHeroIds.Clear();
             HeroSelectionManager.Instance.SelectedHeroIds.AddRange(data.selectedHeroIDs);
         }
+
+        // ── Gear ──────────────────────────────────────────────────────────────
+        if (GearInventory.Instance != null)
+            GearInventory.Instance.SetFromSave(data.inventoryGearIDs, data.equippedGearIDs);
+        else Debug.LogWarning("[SaveSystem] Load: GearInventory.Instance is null — gear not applied.");
 
         Debug.Log($"[SaveSystem] Applied → Level {data.currentLevel}, Gold {data.gold}, Gems {data.gems}");
     }
@@ -147,15 +148,23 @@ public static class SaveSystem
 
     private static SaveData CreateDefaultSave() => new SaveData
     {
-        gold           = 0,
-        gems           = 0,
-        currentLevel   = 1,
-        totalStagesWon = 0,
-        saveVersion    = SAVE_VERSION
+        gold             = 0,
+        gems             = 0,
+        currentLevel     = 1,
+        totalStagesWon   = 0,
+        inventoryGearIDs = new System.Collections.Generic.List<int>(),
+        equippedGearIDs  = new System.Collections.Generic.List<int>() { -1, -1, -1 },
+        saveVersion      = SAVE_VERSION
     };
 
     private static SaveData MigrateSave(SaveData old)
     {
+        // v1 → v2: add empty gear lists if missing
+        if (old.inventoryGearIDs == null)
+            old.inventoryGearIDs = new System.Collections.Generic.List<int>();
+        if (old.equippedGearIDs == null)
+            old.equippedGearIDs = new System.Collections.Generic.List<int>() { -1, -1, -1 };
+
         old.saveVersion = SAVE_VERSION;
         return old;
     }
