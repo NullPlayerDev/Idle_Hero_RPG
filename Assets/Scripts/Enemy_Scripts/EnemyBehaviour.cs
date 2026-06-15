@@ -29,7 +29,12 @@ public class EnemyBehaviour : MonoBehaviour
     public bool IsDead => isDead;
     public int CurrentHealth => currentHealth;
     
+    [SerializeField] private float attackDashDuration = 0.25f;
+    [SerializeField] private float attackDistance = 1f;
+    [SerializeField] private float slowMotionScale = 0.2f;
+    [SerializeField] private float slowMotionDuration = 0.3f;
 
+    private Vector3 originalPosition;
     // -------------------------------------------------------------------------
     // Unity Lifecycle
     // -------------------------------------------------------------------------
@@ -77,34 +82,96 @@ public class EnemyBehaviour : MonoBehaviour
         StartCoroutine(AttackCoroutine(onFinished));
     }
 
-    private IEnumerator AttackCoroutine(Action onFinished)
+private IEnumerator AttackCoroutine(Action onFinished)
+{
+    attackHitFrame = false;
+    attackFinished = false;
+
+    originalPosition = transform.position;
+
+    enemyAnimator.SetBool("isAttacking", true);
+
+    // Wait until attack animation reaches the hit frame
+    yield return new WaitUntil(() => attackHitFrame);
+
+    HeroBehaviour target = combatSystem.GetLowestHealthHero();
+
+    if (target != null && !target.IsDead)
     {
-        attackHitFrame = false;
-        attackFinished = false;
+        // Slow motion
+        Time.timeScale = slowMotionScale;
+        Time.fixedDeltaTime = Time.timeScale * 0.02f;
 
-        enemyAnimator.SetBool("isAttacking", true);
-      
-        // Wait for the hit frame
-        yield return new WaitUntil(() => attackHitFrame);
-        
-        // Re-fetch the current lowest-HP hero at the moment of impact
-        HeroBehaviour target = combatSystem.GetLowestHealthHero();
-        if (target != null && !target.IsDead)
+        Vector3 attackPosition;
+
+        if (transform.position.x < target.transform.position.x)
         {
-            int damage = enemyData.GetAttackDamage();
-            target.TakeDamage(damage);
-            Debug.Log($"[Enemy] {enemyData.Name} hit {target.name} for {damage}.");
+            attackPosition = target.transform.position + Vector3.left * attackDistance;
         }
+        else
+        {
+            attackPosition = target.transform.position + Vector3.right * attackDistance;
+        }
+
+        // Dash toward hero
+        float elapsed = 0f;
+
+        while (elapsed < attackDashDuration)
+        {
+            elapsed += Time.deltaTime;
+
+            transform.position = Vector3.Lerp(
+                originalPosition,
+                attackPosition,
+                elapsed / attackDashDuration);
+
+            yield return null;
+        }
+
+        transform.position = attackPosition;
+
+        // Damage
+        int damage = enemyData.GetAttackDamage();
+        target.TakeDamage(damage);
+
         particles.Play();
-        // Wait for the animation to fully finish
-        yield return new WaitUntil(() => attackFinished);
 
-        enemyAnimator.SetBool("isAttacking", false);
-        textMeshPro.text = $"{enemyData.Name} HP: {currentHealth}";
+        Debug.Log($"[Enemy] {enemyData.Name} hit {target.name} for {damage}");
 
-        onFinished?.Invoke();
+        yield return new WaitForSecondsRealtime(slowMotionDuration);
+
+        // Return to original position
+        elapsed = 0f;
+
+        Vector3 startReturnPos = transform.position;
+
+        while (elapsed < attackDashDuration)
+        {
+            elapsed += Time.deltaTime;
+
+            transform.position = Vector3.Lerp(
+                startReturnPos,
+                originalPosition,
+                elapsed / attackDashDuration);
+
+            yield return null;
+        }
+
+        transform.position = originalPosition;
+
+        // Restore normal speed
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = 0.02f;
     }
 
+    yield return new WaitUntil(() => attackFinished);
+
+    enemyAnimator.SetBool("isAttacking", false);
+
+    textMeshPro.text = $"{enemyData.Name} HP: {currentHealth}";
+
+    onFinished?.Invoke();
+}
     // -------------------------------------------------------------------------
     // Receiving Damage
     // -------------------------------------------------------------------------
