@@ -620,6 +620,10 @@ MonoBehaviour:
   chestRewardsPrefab: {fileID: 6485787238022635086, guid: f8f4f2dfe9e055d46ba927b468199ba0, type: 3}
   particles: {fileID: 3169185663641697471}
   chestRewards: {fileID: 11400000, guid: 9e22e70b7200a2a428cbac01068485c7, type: 2}
+  attackDashDuration: 0.25
+  attackDistance: 1
+  slowMotionScale: 0.2
+  slowMotionDuration: 0.3
 --- !u!114 &6152083916283008347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -940,7 +944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2452036648420805146, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: m_RenderMode
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2452036648420805146, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: m_CastShadows
@@ -1072,11 +1076,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8580142159098493579, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: ShapeModule.type
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8580142159098493579, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: TrailModule.mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8580142159098493579, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: UVModule.enabled
@@ -1144,7 +1148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8580142159098493579, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8580142159098493579, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: InitialModule.startLifetime.scalar

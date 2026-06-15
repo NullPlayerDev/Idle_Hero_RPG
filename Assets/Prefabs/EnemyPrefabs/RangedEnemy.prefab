@@ -620,6 +620,10 @@ MonoBehaviour:
   chestRewardsPrefab: {fileID: 6485787238022635086, guid: f8f4f2dfe9e055d46ba927b468199ba0, type: 3}
   particles: {fileID: 3169185663641697471}
   chestRewards: {fileID: 11400000, guid: 235b916a6dd71154fbea247d50fba317, type: 2}
+  attackDashDuration: 0.25
+  attackDistance: 1
+  slowMotionScale: 0.2
+  slowMotionDuration: 0.3
 --- !u!114 &6152083916283008347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -940,7 +944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2452036648420805146, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: m_RenderMode
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2452036648420805146, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: m_CastShadows
@@ -977,7 +981,7 @@ PrefabInstance:
     - target: {fileID: 2452036648420805146, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 841e81c175b8d19488db4246c8d99201, type: 2}
+      objectReference: {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 3341922426499149845, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1048,7 +1052,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8580142159098493579, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: lengthInSec
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8580142159098493579, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: playOnAwake
@@ -1068,7 +1072,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8580142159098493579, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: ShapeModule.type
-      value: 0
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 8580142159098493579, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: UVModule.enabled
@@ -1077,6 +1081,10 @@ PrefabInstance:
     - target: {fileID: 8580142159098493579, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: ColorModule.enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580142159098493579, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
+      propertyPath: ShapeModule.arc.value
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 8580142159098493579, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: ShapeModule.arc.spread
@@ -1092,7 +1100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8580142159098493579, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: ShapeModule.radius.value
-      value: 0.35
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8580142159098493579, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: EmissionModule.m_BurstCount
@@ -1128,7 +1136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8580142159098493579, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 0
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8580142159098493579, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: InitialModule.startLifetime.scalar

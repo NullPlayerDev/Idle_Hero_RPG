@@ -23,7 +23,12 @@ public class HeroBehaviour : MonoBehaviour
     // ── Gear-boosted stats (set once in Start) ────────────────────────────────
     private int   _effectiveDamage;
     private float _effectiveCooldown;
+    [SerializeField] private float attackDashDuration = 0.25f;
+    [SerializeField] private float attackDistance = 1f;
+    [SerializeField] private float slowMotionScale = 0.2f;
+    [SerializeField] private float slowMotionDuration = 0.3f;
 
+    private Vector3 originalPosition;
     public GameObject HeroPrefab
     {
         get => heroPrefab;
@@ -116,32 +121,93 @@ public class HeroBehaviour : MonoBehaviour
         StartCoroutine(AttackCoroutine(onFinished));
     }
 
-    private IEnumerator AttackCoroutine(Action onFinished)
+private IEnumerator AttackCoroutine(Action onFinished)
+{
+    attackHitFrame = false;
+    attackFinished = false;
+
+    originalPosition = transform.position;
+
+    heroAnimator.SetBool("isAttacking", true);
+
+    yield return new WaitUntil(() => attackHitFrame);
+
+    EnemyBehaviour target = combatSystem.GetLowestHealthEnemy();
+
+    if (target != null && !target.IsDead)
     {
-        attackHitFrame = false;
-        attackFinished = false;
+        // Slow motion
+        Time.timeScale = slowMotionScale;
+        Time.fixedDeltaTime = Time.timeScale * 0.02f;
 
-        heroAnimator.SetBool("isAttacking", true);
+        Vector3 attackPosition;
 
-        yield return new WaitUntil(() => attackHitFrame);
-
-        EnemyBehaviour target = combatSystem.GetLowestHealthEnemy();
-        if (target != null && !target.IsDead)
+        if (transform.position.x < target.transform.position.x)
         {
-            // Use gear-boosted damage instead of raw heroData.GetAttackDamage()
-            int damage = _effectiveDamage;
-            target.TakeDamage(damage);
-            Debug.Log($"[Hero] {heroData.Name} hit {target.name} for {damage}.");
+            attackPosition = target.transform.position + Vector3.left * attackDistance;
+        }
+        else
+        {
+            attackPosition = target.transform.position + Vector3.right * attackDistance;
         }
 
-        yield return new WaitUntil(() => attackFinished);
+        // Dash toward enemy
+        float elapsed = 0f;
 
-        heroAnimator.SetBool("isAttacking", false);
-        heroText.text = $"{heroData.Name} HP: {currentHealth}";
+        while (elapsed < attackDashDuration)
+        {
+            elapsed += Time.deltaTime;
 
-        onFinished?.Invoke();
+            transform.position = Vector3.Lerp(
+                originalPosition,
+                attackPosition,
+                elapsed / attackDashDuration);
+
+            yield return null;
+        }
+
+        transform.position = attackPosition;
+
+        // Damage
+        int damage = _effectiveDamage;
+        target.TakeDamage(damage);
+
+        Debug.Log($"[Hero] {heroData.Name} hit {target.name} for {damage}");
+
+        yield return new WaitForSecondsRealtime(slowMotionDuration);
+
+        // Return to original position
+        elapsed = 0f;
+
+        Vector3 startReturnPos = transform.position;
+
+        while (elapsed < attackDashDuration)
+        {
+            elapsed += Time.deltaTime;
+
+            transform.position = Vector3.Lerp(
+                startReturnPos,
+                originalPosition,
+                elapsed / attackDashDuration);
+
+            yield return null;
+        }
+
+        transform.position = originalPosition;
+
+        // Restore time
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = 0.02f;
     }
 
+    yield return new WaitUntil(() => attackFinished);
+
+    heroAnimator.SetBool("isAttacking", false);
+
+    heroText.text = $"{heroData.Name} HP: {currentHealth}";
+
+    onFinished?.Invoke();
+}
     // -------------------------------------------------------------------------
     // Receiving Damage
     // -------------------------------------------------------------------------

@@ -620,6 +620,10 @@ MonoBehaviour:
   chestRewardsPrefab: {fileID: 8088106864538892992, guid: 0436736bc21df2342b6a623ee4eac76c, type: 3}
   particles: {fileID: 3169185663641697471}
   chestRewards: {fileID: 11400000, guid: 235b916a6dd71154fbea247d50fba317, type: 2}
+  attackDashDuration: 0.25
+  attackDistance: 1
+  slowMotionScale: 0.2
+  slowMotionDuration: 0.3
 --- !u!114 &6152083916283008347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -927,6 +931,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 4732904215735633105}
     m_Modifications:
     - target: {fileID: 2452036648420805146, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 2452036648420805146, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: m_Flip.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -936,11 +944,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2452036648420805146, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: m_SortMode
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2452036648420805146, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: m_RenderMode
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2452036648420805146, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: m_CastShadows
@@ -965,6 +973,10 @@ PrefabInstance:
     - target: {fileID: 2452036648420805146, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: m_StaticShadowCaster
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2452036648420805146, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2452036648420805146, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: m_ApplyActiveColorSpace
@@ -1079,6 +1091,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8580142159098493579, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
+      propertyPath: TrailModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580142159098493579, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
+      propertyPath: RotationModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580142159098493579, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: ShapeModule.arc.spread
       value: 1
       objectReference: {fileID: 0}
@@ -1111,6 +1131,10 @@ PrefabInstance:
       value: 659
       objectReference: {fileID: 0}
     - target: {fileID: 8580142159098493579, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
+      propertyPath: RotationBySpeedModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580142159098493579, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 3
       objectReference: {fileID: 0}
@@ -1128,7 +1152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8580142159098493579, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8580142159098493579, guid: 2640cf01ed64d424baf77de9fc04e99d, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
