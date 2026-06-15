@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CombatSystem : MonoBehaviour
 {
+    public static CombatSystem Instance{get; private set;}
     [Header("Combatants")]
     [SerializeField] private List<HeroBehaviour> heroes = new List<HeroBehaviour>();
     [SerializeField] private List<EnemyBehaviour> enemies = new List<EnemyBehaviour>();
-
+    [SerializeField] private EnemySpawner enemySpawner;
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI heroResultText;
     [SerializeField] private TextMeshProUGUI enemyResultText;
@@ -33,15 +35,46 @@ public class CombatSystem : MonoBehaviour
     private bool battleStarted = false;
     private int total_Stages_Won = 0;
 
-    public bool IsStageEnded => isStageEnded;
+    public bool IsStageEnded
+    {
+        get => isStageEnded;
+        set => isStageEnded = value;
+    }
+    [SerializeField] private GameObject heroSelectionPanel;
+    [SerializeField] private GameObject resultPanel;
+    [SerializeField] private TextMeshProUGUI resultText;
+    public List<HeroBehaviour> Heroes
+    {
+        get => heroes;
+        set => heroes = value;
+    }
 
+    public List<EnemyBehaviour> Enemies
+    {
+        get => enemies;
+        set => enemies = value;
+    }
+    public bool BattleStarted
+    {
+        get => battleStarted;
+        set => battleStarted = value;
+    }
     // -------------------------------------------------------------------------
     // Unity Lifecycle
     // -------------------------------------------------------------------------
 
     private void Start()
     {
+        if (Instance!=null && Instance!=this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
         rewardCalculator = FindAnyObjectByType<RewardCalculator>();
+        enemySpawner = FindAnyObjectByType<EnemySpawner>();
     }
 
     // -------------------------------------------------------------------------
@@ -60,6 +93,8 @@ public class CombatSystem : MonoBehaviour
 
     public void RegisterEnemy(EnemyBehaviour enemy)
     {
+        // FIX: was incorrectly wrapped in a heroes.Count loop,
+        // causing enemies to never register when heroes hadn't spawned yet.
         if (!enemies.Contains(enemy))
         {
             enemies.Add(enemy);
@@ -68,23 +103,36 @@ public class CombatSystem : MonoBehaviour
         TryStartBattle();
     }
 
-    private void TryStartBattle()
+    /// <summary>Call this from HeroSpawner BEFORE instantiating heroes.</summary>
+    public void SetExpectedHeroes(int count) => expectedHeroes = count;
+
+    /// <summary>Call this from EnemySpawner BEFORE instantiating enemies.</summary>
+    public void SetExpectedEnemies(int count) => expectedEnemies = count;
+
+    public void TryStartBattle()
     {
         if (battleStarted) return;
         if (heroes.Count < expectedHeroes) return;
         if (enemies.Count < expectedEnemies) return;
-
+        heroSelectionPanel.SetActive(false);
+        //enemySpawner.BuildLevelBasedOnHeroNumber();
+        //enemySpawner.SpawnEnemiesForLevel();
         battleStarted = true;
         Debug.Log("[CombatSystem] All combatants registered — starting battle!");
-        StartCoroutine(BattleLoop());
+        //StartCoroutine(BattleLoop());
     }
 
     // -------------------------------------------------------------------------
     // Core Turn Loop
     // -------------------------------------------------------------------------
-
+    public void PanelOff()
+    {
+        heroSelectionPanel.SetActive(false);
+        StartCoroutine(BattleLoop());
+    }
     private IEnumerator BattleLoop()
     {
+        heroSelectionPanel.gameObject.SetActive(false);
         while (!isStageEnded)
         {
             // ── HERO PHASE ────────────────────────────────────────────────────
@@ -92,15 +140,13 @@ public class CombatSystem : MonoBehaviour
             CleanLists();
             if (isStageEnded) break;
 
-            // Each hero attacks one at a time, sequentially
             foreach (HeroBehaviour hero in new List<HeroBehaviour>(heroes))
             {
                 if (isStageEnded) break;
                 if (hero == null || hero.IsDead) continue;
 
-                // Target the enemy with the LOWEST current health
                 EnemyBehaviour target = GetLowestHealthEnemy();
-                if (target == null) break; // no enemies left
+                if (target == null) break;
 
                 bool attackDone = false;
                 hero.ExecuteAttack(target, () => attackDone = true);
@@ -119,15 +165,13 @@ public class CombatSystem : MonoBehaviour
             CleanLists();
             if (isStageEnded) break;
 
-            // Each enemy attacks one at a time, sequentially
             foreach (EnemyBehaviour enemy in new List<EnemyBehaviour>(enemies))
             {
                 if (isStageEnded) break;
                 if (enemy == null || enemy.IsDead) continue;
 
-                // Target the hero with the LOWEST current health
                 HeroBehaviour target = GetLowestHealthHero();
-                if (target == null) break; // no heroes left
+                if (target == null) break;
 
                 bool attackDone = false;
                 enemy.ExecuteAttack(target, () => attackDone = true);
@@ -135,10 +179,8 @@ public class CombatSystem : MonoBehaviour
 
                 yield return new WaitForSeconds(delayBetweenAttackers);
             }
-
             Debug.Log("[CombatSystem] <<< Enemy phase complete.");
             if (isStageEnded) break;
-
             yield return new WaitForSeconds(delayBetweenPhases);
         }
     }
@@ -187,36 +229,55 @@ public class CombatSystem : MonoBehaviour
     // Helpers
     // -------------------------------------------------------------------------
 
-    private void CleanLists()
+    public void CleanLists()
     {
+        // FIX: only remove from the lists here — each behaviour's DeathRoutine
+        // handles Destroy(gameObject) after the death animation finishes.
+        // Never call Destroy() on the GameObjects here — that caused
+        // "Destroying assets is not permitted" errors.
+        //heroes.Clear();
+        //enemies.Clear();
         heroes.RemoveAll(h => h == null || h.IsDead);
         enemies.RemoveAll(e => e == null || e.IsDead);
     }
 
     private void CheckBattleEnd()
     {
-        CleanLists();
-
+        //CleanLists();
         if (enemies.Count == 0 && heroes.Count > 0)
         {
+            resultPanel.SetActive(true);
+            heroSelectionPanel.SetActive(false);
             rewardCalculator.IsStageWon = true;
             total_Stages_Won++;
-            heroResultText.text = "Hero wins!";
+            //heroResultText.text = "Hero wins!";
+            resultText.text = "Hero Wins!";
             EndStage();
         }
         else if (heroes.Count == 0)
         {
-            enemyResultText.text = "Enemy wins!";
+            resultPanel.SetActive(true);
+            heroSelectionPanel.SetActive(false);
+            //enemyResultText.text = "Enemy wins!";
+            resultText.text = "Enemy wins!";
             EndStage();
         }
+        //CleanLists();
     }
-
+ 
     private void EndStage()
     {
+        enemySpawner.Wave.Clear();
+        heroes.Clear();
+        enemies.Clear();
+        GameManager.Instance.HandleStageEnded();
         if (isStageEnded) return;
         isStageEnded = true;
         Debug.Log("[CombatSystem] Stage ended.");
         OnStageEnded?.Invoke();
+        
+        //CleanLists();
+        GameManager.Instance.GameLoop();
     }
 
     public bool ISConditionGood()
