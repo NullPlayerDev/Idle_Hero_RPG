@@ -1422,6 +1422,83 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &683147117
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2780787614533592762, guid: 073d8a2598882f34281ea23aff7ef9f4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 879.36597
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780787614533592762, guid: 073d8a2598882f34281ea23aff7ef9f4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 426.7158
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780787614533592762, guid: 073d8a2598882f34281ea23aff7ef9f4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780787614533592762, guid: 073d8a2598882f34281ea23aff7ef9f4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780787614533592762, guid: 073d8a2598882f34281ea23aff7ef9f4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780787614533592762, guid: 073d8a2598882f34281ea23aff7ef9f4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780787614533592762, guid: 073d8a2598882f34281ea23aff7ef9f4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780787614533592762, guid: 073d8a2598882f34281ea23aff7ef9f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780787614533592762, guid: 073d8a2598882f34281ea23aff7ef9f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780787614533592762, guid: 073d8a2598882f34281ea23aff7ef9f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324974250060010332, guid: 073d8a2598882f34281ea23aff7ef9f4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324974250060010332, guid: 073d8a2598882f34281ea23aff7ef9f4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4177286731587834377, guid: 073d8a2598882f34281ea23aff7ef9f4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4177286731587834377, guid: 073d8a2598882f34281ea23aff7ef9f4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4177286731587834377, guid: 073d8a2598882f34281ea23aff7ef9f4, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787043621301912839, guid: 073d8a2598882f34281ea23aff7ef9f4, type: 3}
+      propertyPath: m_Name
+      value: BossEnemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 073d8a2598882f34281ea23aff7ef9f4, type: 3}
 --- !u!114 &722183185 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4453077862830750560, guid: 5a15b4048b04aaa4e9a59de3c989e98f, type: 3}
@@ -3034,7 +3111,7 @@ RectTransform:
   m_GameObject: {fileID: 1867647163}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 500, y: 500, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 916541970}
@@ -3091,7 +3168,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 793580067
   m_SortingLayer: 7
-  m_SortingOrder: 0
+  m_SortingOrder: 1000
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 46d32e7846d74354c819091424ad3c4c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4155,3 +4232,4 @@ SceneRoots:
   - {fileID: 741876064}
   - {fileID: 480321885}
   - {fileID: 1378726504}
+  - {fileID: 683147117}
