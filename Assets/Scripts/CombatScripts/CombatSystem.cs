@@ -41,6 +41,7 @@ public class CombatSystem : MonoBehaviour
         set => isStageEnded = value;
     }
     [SerializeField] private GameObject heroSelectionPanel;
+    [SerializeField] private GameObject menuCanvas;
     [SerializeField] private GameObject resultPanel;
     [SerializeField] private TextMeshProUGUI resultText;
     public List<HeroBehaviour> Heroes
@@ -115,6 +116,7 @@ public class CombatSystem : MonoBehaviour
         if (heroes.Count < expectedHeroes) return;
         if (enemies.Count < expectedEnemies) return;
         heroSelectionPanel.SetActive(false);
+        menuCanvas.SetActive(false);
         //enemySpawner.BuildLevelBasedOnHeroNumber();
         //enemySpawner.SpawnEnemiesForLevel();
         battleStarted = true;
@@ -128,11 +130,13 @@ public class CombatSystem : MonoBehaviour
     public void PanelOff()
     {
         heroSelectionPanel.SetActive(false);
+        menuCanvas.SetActive(false);
         StartCoroutine(BattleLoop());
     }
     private IEnumerator BattleLoop()
     {
         heroSelectionPanel.gameObject.SetActive(false);
+        menuCanvas.gameObject.SetActive(false);
         while (!isStageEnded)
         {
             // ── HERO PHASE ────────────────────────────────────────────────────
