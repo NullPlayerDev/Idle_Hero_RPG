@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Fighter Hero HP: -4'
+  m_text: 'Fighter Hero HP: -15'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -434,8 +434,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1500.88, y: -716.67}
-  m_SizeDelta: {x: 50, y: 3.5}
+  m_AnchoredPosition: {x: -1501.5189, y: -716.53955}
+  m_SizeDelta: {x: 75.55664, y: 6.108214}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5202304589849811422
 MonoBehaviour:
@@ -508,27 +508,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &6358165074675761355
-RectTransform:
+--- !u!4 &6358165074675761355
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3643994605115420895}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalPosition: {x: 1575.482, y: -1927.4454, z: 0}
+  m_LocalScale: {x: 80, y: 80, z: 200}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1168344118753513927}
   - {fileID: 2612183016393610697}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.18, y: 2.54}
-  m_SizeDelta: {x: 1, y: 2}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &7594859184061437707
 SpriteRenderer:
   serializedVersion: 2
@@ -576,7 +572,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1000
+  m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1346717500846777645, guid: 745d42aeae449d74a9f21c22d0db1ff4, type: 3}
   m_Color: {r: 0.8943129, g: 0.9339623, b: 0.92715263, a: 1}

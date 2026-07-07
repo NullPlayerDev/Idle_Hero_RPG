@@ -6,10 +6,12 @@ public class ButtonWorks : MonoBehaviour
     [SerializeField] private Button resourceButton;
     [SerializeField] private GameObject resourcePanel;
     [SerializeField] private GameObject playerSelectionPanel;
+
+    private GameManager gameManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        gameManager = FindAnyObjectByType<GameManager>();
     }
 
     // Update is called once per frame
@@ -22,5 +24,13 @@ public class ButtonWorks : MonoBehaviour
     {
         resourcePanel.SetActive(false);
         playerSelectionPanel.SetActive(true);
+    }
+
+    public void MenuPanelActive()
+    {
+        gameManager.MainMenuPanel.SetActive(false);
+        gameManager.GameMapPanel.SetActive(true);
+        gameManager.PlayerSelectionCanvas.SetActive(true);
+        
     }
 }
