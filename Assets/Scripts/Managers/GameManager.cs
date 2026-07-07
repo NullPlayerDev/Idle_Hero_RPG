@@ -22,7 +22,10 @@ public class GameManager : MonoBehaviour
 
     ///to show how much reward after combat
     [Header("Reward Calculator")]
-    [SerializeField]private GameObject rewardPanel;
+    [SerializeField]private GameObject gameMapPanel;
+    [SerializeField]private GameObject mainMenuPanel;
+    [SerializeField]private GameObject uiCanvas;
+    [SerializeField]private GameObject playerSelectionCanvas;
     [SerializeField] private TextMeshProUGUI goldText;
     [SerializeField] private TextMeshProUGUI gemText;
     // ── Hero selection buttons ─────────────────────────────────────────────────
@@ -37,6 +40,24 @@ public class GameManager : MonoBehaviour
     private int _totalStagesWon = 0;
     private int environmentCounter = 0;
     public List<GameObject> environmentObject = new List<GameObject>();
+
+    public GameObject GameMapPanel
+    {
+        get => gameMapPanel;
+        set => gameMapPanel = value;
+    }
+
+    public GameObject MainMenuPanel
+    {
+        get => mainMenuPanel;
+        set => mainMenuPanel = value;
+    }
+
+    public GameObject PlayerSelectionCanvas
+    {
+        get => playerSelectionCanvas;
+        set => playerSelectionCanvas = value;
+    }
     public int CurrentLevel
     {
         get => _currentLevel;
@@ -67,6 +88,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        mainMenuPanel.SetActive(true);
+        gameMapPanel.SetActive(false);
+        gameSelectionPanel.SetActive(false);
         // MUST be before SaveSystem.Load()
         GearItem[] allGearItems = Resources.LoadAll<GearItem>("GearItems");
         if (GearInventory.Instance != null)
@@ -125,7 +149,9 @@ public class GameManager : MonoBehaviour
         CombatSystem.Instance.IsStageEnded  = false;
         
         // Reward Panel will be activated
-        rewardPanel.SetActive(true);
+        gameMapPanel.SetActive(true);
+        playerSelectionCanvas.SetActive(true);
+        uiCanvas.SetActive(true);
         goldText.text =$"Gold Rewards: " +rewardCalculator.CalculateGoldsReward().ToString();
         gemText.text =$"Gems Rewards: " +rewardCalculator.CalculateGemsReward().ToString();
         ShowButtonForLevel(_currentLevel);
