@@ -104,6 +104,7 @@ private IEnumerator AttackCoroutine(Action onFinished)
 
         Vector3 attackPosition;
 
+        /*
         if (transform.position.x < target.transform.position.x)
         {
             attackPosition = target.transform.position + Vector3.left * attackDistance;
@@ -112,6 +113,10 @@ private IEnumerator AttackCoroutine(Action onFinished)
         {
             attackPosition = target.transform.position + Vector3.right * attackDistance;
         }
+        */
+        Vector3 direction = (target.transform.position - transform.position).normalized;
+
+        attackPosition = target.transform.position - direction * attackDistance;
 
         // Dash toward hero
         float elapsed = 0f;
@@ -139,7 +144,15 @@ private IEnumerator AttackCoroutine(Action onFinished)
         Debug.Log($"[Enemy] {enemyData.Name} hit {target.name} for {damage}");
 
         yield return new WaitForSecondsRealtime(slowMotionDuration);
+        
+        // Restore normal speed
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = 0.02f;
+        yield return new WaitUntil(() => attackFinished);
 
+        enemyAnimator.SetBool("isAttacking", false);
+
+        textMeshPro.text = $"{enemyData.Name} HP: {currentHealth}";
         // Return to original position
         elapsed = 0f;
 
@@ -157,19 +170,15 @@ private IEnumerator AttackCoroutine(Action onFinished)
             yield return null;
         }
 
-        transform.position = originalPosition;
+        Debug.Log($"Attack Distance: {attackDistance}");
+        Debug.Log($"Target Position: {target.transform.position}");
+        Debug.Log($"Attack Position: {attackPosition}");
 
-        // Restore normal speed
-        Time.timeScale = 1f;
-        Time.fixedDeltaTime = 0.02f;
+  
     }
 
-    yield return new WaitUntil(() => attackFinished);
 
-    enemyAnimator.SetBool("isAttacking", false);
-
-    textMeshPro.text = $"{enemyData.Name} HP: {currentHealth}";
-
+    transform.position = originalPosition;
     onFinished?.Invoke();
 }
     // -------------------------------------------------------------------------

@@ -142,15 +142,17 @@ private IEnumerator AttackCoroutine(Action onFinished)
 
         Vector3 attackPosition;
 
-        if (transform.position.x < target.transform.position.x)
+        /*if (transform.position.x < target.transform.position.x)
         {
             attackPosition = target.transform.position + Vector3.left * attackDistance;
         }
         else
         {
             attackPosition = target.transform.position + Vector3.right * attackDistance;
-        }
+        }*/
+        Vector3 direction = (target.transform.position - transform.position).normalized;
 
+        attackPosition = target.transform.position - direction * attackDistance;
         // Dash toward enemy
         float elapsed = 0f;
 

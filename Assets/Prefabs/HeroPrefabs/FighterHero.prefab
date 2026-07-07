@@ -518,7 +518,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1575.482, y: -1927.4454, z: 0}
-  m_LocalScale: {x: 80, y: 80, z: 200}
+  m_LocalScale: {x: 80, y: 80, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1168344118753513927}
@@ -603,7 +603,7 @@ MonoBehaviour:
   heroAnimator: {fileID: 5683696010889931442}
   heroPrefab: {fileID: 3643994605115420895}
   attackDashDuration: 0.25
-  attackDistance: 1
+  attackDistance: 500
   slowMotionScale: 0.2
   slowMotionDuration: 0.3
 --- !u!114 &2664996705112441849

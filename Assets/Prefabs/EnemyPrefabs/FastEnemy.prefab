@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.46000004, y: -0.0000010728836}
+  m_AnchoredPosition: {x: -0.45999527, y: -0.0000009536743}
   m_SizeDelta: {x: 3.369, y: 2.256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5994857691780126027
@@ -184,8 +184,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 8.93, y: -0.126}
-  m_SizeDelta: {x: 12.07, y: 4.457}
+  m_AnchoredPosition: {x: 5.3436, y: -0.4378}
+  m_SizeDelta: {x: 19.2427, y: 7.2645}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8883298802172691238
 CanvasRenderer:
@@ -502,7 +502,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.13742922, y: 0.3262204}
   m_AnchorMax: {x: 0.9384586, y: 0.84465444}
-  m_AnchoredPosition: {x: -1.2499943, y: 0.00032496452}
+  m_AnchoredPosition: {x: -1.2499924, y: 0.00032496452}
   m_SizeDelta: {x: 3.68, y: -0.00030518}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7787043621301912839
@@ -534,8 +534,8 @@ Transform:
   m_GameObject: {fileID: 7787043621301912839}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 7.664, y: 2.2568, z: 0}
-  m_LocalScale: {x: 70, y: 70, z: 70}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 40, y: 40, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4732904215735633105}
@@ -590,9 +590,9 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 5132016588346495450, guid: cd6a5e78884dc1748924c861891d31b3, type: 3}
+  m_Sprite: {fileID: 827538889749247048, guid: 43ac4934b9839924a96d8032e7f6529f, type: 3}
   m_Color: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 3.84, y: 4.89}
@@ -621,7 +621,7 @@ MonoBehaviour:
   particles: {fileID: 3169185663641697471}
   chestRewards: {fileID: 11400000, guid: 235b916a6dd71154fbea247d50fba317, type: 2}
   attackDashDuration: 0.25
-  attackDistance: 1
+  attackDistance: 500
   slowMotionScale: 0.2
   slowMotionDuration: 0.3
 --- !u!114 &6152083916283008347
@@ -647,7 +647,7 @@ Animator:
   m_GameObject: {fileID: 7787043621301912839}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9103394dd822dfe449c31b092c7aebcc, type: 2}
+  m_Controller: {fileID: 9100000, guid: d49dd285de6fdd34e97ef208bff4245d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -868,8 +868,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1487.1792, y: -718.05}
-  m_SizeDelta: {x: 33.3668, y: 2.0744}
+  m_AnchoredPosition: {x: -1486.855, y: -714.8889}
+  m_SizeDelta: {x: 85.76212, y: 10.18478}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7557626727146330841
 MonoBehaviour:

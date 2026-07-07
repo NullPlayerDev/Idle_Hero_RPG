@@ -34,7 +34,7 @@ public class FloatingCombatText : MonoBehaviour
         // Animate
         Sequence seq = DOTween.Sequence();
 
-        seq.Append(textPrefab.transform.DOMoveY(textPrefab.transform.position.y + 80f, 15f));
+        seq.Append(textPrefab.transform.DOMoveY(textPrefab.transform.position.y + 300f, 0.5f));
        //seq.Join(textPrefab.DOFade(0f, 5f));
 
         // Destroy after animation
