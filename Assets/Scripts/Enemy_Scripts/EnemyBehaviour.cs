@@ -107,19 +107,13 @@ private IEnumerator AttackCoroutine(Action onFinished)
 
         Vector3 attackPosition;
 
-        /*
-        if (transform.position.x < target.transform.position.x)
-        {
-            attackPosition = target.transform.position + Vector3.left * attackDistance;
-        }
-        else
-        {
-            attackPosition = target.transform.position + Vector3.right * attackDistance;
-        }
-        */
-        Vector3 direction = (target.transform.position - transform.position).normalized;
+        // Only move along X toward the target. Keep our own Y/Z so we don't
+        // drift vertically if the target's Y differs from ours.
+        float xDir = Mathf.Sign(target.transform.position.x - originalPosition.x);
+        if (xDir == 0f) xDir = -1f; // fallback if exactly aligned on X
 
-        attackPosition = target.transform.position - direction * attackDistance;
+        attackPosition = originalPosition;
+        attackPosition.x = target.transform.position.x - xDir * attackDistance;
         // Dash toward enemy
         float elapsed = 0f;
 
@@ -199,7 +193,14 @@ private IEnumerator AttackCoroutine(Action onFinished)
 
         currentHealth -= damage;
         _enemyHealthBar.value = currentHealth;
-        StartCoroutine(cameraShaking.ShakingTime());
+
+        if (cameraShaking == null)
+            cameraShaking = FindObjectOfType<CameraShaking>();
+
+        if (cameraShaking != null)
+            StartCoroutine(cameraShaking.ShakingTime());
+        else
+            Debug.LogWarning("[EnemyBehaviour] CameraShaking still not found in scene — skipping shake.");
         var go = Instantiate(textPrefab, transform.position, Quaternion.identity, transform);
         go.GetComponent<TextMesh>().text = $"-{damage}";
         FloatingCombatText.Instance.Show(damage.ToString(), transform);
