@@ -82,7 +82,8 @@ public class EnemySpawner : MonoBehaviour
         if (GameManager.Instance.CurrentLevel % 10 == 0)
         {
             Transform spawnPoint = spawnPoints[2];
-            Instantiate(enemyPrefab[4], spawnPoint.position, spawnPoint.rotation);
+            int val = Random.Range(6, 7);
+            Instantiate(enemyPrefab[val], spawnPoint.position, spawnPoint.rotation);
         }
         else
         {
@@ -117,7 +118,7 @@ public class EnemySpawner : MonoBehaviour
     // -------------------------------------------------------------------------
     public void  BuildLevelBasedOnHeroNumber()
     {
-      int k= Random.Range(0, 3);
+      int k= Random.Range(0, 5);
       wave.Add(enemyPrefab[k]);
         //return wave;
     }

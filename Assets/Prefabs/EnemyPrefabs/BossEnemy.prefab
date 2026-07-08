@@ -592,7 +592,7 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_Sprite: {fileID: 2552744673572468528, guid: 808552063cf6d5e49b0ed12322a3ff61, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 3.84, y: 4.89}
@@ -619,9 +619,10 @@ MonoBehaviour:
   enemyAnimator: {fileID: 7377707922915640791}
   chestRewardsPrefab: {fileID: 8088106864538892992, guid: 0436736bc21df2342b6a623ee4eac76c, type: 3}
   particles: {fileID: 3169185663641697471}
+  cameraShaking: {fileID: 0}
   chestRewards: {fileID: 11400000, guid: 235b916a6dd71154fbea247d50fba317, type: 2}
   attackDashDuration: 0.25
-  attackDistance: 500
+  attackDistance: 800
   slowMotionScale: 0.2
   slowMotionDuration: 0.3
 --- !u!114 &6152083916283008347

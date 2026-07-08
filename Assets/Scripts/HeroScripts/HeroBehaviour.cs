@@ -27,6 +27,7 @@ public class HeroBehaviour : MonoBehaviour
     [SerializeField] private float attackDistance = 1f;
     [SerializeField] private float slowMotionScale = 0.2f;
     [SerializeField] private float slowMotionDuration = 0.3f;
+    public CameraShaking cameraShaking;
 
     private Vector3 originalPosition;
     public GameObject HeroPrefab
@@ -49,6 +50,7 @@ public class HeroBehaviour : MonoBehaviour
     void Start()
     {
         combatSystem = FindObjectOfType<CombatSystem>();
+        cameraShaking = FindObjectOfType<CameraShaking>();
         if (combatSystem == null)
         {
             Debug.LogError("[HeroBehaviour] CombatSystem not found!");
@@ -216,19 +218,25 @@ private IEnumerator AttackCoroutine(Action onFinished)
 
     public void TakeDamage(int damage)
     {
-        if (isHeroDead) return;
+        if (isHeroDead)
+            return;
 
         currentHealth -= damage;
-        _heroHealthBar.value = currentHealth;
 
+        Debug.Log($"Hero HP after damage = {currentHealth}");
+
+        _heroHealthBar.value = currentHealth;
+        StartCoroutine(cameraShaking.ShakingTime());
         var go = Instantiate(textPrefab, transform.position, Quaternion.identity, transform);
         go.GetComponent<TextMesh>().text = $"-{damage}";
         FloatingCombatText.Instance.Show(damage.ToString(), transform);
-
+        
         heroText.text = $"{heroData.Name} HP: {currentHealth}";
-        Debug.Log($"[Hero] {heroData.Name} took {damage}. HP left: {currentHealth}");
-
-        if (currentHealth <= 0) Die();
+        if (currentHealth <= 0)
+        {
+            Debug.Log("Hero died");
+            Die();
+        }
     }
 
     // -------------------------------------------------------------------------
