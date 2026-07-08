@@ -18,6 +18,8 @@ public class EnemyBehaviour : MonoBehaviour
     private CombatSystem combatSystem;
     private GameObject  chest;
     [SerializeField] private ParticleSystem particles;
+
+    public CameraShaking cameraShaking;
     // Set by Animation Events on the attack clip:
     //   OnAttackHit  → at the weapon-connects frame
     //   OnAttackEnd  → at the very last frame of the clip
@@ -43,6 +45,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         combatSystem = FindObjectOfType<CombatSystem>();
         rewardWallet = FindObjectOfType<RewardWallet>();
+        cameraShaking = FindObjectOfType<CameraShaking>();
         if (combatSystem == null)
         {
             Debug.LogError("[EnemyBehaviour] CombatSystem not found!");
@@ -90,7 +93,7 @@ private IEnumerator AttackCoroutine(Action onFinished)
     originalPosition = transform.position;
 
     enemyAnimator.SetBool("isAttacking", true);
-
+   
     // Wait until attack animation reaches the hit frame
     yield return new WaitUntil(() => attackHitFrame);
 
@@ -117,8 +120,7 @@ private IEnumerator AttackCoroutine(Action onFinished)
         Vector3 direction = (target.transform.position - transform.position).normalized;
 
         attackPosition = target.transform.position - direction * attackDistance;
-
-        // Dash toward hero
+        // Dash toward enemy
         float elapsed = 0f;
 
         while (elapsed < attackDashDuration)
@@ -134,10 +136,16 @@ private IEnumerator AttackCoroutine(Action onFinished)
         }
 
         transform.position = attackPosition;
+        //transform.position = attackPosition;
 
         // Damage
         int damage = enemyData.GetAttackDamage();
+        Debug.Log("About to damage hero");
+
         target.TakeDamage(damage);
+
+        Debug.Log("Hero damaged");
+        Debug.Log("Damage = " + damage);
 
         particles.Play();
 
@@ -171,7 +179,7 @@ private IEnumerator AttackCoroutine(Action onFinished)
         }
 
         Debug.Log($"Attack Distance: {attackDistance}");
-        Debug.Log($"Target Position: {target.transform.position}");
+//        Debug.Log($"Target Position: {target.transform.position}");
         Debug.Log($"Attack Position: {attackPosition}");
 
   
@@ -191,7 +199,7 @@ private IEnumerator AttackCoroutine(Action onFinished)
 
         currentHealth -= damage;
         _enemyHealthBar.value = currentHealth;
-
+        StartCoroutine(cameraShaking.ShakingTime());
         var go = Instantiate(textPrefab, transform.position, Quaternion.identity, transform);
         go.GetComponent<TextMesh>().text = $"-{damage}";
         FloatingCombatText.Instance.Show(damage.ToString(), transform);

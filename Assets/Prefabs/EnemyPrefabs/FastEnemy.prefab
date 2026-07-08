@@ -533,14 +533,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7787043621301912839}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 40, y: 40, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4732904215735633105}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5582166798533519284
 SpriteRenderer:
   serializedVersion: 2
@@ -619,9 +619,10 @@ MonoBehaviour:
   enemyAnimator: {fileID: 7377707922915640791}
   chestRewardsPrefab: {fileID: 6485787238022635086, guid: f8f4f2dfe9e055d46ba927b468199ba0, type: 3}
   particles: {fileID: 3169185663641697471}
+  cameraShaking: {fileID: 0}
   chestRewards: {fileID: 11400000, guid: 235b916a6dd71154fbea247d50fba317, type: 2}
   attackDashDuration: 0.25
-  attackDistance: 500
+  attackDistance: 800
   slowMotionScale: 0.2
   slowMotionDuration: 0.3
 --- !u!114 &6152083916283008347
@@ -868,8 +869,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1486.855, y: -714.8889}
-  m_SizeDelta: {x: 85.76212, y: 10.18478}
+  m_AnchoredPosition: {x: -1487.2544, y: -714.8889}
+  m_SizeDelta: {x: 101.73632, y: 10.18478}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7557626727146330841
 MonoBehaviour:

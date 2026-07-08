@@ -33,4 +33,10 @@ public class ButtonWorks : MonoBehaviour
         gameManager.PlayerSelectionCanvas.SetActive(true);
         
     }
+
+    public void Exit()
+    {
+        Debug.Log("Application exited");
+        Application.Quit();
+    }
 }

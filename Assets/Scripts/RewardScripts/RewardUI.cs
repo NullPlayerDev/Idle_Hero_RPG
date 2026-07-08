@@ -1,12 +1,15 @@
-using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class RewardUI : MonoBehaviour
 {
+    [Header("Gameplay UI")]
     [SerializeField] private TextMeshProUGUI goldText;
     [SerializeField] private TextMeshProUGUI gemText;
+
+    [Header("Menu UI")]
+    [SerializeField] private TextMeshProUGUI menuGoldText;
+    [SerializeField] private TextMeshProUGUI menuGemText;
 
     public TextMeshProUGUI GoldText
     {
@@ -19,50 +22,54 @@ public class RewardUI : MonoBehaviour
         get => gemText;
         set => gemText = value;
     }
+
     private void Start()
     {
-        // Guard: Inspector references not assigned
         if (goldText == null || gemText == null)
         {
-            Debug.LogError("[RewardUI] goldText or gemText is not assigned in the Inspector!");
-            enabled = false;   // stops Update from running and spamming errors
-            return;
-        }
-
-        // Guard: Wallet singleton not ready yet
-        if (RewardWallet.Instance == null)
-        {
-            Debug.LogError("[RewardUI] RewardWallet.Instance is null — make sure RewardWallet exists in the scene before RewardUI.");
+            Debug.LogError("[RewardUI] Gameplay Gold/Gem Text references are missing!");
             enabled = false;
             return;
         }
 
-        // Subscribe to events so UI only updates when values actually change
+        if (RewardWallet.Instance == null)
+        {
+            Debug.LogError("[RewardUI] RewardWallet.Instance is null.");
+            enabled = false;
+            return;
+        }
+
         RewardWallet.Instance.OnGoldChanged += UpdateGoldText;
         RewardWallet.Instance.OnGemsChanged += UpdateGemText;
 
-        // Populate immediately with current values
         UpdateGoldText(RewardWallet.Instance.CurrentGold);
         UpdateGemText(RewardWallet.Instance.CurrentGems);
-        Debug.Log(RewardWallet.Instance.CurrentGems);
-    }
-
-    private void Update()
-    {
-        /*if (goldText == null || gemText == null)
-        { 
-            
-        }*/
     }
 
     private void OnDestroy()
     {
-        // Always unsubscribe to avoid ghost callbacks after scene unload
-        if (RewardWallet.Instance == null) return;
+        if (RewardWallet.Instance == null)
+            return;
+
         RewardWallet.Instance.OnGoldChanged -= UpdateGoldText;
         RewardWallet.Instance.OnGemsChanged -= UpdateGemText;
     }
 
-    private void UpdateGoldText(int gold) => goldText.text = $"Total Gold: {gold}";
-    private void UpdateGemText(int gems)  => gemText.text  = $"Total Gems: {gems}";
+    private void UpdateGoldText(int gold)
+    {
+        if (goldText != null)
+            goldText.text = $"{gold}";
+
+        if (menuGoldText != null)
+            menuGoldText.text = $"{gold}";
+    }
+
+    private void UpdateGemText(int gems)
+    {
+        if (gemText != null)
+            gemText.text = $"{gems}";
+
+        if (menuGemText != null)
+            menuGemText.text = $"{gems}";
+    }
 }

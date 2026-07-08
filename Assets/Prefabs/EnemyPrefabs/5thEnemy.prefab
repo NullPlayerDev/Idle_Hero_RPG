@@ -109,7 +109,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.07700001, y: 0}
   m_AnchorMax: {x: 0.9384586, y: 1}
-  m_AnchoredPosition: {x: 7.3999996, y: -0.10336256}
+  m_AnchoredPosition: {x: 7.3999996, y: -0.1033628}
   m_SizeDelta: {x: 22.649736, y: 5.889466}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6799000231824741287
@@ -502,7 +502,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.13742922, y: 0.3262204}
   m_AnchorMax: {x: 0.9384586, y: 0.84465444}
-  m_AnchoredPosition: {x: -1.2499943, y: 0.00032496452}
+  m_AnchoredPosition: {x: -1.2499886, y: 0.00032496452}
   m_SizeDelta: {x: 3.68, y: -0.00030518}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7787043621301912839
@@ -619,9 +619,10 @@ MonoBehaviour:
   enemyAnimator: {fileID: 7377707922915640791}
   chestRewardsPrefab: {fileID: 6485787238022635086, guid: f8f4f2dfe9e055d46ba927b468199ba0, type: 3}
   particles: {fileID: 3169185663641697471}
+  cameraShaking: {fileID: 0}
   chestRewards: {fileID: 11400000, guid: 9e22e70b7200a2a428cbac01068485c7, type: 2}
   attackDashDuration: 0.25
-  attackDistance: 500
+  attackDistance: 800
   slowMotionScale: 0.2
   slowMotionDuration: 0.3
 --- !u!114 &6152083916283008347
@@ -868,8 +869,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1487.5919, y: -713.3147}
-  m_SizeDelta: {x: 70.47852, y: 4.20623}
+  m_AnchoredPosition: {x: -1487.154, y: -713.476}
+  m_SizeDelta: {x: 87.99317, y: 7.43231}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7557626727146330841
 MonoBehaviour:
