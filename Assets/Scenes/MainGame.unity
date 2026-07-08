@@ -4662,7 +4662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8976626077890613057, guid: 1bc61f707f8d6e64ba2520e327d3fc21, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9117095500888433838, guid: 1bc61f707f8d6e64ba2520e327d3fc21, type: 3}
       propertyPath: inventoryCloseButton
