@@ -213,7 +213,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -237,6 +237,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -244,12 +257,12 @@ TextureImporter:
       name: attack_0
       rect:
         serializedVersion: 2
-        x: 292
-        y: 10956
-        width: 577
-        height: 1044
+        x: 0
+        y: 10536
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -266,12 +279,12 @@ TextureImporter:
       name: attack_1
       rect:
         serializedVersion: 2
-        x: 1470
-        y: 10956
-        width: 579
-        height: 1038
+        x: 1180
+        y: 10536
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -288,12 +301,12 @@ TextureImporter:
       name: attack_2
       rect:
         serializedVersion: 2
-        x: 2650
-        y: 10956
-        width: 579
-        height: 1038
+        x: 2360
+        y: 10536
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -310,12 +323,12 @@ TextureImporter:
       name: attack_3
       rect:
         serializedVersion: 2
-        x: 3830
-        y: 10956
-        width: 579
-        height: 1031
+        x: 3540
+        y: 10536
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -332,12 +345,12 @@ TextureImporter:
       name: attack_4
       rect:
         serializedVersion: 2
-        x: 5010
-        y: 10956
-        width: 579
-        height: 1026
+        x: 4720
+        y: 10536
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -354,12 +367,12 @@ TextureImporter:
       name: attack_5
       rect:
         serializedVersion: 2
-        x: 6164
-        y: 10956
-        width: 605
-        height: 1022
+        x: 5900
+        y: 10536
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -376,12 +389,12 @@ TextureImporter:
       name: attack_6
       rect:
         serializedVersion: 2
-        x: 7300
-        y: 10956
-        width: 649
-        height: 1017
+        x: 7080
+        y: 10536
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -398,12 +411,12 @@ TextureImporter:
       name: attack_7
       rect:
         serializedVersion: 2
-        x: 220
-        y: 9200
-        width: 649
-        height: 1017
+        x: 0
+        y: 8780
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -420,12 +433,12 @@ TextureImporter:
       name: attack_8
       rect:
         serializedVersion: 2
-        x: 1400
-        y: 9200
-        width: 649
-        height: 1017
+        x: 1180
+        y: 8780
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -442,12 +455,12 @@ TextureImporter:
       name: attack_9
       rect:
         serializedVersion: 2
-        x: 2626
-        y: 9201
-        width: 603
-        height: 1009
+        x: 2360
+        y: 8780
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -464,12 +477,12 @@ TextureImporter:
       name: attack_10
       rect:
         serializedVersion: 2
-        x: 3872
-        y: 9200
-        width: 537
-        height: 1003
+        x: 3540
+        y: 8780
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -486,12 +499,12 @@ TextureImporter:
       name: attack_11
       rect:
         serializedVersion: 2
-        x: 5040
-        y: 9201
-        width: 549
-        height: 993
+        x: 4720
+        y: 8780
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -508,12 +521,12 @@ TextureImporter:
       name: attack_12
       rect:
         serializedVersion: 2
-        x: 6197
-        y: 9201
-        width: 573
-        height: 986
+        x: 5900
+        y: 8780
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -530,12 +543,12 @@ TextureImporter:
       name: attack_13
       rect:
         serializedVersion: 2
-        x: 7377
-        y: 9201
-        width: 573
-        height: 986
+        x: 7080
+        y: 8780
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -552,12 +565,12 @@ TextureImporter:
       name: attack_14
       rect:
         serializedVersion: 2
-        x: 270
-        y: 7447
-        width: 601
-        height: 979
+        x: 0
+        y: 7024
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -574,12 +587,12 @@ TextureImporter:
       name: attack_15
       rect:
         serializedVersion: 2
-        x: 1435
-        y: 7451
-        width: 619
-        height: 972
+        x: 1180
+        y: 7024
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -596,12 +609,12 @@ TextureImporter:
       name: attack_16
       rect:
         serializedVersion: 2
-        x: 2601
-        y: 7453
-        width: 638
-        height: 976
+        x: 2360
+        y: 7024
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -618,12 +631,12 @@ TextureImporter:
       name: attack_17
       rect:
         serializedVersion: 2
-        x: 3781
-        y: 7453
-        width: 638
-        height: 976
+        x: 3540
+        y: 7024
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -640,12 +653,12 @@ TextureImporter:
       name: attack_18
       rect:
         serializedVersion: 2
-        x: 4961
-        y: 7453
-        width: 638
-        height: 976
+        x: 4720
+        y: 7024
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -662,12 +675,12 @@ TextureImporter:
       name: attack_19
       rect:
         serializedVersion: 2
-        x: 6126
-        y: 7457
-        width: 656
-        height: 995
+        x: 5900
+        y: 7024
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -684,12 +697,12 @@ TextureImporter:
       name: attack_20
       rect:
         serializedVersion: 2
-        x: 7295
-        y: 7456
-        width: 667
-        height: 1005
+        x: 7080
+        y: 7024
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -706,12 +719,12 @@ TextureImporter:
       name: attack_21
       rect:
         serializedVersion: 2
-        x: 209
-        y: 5701
-        width: 672
-        height: 1014
+        x: 0
+        y: 5268
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -728,12 +741,12 @@ TextureImporter:
       name: attack_22
       rect:
         serializedVersion: 2
-        x: 1389
-        y: 5701
-        width: 672
-        height: 1014
+        x: 1180
+        y: 5268
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -750,12 +763,12 @@ TextureImporter:
       name: attack_23
       rect:
         serializedVersion: 2
-        x: 2554
-        y: 5701
-        width: 704
-        height: 1022
+        x: 2360
+        y: 5268
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -772,12 +785,12 @@ TextureImporter:
       name: attack_24
       rect:
         serializedVersion: 2
-        x: 3707
-        y: 5701
-        width: 771
-        height: 1037
+        x: 3540
+        y: 5268
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -794,12 +807,12 @@ TextureImporter:
       name: attack_25
       rect:
         serializedVersion: 2
-        x: 4858
-        y: 5701
-        width: 797
-        height: 1045
+        x: 4720
+        y: 5268
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -816,12 +829,12 @@ TextureImporter:
       name: attack_26
       rect:
         serializedVersion: 2
-        x: 6000
-        y: 5701
-        width: 799
-        height: 1051
+        x: 5900
+        y: 5268
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -838,12 +851,12 @@ TextureImporter:
       name: attack_27
       rect:
         serializedVersion: 2
-        x: 7158
-        y: 5701
-        width: 830
-        height: 1052
+        x: 7080
+        y: 5268
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -860,12 +873,12 @@ TextureImporter:
       name: attack_28
       rect:
         serializedVersion: 2
-        x: 78
-        y: 3945
-        width: 830
-        height: 1052
+        x: 0
+        y: 3512
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -882,12 +895,12 @@ TextureImporter:
       name: attack_29
       rect:
         serializedVersion: 2
-        x: 1261
-        y: 3945
-        width: 824
-        height: 1050
+        x: 1180
+        y: 3512
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -904,12 +917,12 @@ TextureImporter:
       name: attack_30
       rect:
         serializedVersion: 2
-        x: 2487
-        y: 3946
-        width: 754
-        height: 1072
+        x: 2360
+        y: 3512
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -926,12 +939,12 @@ TextureImporter:
       name: attack_31
       rect:
         serializedVersion: 2
-        x: 3791
-        y: 3945
-        width: 630
-        height: 1122
+        x: 3540
+        y: 3512
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -948,12 +961,12 @@ TextureImporter:
       name: attack_32
       rect:
         serializedVersion: 2
-        x: 4971
-        y: 3945
-        width: 630
-        height: 1122
+        x: 4720
+        y: 3512
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -970,12 +983,12 @@ TextureImporter:
       name: attack_33
       rect:
         serializedVersion: 2
-        x: 6279
-        y: 3945
-        width: 502
-        height: 1172
+        x: 5900
+        y: 3512
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -992,12 +1005,12 @@ TextureImporter:
       name: attack_34
       rect:
         serializedVersion: 2
-        x: 7484
-        y: 3945
-        width: 477
-        height: 1209
+        x: 7080
+        y: 3512
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1014,12 +1027,12 @@ TextureImporter:
       name: attack_35
       rect:
         serializedVersion: 2
-        x: 404
-        y: 2185
-        width: 477
-        height: 1217
+        x: 0
+        y: 1756
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1036,12 +1049,12 @@ TextureImporter:
       name: attack_36
       rect:
         serializedVersion: 2
-        x: 1584
-        y: 2181
-        width: 520
-        height: 1188
+        x: 1180
+        y: 1756
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1058,12 +1071,12 @@ TextureImporter:
       name: attack_37
       rect:
         serializedVersion: 2
-        x: 2764
-        y: 2181
-        width: 520
-        height: 1188
+        x: 2360
+        y: 1756
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1080,12 +1093,12 @@ TextureImporter:
       name: attack_38
       rect:
         serializedVersion: 2
-        x: 3926
-        y: 2168
-        width: 581
-        height: 1186
+        x: 3540
+        y: 1756
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1102,12 +1115,12 @@ TextureImporter:
       name: attack_39
       rect:
         serializedVersion: 2
-        x: 4985
-        y: 2158
-        width: 717
-        height: 1206
+        x: 4720
+        y: 1756
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1124,12 +1137,12 @@ TextureImporter:
       name: attack_40
       rect:
         serializedVersion: 2
-        x: 5958
-        y: 2155
-        width: 915
-        height: 1195
+        x: 5900
+        y: 1756
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1146,12 +1159,12 @@ TextureImporter:
       name: attack_41
       rect:
         serializedVersion: 2
-        x: 7138
-        y: 2155
-        width: 915
-        height: 1195
+        x: 7080
+        y: 1756
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1168,12 +1181,12 @@ TextureImporter:
       name: attack_42
       rect:
         serializedVersion: 2
-        x: 220
-        y: 398
-        width: 723
-        height: 1029
+        x: 0
+        y: 0
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1190,12 +1203,12 @@ TextureImporter:
       name: attack_43
       rect:
         serializedVersion: 2
-        x: 1400
-        y: 398
-        width: 723
-        height: 1029
+        x: 1180
+        y: 0
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1212,12 +1225,12 @@ TextureImporter:
       name: attack_44
       rect:
         serializedVersion: 2
-        x: 2625
-        y: 398
-        width: 673
-        height: 1032
+        x: 2360
+        y: 0
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1234,12 +1247,12 @@ TextureImporter:
       name: attack_45
       rect:
         serializedVersion: 2
-        x: 3824
-        y: 322
-        width: 649
-        height: 1112
+        x: 3540
+        y: 0
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1256,12 +1269,12 @@ TextureImporter:
       name: attack_46
       rect:
         serializedVersion: 2
-        x: 5006
-        y: 341
-        width: 641
-        height: 1095
+        x: 4720
+        y: 0
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1278,12 +1291,12 @@ TextureImporter:
       name: attack_47
       rect:
         serializedVersion: 2
-        x: 6186
-        y: 341
-        width: 641
-        height: 1095
+        x: 5900
+        y: 0
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1300,7 +1313,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 53618116c68864c4b8f5c3d45d1d9c13
     internalID: 0
     vertices: []
     indices: 
@@ -1308,7 +1321,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":7.0,"y":7.0},"gridSpriteSize":{"x":1180.0,"y":1756.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       attack_0: 827538889749247048
       attack_1: -5010287565412364656

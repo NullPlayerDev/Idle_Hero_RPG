@@ -131,30 +131,32 @@ private IEnumerator AttackCoroutine(Action onFinished)
 
         transform.position = attackPosition;
         //transform.position = attackPosition;
+        
+        ////////////////////////     
+        // Restore normal speed
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = 0.02f;
+        yield return new WaitForSecondsRealtime(slowMotionDuration);
+        yield return new WaitUntil(() => attackFinished);
 
         // Damage
         int damage = enemyData.GetAttackDamage();
         Debug.Log("About to damage hero");
-
+      
         target.TakeDamage(damage);
 
         Debug.Log("Hero damaged");
         Debug.Log("Damage = " + damage);
 
-        particles.Play();
+        /*particles.Play();*/
 
         Debug.Log($"[Enemy] {enemyData.Name} hit {target.name} for {damage}");
-
-        yield return new WaitForSecondsRealtime(slowMotionDuration);
-        
-        // Restore normal speed
-        Time.timeScale = 1f;
-        Time.fixedDeltaTime = 0.02f;
-        yield return new WaitUntil(() => attackFinished);
-
+   
+       
         enemyAnimator.SetBool("isAttacking", false);
 
         textMeshPro.text = $"{enemyData.Name} HP: {currentHealth}";
+        //////////////////////////////
         // Return to original position
         elapsed = 0f;
 

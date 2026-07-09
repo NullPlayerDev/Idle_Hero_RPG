@@ -180,14 +180,24 @@ private IEnumerator AttackCoroutine(Action onFinished)
 
         transform.position = attackPosition;
 
+        /////////////////////////////    
+        // Restore time
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = 0.02f;
+        yield return new WaitForSecondsRealtime(slowMotionDuration);
+        yield return new WaitUntil(() => attackFinished);
+
         // Damage
         int damage = _effectiveDamage;
         target.TakeDamage(damage);
 
         Debug.Log($"[Hero] {heroData.Name} hit {target.name} for {damage}");
 
-        yield return new WaitForSecondsRealtime(slowMotionDuration);
+        heroAnimator.SetBool("isAttacking", false);
 
+        heroText.text = $"{heroData.Name} HP: {currentHealth}";
+        //////////////////////
+        
         // Return to original position
         elapsed = 0f;
 
@@ -207,16 +217,9 @@ private IEnumerator AttackCoroutine(Action onFinished)
 
         transform.position = originalPosition;
 
-        // Restore time
-        Time.timeScale = 1f;
-        Time.fixedDeltaTime = 0.02f;
     }
 
-    yield return new WaitUntil(() => attackFinished);
 
-    heroAnimator.SetBool("isAttacking", false);
-
-    heroText.text = $"{heroData.Name} HP: {currentHealth}";
 
     onFinished?.Invoke();
 }

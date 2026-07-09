@@ -288,7 +288,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -312,6 +312,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -319,12 +332,12 @@ TextureImporter:
       name: attck_0
       rect:
         serializedVersion: 2
-        x: 178
-        y: 10919
-        width: 631
-        height: 1003
+        x: 0
+        y: 10536
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -341,12 +354,12 @@ TextureImporter:
       name: attck_1
       rect:
         serializedVersion: 2
-        x: 1358
-        y: 10919
-        width: 631
-        height: 1003
+        x: 1180
+        y: 10536
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -363,12 +376,12 @@ TextureImporter:
       name: attck_2
       rect:
         serializedVersion: 2
-        x: 2494
-        y: 10919
-        width: 678
-        height: 1022
+        x: 2360
+        y: 10536
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -385,12 +398,12 @@ TextureImporter:
       name: attck_3
       rect:
         serializedVersion: 2
-        x: 3731
-        y: 10919
-        width: 626
-        height: 1021
+        x: 3540
+        y: 10536
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -407,12 +420,12 @@ TextureImporter:
       name: attck_4
       rect:
         serializedVersion: 2
-        x: 4911
-        y: 10919
-        width: 626
-        height: 1021
+        x: 4720
+        y: 10536
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -429,12 +442,12 @@ TextureImporter:
       name: attck_5
       rect:
         serializedVersion: 2
-        x: 6145
-        y: 10920
-        width: 572
-        height: 1002
+        x: 5900
+        y: 10536
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -451,12 +464,12 @@ TextureImporter:
       name: attck_6
       rect:
         serializedVersion: 2
-        x: 7384
-        y: 10921
-        width: 512
-        height: 946
+        x: 7080
+        y: 10536
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -473,12 +486,12 @@ TextureImporter:
       name: attck_7
       rect:
         serializedVersion: 2
-        x: 8564
-        y: 10921
-        width: 512
-        height: 946
+        x: 8260
+        y: 10536
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -495,12 +508,12 @@ TextureImporter:
       name: attck_8
       rect:
         serializedVersion: 2
-        x: 313
-        y: 9165
-        width: 503
-        height: 946
+        x: 0
+        y: 8780
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -517,12 +530,12 @@ TextureImporter:
       name: attck_9
       rect:
         serializedVersion: 2
-        x: 1502
-        y: 9164
-        width: 493
-        height: 947
+        x: 1180
+        y: 8780
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -539,12 +552,12 @@ TextureImporter:
       name: attck_10
       rect:
         serializedVersion: 2
-        x: 2682
-        y: 9164
-        width: 493
-        height: 947
+        x: 2360
+        y: 8780
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -561,12 +574,12 @@ TextureImporter:
       name: attck_11
       rect:
         serializedVersion: 2
-        x: 3862
-        y: 9164
-        width: 493
-        height: 945
+        x: 3540
+        y: 8780
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -583,12 +596,12 @@ TextureImporter:
       name: attck_12
       rect:
         serializedVersion: 2
-        x: 5042
-        y: 9163
-        width: 492
-        height: 944
+        x: 4720
+        y: 8780
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -605,12 +618,12 @@ TextureImporter:
       name: attck_13
       rect:
         serializedVersion: 2
-        x: 6222
-        y: 9163
-        width: 492
-        height: 944
+        x: 5900
+        y: 8780
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -627,12 +640,12 @@ TextureImporter:
       name: attck_14
       rect:
         serializedVersion: 2
-        x: 7402
-        y: 9163
-        width: 492
-        height: 944
+        x: 7080
+        y: 8780
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -649,12 +662,12 @@ TextureImporter:
       name: attck_15
       rect:
         serializedVersion: 2
-        x: 8581
-        y: 9163
-        width: 492
-        height: 948
+        x: 8260
+        y: 8780
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -671,12 +684,12 @@ TextureImporter:
       name: attck_16
       rect:
         serializedVersion: 2
-        x: 321
-        y: 7407
-        width: 492
-        height: 948
+        x: 0
+        y: 7024
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -693,12 +706,12 @@ TextureImporter:
       name: attck_17
       rect:
         serializedVersion: 2
-        x: 1501
-        y: 7407
-        width: 492
-        height: 951
+        x: 1180
+        y: 7024
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -715,12 +728,12 @@ TextureImporter:
       name: attck_18
       rect:
         serializedVersion: 2
-        x: 2682
-        y: 7403
-        width: 475
-        height: 963
+        x: 2360
+        y: 7024
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -737,12 +750,12 @@ TextureImporter:
       name: attck_19
       rect:
         serializedVersion: 2
-        x: 3861
-        y: 7403
-        width: 476
-        height: 963
+        x: 3540
+        y: 7024
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -759,12 +772,12 @@ TextureImporter:
       name: attck_20
       rect:
         serializedVersion: 2
-        x: 5041
-        y: 7410
-        width: 482
-        height: 963
+        x: 4720
+        y: 7024
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -781,12 +794,12 @@ TextureImporter:
       name: attck_21
       rect:
         serializedVersion: 2
-        x: 6221
-        y: 7425
-        width: 509
-        height: 969
+        x: 5900
+        y: 7024
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -803,12 +816,12 @@ TextureImporter:
       name: attck_22
       rect:
         serializedVersion: 2
-        x: 7401
-        y: 7425
-        width: 509
-        height: 969
+        x: 7080
+        y: 7024
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -825,12 +838,12 @@ TextureImporter:
       name: attck_23
       rect:
         serializedVersion: 2
-        x: 8575
-        y: 7426
-        width: 514
-        height: 980
+        x: 8260
+        y: 7024
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -847,12 +860,12 @@ TextureImporter:
       name: attck_24
       rect:
         serializedVersion: 2
-        x: 319
-        y: 5674
-        width: 507
-        height: 1027
+        x: 0
+        y: 5268
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -869,12 +882,12 @@ TextureImporter:
       name: attck_25
       rect:
         serializedVersion: 2
-        x: 1499
-        y: 5674
-        width: 507
-        height: 1027
+        x: 1180
+        y: 5268
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -891,12 +904,12 @@ TextureImporter:
       name: attck_26
       rect:
         serializedVersion: 2
-        x: 2677
-        y: 5675
-        width: 510
-        height: 1049
+        x: 2360
+        y: 5268
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -913,12 +926,12 @@ TextureImporter:
       name: attck_27
       rect:
         serializedVersion: 2
-        x: 3865
-        y: 5675
-        width: 521
-        height: 1146
+        x: 3540
+        y: 5268
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -935,12 +948,12 @@ TextureImporter:
       name: attck_28
       rect:
         serializedVersion: 2
-        x: 5045
-        y: 5675
-        width: 521
-        height: 1146
+        x: 4720
+        y: 5268
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -957,12 +970,12 @@ TextureImporter:
       name: attck_29
       rect:
         serializedVersion: 2
-        x: 6221
-        y: 5675
-        width: 533
-        height: 1258
+        x: 5900
+        y: 5268
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -979,12 +992,12 @@ TextureImporter:
       name: attck_30
       rect:
         serializedVersion: 2
-        x: 7383
-        y: 5675
-        width: 536
-        height: 1350
+        x: 7080
+        y: 5268
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1001,12 +1014,12 @@ TextureImporter:
       name: attck_31
       rect:
         serializedVersion: 2
-        x: 8563
-        y: 5675
-        width: 536
-        height: 1350
+        x: 8260
+        y: 5268
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1023,12 +1036,12 @@ TextureImporter:
       name: attck_32
       rect:
         serializedVersion: 2
-        x: 300
-        y: 3915
-        width: 543
-        height: 1354
+        x: 0
+        y: 3512
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1045,12 +1058,12 @@ TextureImporter:
       name: attck_33
       rect:
         serializedVersion: 2
-        x: 1435
-        y: 3903
-        width: 602
-        height: 801
+        x: 1180
+        y: 3512
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1067,12 +1080,12 @@ TextureImporter:
       name: attck_34
       rect:
         serializedVersion: 2
-        x: 2615
-        y: 3903
-        width: 602
-        height: 801
+        x: 2360
+        y: 3512
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1089,12 +1102,12 @@ TextureImporter:
       name: attck_35
       rect:
         serializedVersion: 2
-        x: 3795
-        y: 3903
-        width: 602
-        height: 801
+        x: 3540
+        y: 3512
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1111,12 +1124,12 @@ TextureImporter:
       name: attck_36
       rect:
         serializedVersion: 2
-        x: 4859
-        y: 3710
-        width: 721
-        height: 927
+        x: 4720
+        y: 3512
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1133,12 +1146,12 @@ TextureImporter:
       name: attck_37
       rect:
         serializedVersion: 2
-        x: 6039
-        y: 3710
-        width: 721
-        height: 927
+        x: 5900
+        y: 3512
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1155,12 +1168,12 @@ TextureImporter:
       name: attck_38
       rect:
         serializedVersion: 2
-        x: 7254
-        y: 3677
-        width: 686
-        height: 959
+        x: 7080
+        y: 3512
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1177,12 +1190,12 @@ TextureImporter:
       name: attck_39
       rect:
         serializedVersion: 2
-        x: 8491
-        y: 3898
-        width: 628
-        height: 747
+        x: 8260
+        y: 3512
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1199,12 +1212,12 @@ TextureImporter:
       name: attck_40
       rect:
         serializedVersion: 2
-        x: 8579
-        y: 3718
-        width: 241
-        height: 210
+        x: 0
+        y: 1756
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1221,12 +1234,12 @@ TextureImporter:
       name: attck_41
       rect:
         serializedVersion: 2
-        x: 7158
-        y: 3747
-        width: 83
-        height: 76
+        x: 1180
+        y: 1756
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1243,12 +1256,12 @@ TextureImporter:
       name: attck_42
       rect:
         serializedVersion: 2
-        x: 8428
-        y: 3657
-        width: 74
-        height: 134
+        x: 2360
+        y: 1756
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1265,12 +1278,12 @@ TextureImporter:
       name: attck_43
       rect:
         serializedVersion: 2
-        x: 8767
-        y: 3650
-        width: 146
-        height: 126
+        x: 3540
+        y: 1756
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1287,12 +1300,12 @@ TextureImporter:
       name: attck_44
       rect:
         serializedVersion: 2
-        x: 8259
-        y: 3685
-        width: 44
-        height: 37
+        x: 4720
+        y: 1756
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1309,12 +1322,12 @@ TextureImporter:
       name: attck_45
       rect:
         serializedVersion: 2
-        x: 8640
-        y: 3637
-        width: 77
-        height: 100
+        x: 5900
+        y: 1756
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1331,12 +1344,12 @@ TextureImporter:
       name: attck_46
       rect:
         serializedVersion: 2
-        x: 8702
-        y: 3511
-        width: 56
-        height: 52
+        x: 7080
+        y: 1756
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1353,12 +1366,12 @@ TextureImporter:
       name: attck_47
       rect:
         serializedVersion: 2
-        x: 231
-        y: 2142
-        width: 628
-        height: 747
+        x: 8260
+        y: 1756
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1375,12 +1388,12 @@ TextureImporter:
       name: attck_48
       rect:
         serializedVersion: 2
-        x: 319
-        y: 1962
-        width: 241
-        height: 210
+        x: 0
+        y: 0
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1397,12 +1410,12 @@ TextureImporter:
       name: attck_49
       rect:
         serializedVersion: 2
-        x: 1411
-        y: 2142
-        width: 629
-        height: 760
+        x: 1180
+        y: 0
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1419,12 +1432,12 @@ TextureImporter:
       name: attck_50
       rect:
         serializedVersion: 2
-        x: 1692
-        y: 2073
-        width: 81
-        height: 105
+        x: 2360
+        y: 0
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1441,12 +1454,12 @@ TextureImporter:
       name: attck_51
       rect:
         serializedVersion: 2
-        x: 2585
-        y: 2112
-        width: 634
-        height: 808
+        x: 3540
+        y: 0
+        width: 1180
+        height: 1756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1459,473 +1472,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: attck_52
-      rect:
-        serializedVersion: 2
-        x: 3765
-        y: 2112
-        width: 634
-        height: 808
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bf1d7357f0d3dae70800000000000000
-      internalID: 9128019156350259707
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attck_53
-      rect:
-        serializedVersion: 2
-        x: 4943
-        y: 2107
-        width: 636
-        height: 820
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: acf64afb77374c530800000000000000
-      internalID: 3874348537598996426
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attck_54
-      rect:
-        serializedVersion: 2
-        x: 6122
-        y: 2107
-        width: 637
-        height: 830
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c4234999b51842dd0800000000000000
-      internalID: -2511740461747260852
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attck_55
-      rect:
-        serializedVersion: 2
-        x: 7302
-        y: 2107
-        width: 637
-        height: 830
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b462aa4bde18ebaf0800000000000000
-      internalID: -378722460714260917
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attck_56
-      rect:
-        serializedVersion: 2
-        x: 8482
-        y: 2107
-        width: 637
-        height: 832
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 25b999c51b34fdb60800000000000000
-      internalID: 7773005910906608466
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attck_57
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1929
-        width: 43
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cf50c8e3b44221030800000000000000
-      internalID: 3463870968991843836
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attck_58
-      rect:
-        serializedVersion: 2
-        x: 168
-        y: 1901
-        width: 74
-        height: 134
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 04e15b1a664d765b0800000000000000
-      internalID: -5375094092978643392
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attck_59
-      rect:
-        serializedVersion: 2
-        x: 380
-        y: 1881
-        width: 77
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 61761191fa1219510800000000000000
-      internalID: 1554060382343096086
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attck_60
-      rect:
-        serializedVersion: 2
-        x: 507
-        y: 1894
-        width: 146
-        height: 126
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bf148b3e5af4bf2a0800000000000000
-      internalID: -6702676046502149637
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attck_61
-      rect:
-        serializedVersion: 2
-        x: 1327
-        y: 1867
-        width: 64
-        height: 107
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a519011d9836d3420800000000000000
-      internalID: 2611352802513949018
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attck_62
-      rect:
-        serializedVersion: 2
-        x: 1557
-        y: 1966
-        width: 56
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ddd62ac678fb991c0800000000000000
-      internalID: -4496352164588655139
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attck_63
-      rect:
-        serializedVersion: 2
-        x: 2738
-        y: 1944
-        width: 66
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0896200ef4536ba90800000000000000
-      internalID: -7298587528930367104
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attck_64
-      rect:
-        serializedVersion: 2
-        x: 3918
-        y: 1944
-        width: 66
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 175ff1d6cddd0f600800000000000000
-      internalID: 500143497431479665
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attck_65
-      rect:
-        serializedVersion: 2
-        x: 1727
-        y: 1812
-        width: 160
-        height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f6ce7aa5f1b396a60800000000000000
-      internalID: 7667724846425959535
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attck_66
-      rect:
-        serializedVersion: 2
-        x: 5088
-        y: 1908
-        width: 61
-        height: 52
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 59a4b5f17a86985c0800000000000000
-      internalID: -4212720909433484651
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attck_67
-      rect:
-        serializedVersion: 2
-        x: 442
-        y: 1755
-        width: 56
-        height: 52
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c0802f02e4a5dae30800000000000000
-      internalID: 4516365292929157132
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attck_68
-      rect:
-        serializedVersion: 2
-        x: 1564
-        y: 1794
-        width: 97
-        height: 90
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 08399bba6a67d94e0800000000000000
-      internalID: -1973290603500694656
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attck_69
-      rect:
-        serializedVersion: 2
-        x: 222
-        y: 351
-        width: 637
-        height: 832
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1c1a5f98ab750cab0800000000000000
-      internalID: -4989891928436399679
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attck_70
-      rect:
-        serializedVersion: 2
-        x: 1402
-        y: 351
-        width: 636
-        height: 835
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b124d951adb457b70800000000000000
-      internalID: 8896100038977864219
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attck_71
-      rect:
-        serializedVersion: 2
-        x: 2582
-        y: 351
-        width: 636
-        height: 834
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5f0b85c703d665580800000000000000
-      internalID: -8838757163655974667
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attck_72
-      rect:
-        serializedVersion: 2
-        x: 3762
-        y: 352
-        width: 636
-        height: 831
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6388613fe53ef1460800000000000000
-      internalID: 7214735125015595062
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 92af4ac6ba71a6b469c115b724ee9b55
     internalID: 0
     vertices: []
     indices: 
@@ -1933,7 +1484,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":7.0},"gridSpriteSize":{"x":1180.0,"y":1756.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       attck_0: -4978819939927891100
       attck_1: -4395371126198965116
@@ -1983,29 +1536,8 @@ TextureImporter:
       attck_5: -9143860846726881977
       attck_50: -4332655127479611368
       attck_51: 143705414975580534
-      attck_52: 9128019156350259707
-      attck_53: 3874348537598996426
-      attck_54: -2511740461747260852
-      attck_55: -378722460714260917
-      attck_56: 7773005910906608466
-      attck_57: 3463870968991843836
-      attck_58: -5375094092978643392
-      attck_59: 1554060382343096086
       attck_6: 864307888958271320
-      attck_60: -6702676046502149637
-      attck_61: 2611352802513949018
-      attck_62: -4496352164588655139
-      attck_63: -7298587528930367104
-      attck_64: 500143497431479665
-      attck_65: 7667724846425959535
-      attck_66: -4212720909433484651
-      attck_67: 4516365292929157132
-      attck_68: -1973290603500694656
-      attck_69: -4989891928436399679
       attck_7: -1562913272819490668
-      attck_70: 8896100038977864219
-      attck_71: -8838757163655974667
-      attck_72: 7214735125015595062
       attck_8: -1605447890627020411
       attck_9: -7502755641394233737
   mipmapLimitGroupName: 
