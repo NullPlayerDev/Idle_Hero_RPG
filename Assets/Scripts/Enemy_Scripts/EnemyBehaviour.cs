@@ -107,13 +107,18 @@ private IEnumerator AttackCoroutine(Action onFinished)
 
         Vector3 attackPosition;
 
-        // Only move along X toward the target. Keep our own Y/Z so we don't
-        // drift vertically if the target's Y differs from ours.
-        float xDir = Mathf.Sign(target.transform.position.x - originalPosition.x);
-        if (xDir == 0f) xDir = -1f; // fallback if exactly aligned on X
+        // Move toward the target's actual position (X and Y), stopping
+        // attackDistance short of it, so we visibly approach whoever we're
+        // attacking instead of only sliding along X.
+        Vector3 targetPos = target.transform.position;
+        Vector3 direction = targetPos - originalPosition;
+        direction.z = 0f; // ignore Z so we don't mess with sprite sorting/depth
 
-        attackPosition = originalPosition;
-        attackPosition.x = target.transform.position.x - xDir * attackDistance;
+        float dist = direction.magnitude;
+        Vector3 dirNormalized = dist > 0.001f ? direction / dist : Vector3.left;
+
+        attackPosition = targetPos - dirNormalized * attackDistance;
+        attackPosition.z = originalPosition.z; // keep our own depth/sorting
         // Dash toward enemy
         float elapsed = 0f;
 

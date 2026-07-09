@@ -282,8 +282,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -2.1, y: 1.11}
-  m_SizeDelta: {x: 10.787, y: 1.332}
+  m_AnchoredPosition: {x: 11.5172, y: 1.72679}
+  m_SizeDelta: {x: 20.2746, y: 3.45342}
   m_Pivot: {x: 0.25331163, y: 0.49999997}
 --- !u!222 &2871961346416429720
 CanvasRenderer:
@@ -313,7 +313,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1483270385667238684, guid: 9174341fd6b6fa647b2b6cd76672bf4a, type: 3}
+  m_Sprite: {fileID: -6588234438219925006, guid: 044eff10343e0344ca278bcf48b4d8c2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -574,9 +574,9 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1000
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 4120901811166270815, guid: e6abe8b384e79d7499596a3765314c4e, type: 3}
+  m_Sprite: {fileID: 827538889749247048, guid: 55f33ee543f888d449a70ac0a3d5eef8, type: 3}
   m_Color: {r: 0.8943129, g: 0.9339623, b: 0.92715263, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 3.25, y: 4.41}
@@ -630,7 +630,7 @@ Animator:
   m_GameObject: {fileID: 3643994605115420895}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8ca71c602c31923438e920b0daaee4dd, type: 2}
+  m_Controller: {fileID: 9100000, guid: 469cc74feb9b10d41a5723b1103e03cd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

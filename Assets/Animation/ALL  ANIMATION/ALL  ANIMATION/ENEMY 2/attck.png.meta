@@ -1,0 +1,2028 @@
+fileFormatVersion: 2
+guid: 3b8bb792806e47b44bf7871d0418ab4c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4978819939927891100
+    second: attck_0
+  - first:
+      213: -4395371126198965116
+    second: attck_1
+  - first:
+      213: -4240370352235598245
+    second: attck_2
+  - first:
+      213: -1425628080281872586
+    second: attck_3
+  - first:
+      213: 358672345936339210
+    second: attck_4
+  - first:
+      213: -9143860846726881977
+    second: attck_5
+  - first:
+      213: 864307888958271320
+    second: attck_6
+  - first:
+      213: -1562913272819490668
+    second: attck_7
+  - first:
+      213: -1605447890627020411
+    second: attck_8
+  - first:
+      213: -7502755641394233737
+    second: attck_9
+  - first:
+      213: -4415500418254342294
+    second: attck_10
+  - first:
+      213: -3962595534806367709
+    second: attck_11
+  - first:
+      213: 3812649645290303092
+    second: attck_12
+  - first:
+      213: 1140877062414571526
+    second: attck_13
+  - first:
+      213: 182705878330831574
+    second: attck_14
+  - first:
+      213: 8531504238863551773
+    second: attck_15
+  - first:
+      213: 5307122813998475787
+    second: attck_16
+  - first:
+      213: -4075770681859351618
+    second: attck_17
+  - first:
+      213: -4852422653968207567
+    second: attck_18
+  - first:
+      213: 4417824359377974167
+    second: attck_19
+  - first:
+      213: -4274721167561682139
+    second: attck_20
+  - first:
+      213: 7303973079667736145
+    second: attck_21
+  - first:
+      213: 4047427034432759238
+    second: attck_22
+  - first:
+      213: 4039438431642264938
+    second: attck_23
+  - first:
+      213: -4235722574201807757
+    second: attck_24
+  - first:
+      213: 3944793238308951074
+    second: attck_25
+  - first:
+      213: 4457803544223798014
+    second: attck_26
+  - first:
+      213: -597149224523518631
+    second: attck_27
+  - first:
+      213: 937986345977671135
+    second: attck_28
+  - first:
+      213: 1587329693165561328
+    second: attck_29
+  - first:
+      213: 6887593044518627923
+    second: attck_30
+  - first:
+      213: 795224407391153436
+    second: attck_31
+  - first:
+      213: 848620851703699108
+    second: attck_32
+  - first:
+      213: -1552708761739470525
+    second: attck_33
+  - first:
+      213: 5815235698541969042
+    second: attck_34
+  - first:
+      213: 1759610183557754326
+    second: attck_35
+  - first:
+      213: 956881595471070960
+    second: attck_36
+  - first:
+      213: 9146651991705779692
+    second: attck_37
+  - first:
+      213: -2740687611372581708
+    second: attck_38
+  - first:
+      213: 7130254801680677149
+    second: attck_39
+  - first:
+      213: -8413888579734272618
+    second: attck_40
+  - first:
+      213: -233216501516612259
+    second: attck_41
+  - first:
+      213: -5788260341629845161
+    second: attck_42
+  - first:
+      213: 975803432334532546
+    second: attck_43
+  - first:
+      213: -6387988881757493553
+    second: attck_44
+  - first:
+      213: 5299680782271196381
+    second: attck_45
+  - first:
+      213: -5815577327827633618
+    second: attck_46
+  - first:
+      213: 1331495425401373275
+    second: attck_47
+  - first:
+      213: -6928363714635426266
+    second: attck_48
+  - first:
+      213: -5340435986991753406
+    second: attck_49
+  - first:
+      213: -4332655127479611368
+    second: attck_50
+  - first:
+      213: 143705414975580534
+    second: attck_51
+  - first:
+      213: 9128019156350259707
+    second: attck_52
+  - first:
+      213: 3874348537598996426
+    second: attck_53
+  - first:
+      213: -2511740461747260852
+    second: attck_54
+  - first:
+      213: -378722460714260917
+    second: attck_55
+  - first:
+      213: 7773005910906608466
+    second: attck_56
+  - first:
+      213: 3463870968991843836
+    second: attck_57
+  - first:
+      213: -5375094092978643392
+    second: attck_58
+  - first:
+      213: 1554060382343096086
+    second: attck_59
+  - first:
+      213: -6702676046502149637
+    second: attck_60
+  - first:
+      213: 2611352802513949018
+    second: attck_61
+  - first:
+      213: -4496352164588655139
+    second: attck_62
+  - first:
+      213: -7298587528930367104
+    second: attck_63
+  - first:
+      213: 500143497431479665
+    second: attck_64
+  - first:
+      213: 7667724846425959535
+    second: attck_65
+  - first:
+      213: -4212720909433484651
+    second: attck_66
+  - first:
+      213: 4516365292929157132
+    second: attck_67
+  - first:
+      213: -1973290603500694656
+    second: attck_68
+  - first:
+      213: -4989891928436399679
+    second: attck_69
+  - first:
+      213: 8896100038977864219
+    second: attck_70
+  - first:
+      213: -8838757163655974667
+    second: attck_71
+  - first:
+      213: 7214735125015595062
+    second: attck_72
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: attck_0
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 10919
+        width: 631
+        height: 1003
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46367ffb4ada7eab0800000000000000
+      internalID: -4978819939927891100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_1
+      rect:
+        serializedVersion: 2
+        x: 1358
+        y: 10919
+        width: 631
+        height: 1003
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48ce6e69f318003c0800000000000000
+      internalID: -4395371126198965116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_2
+      rect:
+        serializedVersion: 2
+        x: 2494
+        y: 10919
+        width: 678
+        height: 1022
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5e26ee81ad2725c0800000000000000
+      internalID: -4240370352235598245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_3
+      rect:
+        serializedVersion: 2
+        x: 3731
+        y: 10919
+        width: 626
+        height: 1021
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6371af470d6273ce0800000000000000
+      internalID: -1425628080281872586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_4
+      rect:
+        serializedVersion: 2
+        x: 4911
+        y: 10919
+        width: 626
+        height: 1021
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a01aa4a29924af400800000000000000
+      internalID: 358672345936339210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_5
+      rect:
+        serializedVersion: 2
+        x: 6145
+        y: 10920
+        width: 572
+        height: 1002
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74ddd33910b7a1180800000000000000
+      internalID: -9143860846726881977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_6
+      rect:
+        serializedVersion: 2
+        x: 7384
+        y: 10921
+        width: 512
+        height: 946
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85fece91273aefb00800000000000000
+      internalID: 864307888958271320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_7
+      rect:
+        serializedVersion: 2
+        x: 8564
+        y: 10921
+        width: 512
+        height: 946
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 490e9d6b8aa6f4ae0800000000000000
+      internalID: -1562913272819490668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_8
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 9165
+        width: 503
+        height: 946
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 589b6c546ad48b9e0800000000000000
+      internalID: -1605447890627020411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_9
+      rect:
+        serializedVersion: 2
+        x: 1502
+        y: 9164
+        width: 493
+        height: 947
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77e7326de7bd0e790800000000000000
+      internalID: -7502755641394233737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_10
+      rect:
+        serializedVersion: 2
+        x: 2682
+        y: 9164
+        width: 493
+        height: 947
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a677c5093cdf8b2c0800000000000000
+      internalID: -4415500418254342294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_11
+      rect:
+        serializedVersion: 2
+        x: 3862
+        y: 9164
+        width: 493
+        height: 945
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32241571b580209c0800000000000000
+      internalID: -3962595534806367709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_12
+      rect:
+        serializedVersion: 2
+        x: 5042
+        y: 9163
+        width: 492
+        height: 944
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47e2c80f6a049e430800000000000000
+      internalID: 3812649645290303092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_13
+      rect:
+        serializedVersion: 2
+        x: 6222
+        y: 9163
+        width: 492
+        height: 944
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6089c95c4a535df00800000000000000
+      internalID: 1140877062414571526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_14
+      rect:
+        serializedVersion: 2
+        x: 7402
+        y: 9163
+        width: 492
+        height: 944
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d2f840470a198200800000000000000
+      internalID: 182705878330831574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_15
+      rect:
+        serializedVersion: 2
+        x: 8581
+        y: 9163
+        width: 492
+        height: 948
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1d833547edf56670800000000000000
+      internalID: 8531504238863551773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_16
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 7407
+        width: 492
+        height: 948
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0a20cbb410b6a940800000000000000
+      internalID: 5307122813998475787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_17
+      rect:
+        serializedVersion: 2
+        x: 1501
+        y: 7407
+        width: 492
+        height: 951
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebb52d1c824ff67c0800000000000000
+      internalID: -4075770681859351618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_18
+      rect:
+        serializedVersion: 2
+        x: 2682
+        y: 7403
+        width: 475
+        height: 963
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 131ba223e4bb8acb0800000000000000
+      internalID: -4852422653968207567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_19
+      rect:
+        serializedVersion: 2
+        x: 3861
+        y: 7403
+        width: 476
+        height: 963
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 793bac429d34f4d30800000000000000
+      internalID: 4417824359377974167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_20
+      rect:
+        serializedVersion: 2
+        x: 5041
+        y: 7410
+        width: 482
+        height: 963
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52394ad1fb32da4c0800000000000000
+      internalID: -4274721167561682139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_21
+      rect:
+        serializedVersion: 2
+        x: 6221
+        y: 7425
+        width: 509
+        height: 969
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15e7c9e51dcec5560800000000000000
+      internalID: 7303973079667736145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_22
+      rect:
+        serializedVersion: 2
+        x: 7401
+        y: 7425
+        width: 509
+        height: 969
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c56da191795b2830800000000000000
+      internalID: 4047427034432759238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_23
+      rect:
+        serializedVersion: 2
+        x: 8575
+        y: 7426
+        width: 514
+        height: 980
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a65291a0ad7fe0830800000000000000
+      internalID: 4039438431642264938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_24
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 5674
+        width: 507
+        height: 1027
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37c1995b2c0b735c0800000000000000
+      internalID: -4235722574201807757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_25
+      rect:
+        serializedVersion: 2
+        x: 1499
+        y: 5674
+        width: 507
+        height: 1027
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22494c1cc88beb630800000000000000
+      internalID: 3944793238308951074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_26
+      rect:
+        serializedVersion: 2
+        x: 2677
+        y: 5675
+        width: 510
+        height: 1049
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef2dfeb74bc4ddd30800000000000000
+      internalID: 4457803544223798014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_27
+      rect:
+        serializedVersion: 2
+        x: 3865
+        y: 5675
+        width: 521
+        height: 1146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95d2062b1ff76b7f0800000000000000
+      internalID: -597149224523518631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_28
+      rect:
+        serializedVersion: 2
+        x: 5045
+        y: 5675
+        width: 521
+        height: 1146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdd6a2cac95640d00800000000000000
+      internalID: 937986345977671135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_29
+      rect:
+        serializedVersion: 2
+        x: 6221
+        y: 5675
+        width: 533
+        height: 1258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f5209622f3570610800000000000000
+      internalID: 1587329693165561328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_30
+      rect:
+        serializedVersion: 2
+        x: 7383
+        y: 5675
+        width: 536
+        height: 1350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35aebf7c165a59f50800000000000000
+      internalID: 6887593044518627923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_31
+      rect:
+        serializedVersion: 2
+        x: 8563
+        y: 5675
+        width: 536
+        height: 1350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1d254f9264390b00800000000000000
+      internalID: 795224407391153436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_32
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 3915
+        width: 543
+        height: 1354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a6d9ce1b28e6cb00800000000000000
+      internalID: 848620851703699108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_33
+      rect:
+        serializedVersion: 2
+        x: 1435
+        y: 3903
+        width: 602
+        height: 801
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 349d1e89b9ba37ae0800000000000000
+      internalID: -1552708761739470525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_34
+      rect:
+        serializedVersion: 2
+        x: 2615
+        y: 3903
+        width: 602
+        height: 801
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29eb3c0be0ed3b050800000000000000
+      internalID: 5815235698541969042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_35
+      rect:
+        serializedVersion: 2
+        x: 3795
+        y: 3903
+        width: 602
+        height: 801
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ddae1e93246b6810800000000000000
+      internalID: 1759610183557754326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_36
+      rect:
+        serializedVersion: 2
+        x: 4859
+        y: 3710
+        width: 721
+        height: 927
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f68926cdb6874d00800000000000000
+      internalID: 956881595471070960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_37
+      rect:
+        serializedVersion: 2
+        x: 6039
+        y: 3710
+        width: 721
+        height: 927
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cedfdb1868f6fee70800000000000000
+      internalID: 9146651991705779692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_38
+      rect:
+        serializedVersion: 2
+        x: 7254
+        y: 3677
+        width: 686
+        height: 959
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bcc2d3632f17f9d0800000000000000
+      internalID: -2740687611372581708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_39
+      rect:
+        serializedVersion: 2
+        x: 8491
+        y: 3898
+        width: 628
+        height: 747
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d193334e6f0c3f260800000000000000
+      internalID: 7130254801680677149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_40
+      rect:
+        serializedVersion: 2
+        x: 8579
+        y: 3718
+        width: 241
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69509395aecdb3b80800000000000000
+      internalID: -8413888579734272618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_41
+      rect:
+        serializedVersion: 2
+        x: 7158
+        y: 3747
+        width: 83
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5dc757d3d273ccf0800000000000000
+      internalID: -233216501516612259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_42
+      rect:
+        serializedVersion: 2
+        x: 8428
+        y: 3657
+        width: 74
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7510ca503e7fbafa0800000000000000
+      internalID: -5788260341629845161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_43
+      rect:
+        serializedVersion: 2
+        x: 8767
+        y: 3650
+        width: 146
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cf18ea3d00ca8d00800000000000000
+      internalID: 975803432334532546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_44
+      rect:
+        serializedVersion: 2
+        x: 8259
+        y: 3685
+        width: 44
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc623b105fd4957a0800000000000000
+      internalID: -6387988881757493553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_45
+      rect:
+        serializedVersion: 2
+        x: 8640
+        y: 3637
+        width: 77
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddc2d32b79f3c8940800000000000000
+      internalID: 5299680782271196381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_46
+      rect:
+        serializedVersion: 2
+        x: 8702
+        y: 3511
+        width: 56
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2ab40b8b3bea4fa0800000000000000
+      internalID: -5815577327827633618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_47
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 2142
+        width: 628
+        height: 747
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b524b1be80c6a7210800000000000000
+      internalID: 1331495425401373275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_48
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 1962
+        width: 241
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 626137ad8e189df90800000000000000
+      internalID: -6928363714635426266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_49
+      rect:
+        serializedVersion: 2
+        x: 1411
+        y: 2142
+        width: 629
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 247d4a1c3c5f2e5b0800000000000000
+      internalID: -5340435986991753406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_50
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 2073
+        width: 81
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8109d40fd115fd3c0800000000000000
+      internalID: -4332655127479611368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_51
+      rect:
+        serializedVersion: 2
+        x: 2585
+        y: 2112
+        width: 634
+        height: 808
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6796be3405b8ef100800000000000000
+      internalID: 143705414975580534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_52
+      rect:
+        serializedVersion: 2
+        x: 3765
+        y: 2112
+        width: 634
+        height: 808
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf1d7357f0d3dae70800000000000000
+      internalID: 9128019156350259707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_53
+      rect:
+        serializedVersion: 2
+        x: 4943
+        y: 2107
+        width: 636
+        height: 820
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acf64afb77374c530800000000000000
+      internalID: 3874348537598996426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_54
+      rect:
+        serializedVersion: 2
+        x: 6122
+        y: 2107
+        width: 637
+        height: 830
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4234999b51842dd0800000000000000
+      internalID: -2511740461747260852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_55
+      rect:
+        serializedVersion: 2
+        x: 7302
+        y: 2107
+        width: 637
+        height: 830
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b462aa4bde18ebaf0800000000000000
+      internalID: -378722460714260917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_56
+      rect:
+        serializedVersion: 2
+        x: 8482
+        y: 2107
+        width: 637
+        height: 832
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25b999c51b34fdb60800000000000000
+      internalID: 7773005910906608466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_57
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1929
+        width: 43
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf50c8e3b44221030800000000000000
+      internalID: 3463870968991843836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_58
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 1901
+        width: 74
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04e15b1a664d765b0800000000000000
+      internalID: -5375094092978643392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_59
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 1881
+        width: 77
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61761191fa1219510800000000000000
+      internalID: 1554060382343096086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_60
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 1894
+        width: 146
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf148b3e5af4bf2a0800000000000000
+      internalID: -6702676046502149637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_61
+      rect:
+        serializedVersion: 2
+        x: 1327
+        y: 1867
+        width: 64
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a519011d9836d3420800000000000000
+      internalID: 2611352802513949018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_62
+      rect:
+        serializedVersion: 2
+        x: 1557
+        y: 1966
+        width: 56
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddd62ac678fb991c0800000000000000
+      internalID: -4496352164588655139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_63
+      rect:
+        serializedVersion: 2
+        x: 2738
+        y: 1944
+        width: 66
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0896200ef4536ba90800000000000000
+      internalID: -7298587528930367104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_64
+      rect:
+        serializedVersion: 2
+        x: 3918
+        y: 1944
+        width: 66
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 175ff1d6cddd0f600800000000000000
+      internalID: 500143497431479665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_65
+      rect:
+        serializedVersion: 2
+        x: 1727
+        y: 1812
+        width: 160
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6ce7aa5f1b396a60800000000000000
+      internalID: 7667724846425959535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_66
+      rect:
+        serializedVersion: 2
+        x: 5088
+        y: 1908
+        width: 61
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59a4b5f17a86985c0800000000000000
+      internalID: -4212720909433484651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_67
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 1755
+        width: 56
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0802f02e4a5dae30800000000000000
+      internalID: 4516365292929157132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_68
+      rect:
+        serializedVersion: 2
+        x: 1564
+        y: 1794
+        width: 97
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08399bba6a67d94e0800000000000000
+      internalID: -1973290603500694656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_69
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 351
+        width: 637
+        height: 832
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c1a5f98ab750cab0800000000000000
+      internalID: -4989891928436399679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_70
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 351
+        width: 636
+        height: 835
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b124d951adb457b70800000000000000
+      internalID: 8896100038977864219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_71
+      rect:
+        serializedVersion: 2
+        x: 2582
+        y: 351
+        width: 636
+        height: 834
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f0b85c703d665580800000000000000
+      internalID: -8838757163655974667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attck_72
+      rect:
+        serializedVersion: 2
+        x: 3762
+        y: 352
+        width: 636
+        height: 831
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6388613fe53ef1460800000000000000
+      internalID: 7214735125015595062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      attck_0: -4978819939927891100
+      attck_1: -4395371126198965116
+      attck_10: -4415500418254342294
+      attck_11: -3962595534806367709
+      attck_12: 3812649645290303092
+      attck_13: 1140877062414571526
+      attck_14: 182705878330831574
+      attck_15: 8531504238863551773
+      attck_16: 5307122813998475787
+      attck_17: -4075770681859351618
+      attck_18: -4852422653968207567
+      attck_19: 4417824359377974167
+      attck_2: -4240370352235598245
+      attck_20: -4274721167561682139
+      attck_21: 7303973079667736145
+      attck_22: 4047427034432759238
+      attck_23: 4039438431642264938
+      attck_24: -4235722574201807757
+      attck_25: 3944793238308951074
+      attck_26: 4457803544223798014
+      attck_27: -597149224523518631
+      attck_28: 937986345977671135
+      attck_29: 1587329693165561328
+      attck_3: -1425628080281872586
+      attck_30: 6887593044518627923
+      attck_31: 795224407391153436
+      attck_32: 848620851703699108
+      attck_33: -1552708761739470525
+      attck_34: 5815235698541969042
+      attck_35: 1759610183557754326
+      attck_36: 956881595471070960
+      attck_37: 9146651991705779692
+      attck_38: -2740687611372581708
+      attck_39: 7130254801680677149
+      attck_4: 358672345936339210
+      attck_40: -8413888579734272618
+      attck_41: -233216501516612259
+      attck_42: -5788260341629845161
+      attck_43: 975803432334532546
+      attck_44: -6387988881757493553
+      attck_45: 5299680782271196381
+      attck_46: -5815577327827633618
+      attck_47: 1331495425401373275
+      attck_48: -6928363714635426266
+      attck_49: -5340435986991753406
+      attck_5: -9143860846726881977
+      attck_50: -4332655127479611368
+      attck_51: 143705414975580534
+      attck_52: 9128019156350259707
+      attck_53: 3874348537598996426
+      attck_54: -2511740461747260852
+      attck_55: -378722460714260917
+      attck_56: 7773005910906608466
+      attck_57: 3463870968991843836
+      attck_58: -5375094092978643392
+      attck_59: 1554060382343096086
+      attck_6: 864307888958271320
+      attck_60: -6702676046502149637
+      attck_61: 2611352802513949018
+      attck_62: -4496352164588655139
+      attck_63: -7298587528930367104
+      attck_64: 500143497431479665
+      attck_65: 7667724846425959535
+      attck_66: -4212720909433484651
+      attck_67: 4516365292929157132
+      attck_68: -1973290603500694656
+      attck_69: -4989891928436399679
+      attck_7: -1562913272819490668
+      attck_70: 8896100038977864219
+      attck_71: -8838757163655974667
+      attck_72: 7214735125015595062
+      attck_8: -1605447890627020411
+      attck_9: -7502755641394233737
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
