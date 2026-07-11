@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: da3f1df3670fa9245a2b55fa8897163b
+guid: 0642af81d7ebc5f4dbde222678123267
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3661440315380549714
-    second: equipment 1_0
+      213: -2970073484504309273
+    second: BackButton_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: equipment 1_0
+      name: BackButton_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1311
-        height: 734
+        width: 90
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2584d84519c00d230800000000000000
-      internalID: 3661440315380549714
+      spriteID: 7e16057e6ed28c6d0800000000000000
+      internalID: -2970073484504309273
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      equipment 1_0: 3661440315380549714
+      BackButton_0: -2970073484504309273
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

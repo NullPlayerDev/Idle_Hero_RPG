@@ -7,7 +7,7 @@ public class ButtonWorks : MonoBehaviour
     [SerializeField] private GameObject resourcePanel;
     [SerializeField] private GameObject playerSelectionPanel;
     [SerializeField] private GameObject[] offPanelList;
-    [SerializeField] private GameObject openPanelList;
+    [SerializeField] private GameObject[] openPanelList;
     
     private GameManager gameManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -49,6 +49,10 @@ public class ButtonWorks : MonoBehaviour
         {
             VARIABLE.SetActive(false);
         }
-        openPanelList.SetActive(true);
+
+        foreach (var VARIABLE in openPanelList)
+        {
+            VARIABLE.SetActive(true);
+        }
     }
 }
