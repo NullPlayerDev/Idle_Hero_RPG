@@ -906,6 +906,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 234744059}
   m_CullTransparentMesh: 1
+--- !u!1 &267328680 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2385609986702575105, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+  m_PrefabInstance: {fileID: 456325798}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &267328685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267328680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcac48f16f94d7d478b5ef0a7fee34c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonWorks
+  resourceButton: {fileID: 3282005516056243973}
+  resourcePanel: {fileID: 2899243190595463390}
+  playerSelectionPanel: {fileID: 1841338798}
+  offPanelList:
+  - {fileID: 19735492}
+  - {fileID: 522293583}
+  - {fileID: 513960631}
+  - {fileID: 1133581737}
+  - {fileID: 45979678}
+  - {fileID: 856115891}
+  - {fileID: 456325801}
+  - {fileID: 1841338798}
+  openPanelList:
+  - {fileID: 125632244}
+  - {fileID: 187123908}
 --- !u!1 &275531486 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 356718345386740492, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
@@ -1338,7 +1370,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 359.04922, y: -50}
+  m_AnchoredPosition: {x: 359.184, y: -50}
   m_SizeDelta: {x: 200.3549, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &348980556
@@ -1563,6 +1595,34 @@ PrefabInstance:
       propertyPath: m_VerticalAlignment
       value: 512
       objectReference: {fileID: 0}
+    - target: {fileID: 124252015879064466, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 124252015879064466, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 124252015879064466, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 267328685}
+    - target: {fileID: 124252015879064466, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 124252015879064466, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PanelOpen
+      objectReference: {fileID: 0}
+    - target: {fileID: 124252015879064466, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ButtonWorks, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 124252015879064466, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 129242865422992910, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
       propertyPath: m_fontSize
       value: 20
@@ -1695,6 +1755,34 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 793194495265823186, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 793194495265823186, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 793194495265823186, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 534625086}
+    - target: {fileID: 793194495265823186, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 793194495265823186, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PanelOpen
+      objectReference: {fileID: 0}
+    - target: {fileID: 793194495265823186, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ButtonWorks, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 793194495265823186, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 937206854229082971, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
       propertyPath: m_ChildAlignment
       value: 4
@@ -1813,7 +1901,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1478253855610833490, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 119.68307
+      value: 119.72799
       objectReference: {fileID: 0}
     - target: {fileID: 1478253855610833490, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1881,7 +1969,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1597709651782734158, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 534.0492
+      value: 534.18396
       objectReference: {fileID: 0}
     - target: {fileID: 1597709651782734158, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2077,7 +2165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2312296254626118162, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 64.80984
+      value: 64.83679
       objectReference: {fileID: 0}
     - target: {fileID: 2312296254626118162, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2222,6 +2310,34 @@ PrefabInstance:
     - target: {fileID: 2719955095234198192, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2793376971816629629, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2793376971816629629, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2793376971816629629, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1974746669}
+    - target: {fileID: 2793376971816629629, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2793376971816629629, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PanelOpen
+      objectReference: {fileID: 0}
+    - target: {fileID: 2793376971816629629, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ButtonWorks, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2793376971816629629, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2836174428854605249, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
       propertyPath: m_SizeDelta.x
@@ -3001,7 +3117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5069330026511716838, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5069330026511716838, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -3133,11 +3249,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5506889565739957422, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1003.2885
+      value: 1003.5311
       objectReference: {fileID: 0}
     - target: {fileID: 5506889565739957422, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -79.99997
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533176887787706807, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533176887787706807, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533176887787706807, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1934046731}
+    - target: {fileID: 5533176887787706807, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533176887787706807, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PanelOpen
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533176887787706807, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ButtonWorks, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533176887787706807, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5619105745060892485, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
       propertyPath: m_SizeDelta.x
@@ -3293,7 +3437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6248037656958719120, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 194.4295
+      value: 194.51038
       objectReference: {fileID: 0}
     - target: {fileID: 6248037656958719120, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3869,7 +4013,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8115875487850436861, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 873.6688
+      value: 873.85754
       objectReference: {fileID: 0}
     - target: {fileID: 8115875487850436861, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4164,6 +4308,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7826129779235603336, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1979279508}
+    - targetCorrespondingSourceObject: {fileID: 7822395445573376385, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1934046731}
+    - targetCorrespondingSourceObject: {fileID: 3597410268724046547, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 534625086}
+    - targetCorrespondingSourceObject: {fileID: 8457803860623839688, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1974746669}
+    - targetCorrespondingSourceObject: {fileID: 2385609986702575105, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 267328685}
   m_SourcePrefab: {fileID: 100100000, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
 --- !u!114 &456325800 stripped
 MonoBehaviour:
@@ -4394,6 +4550,38 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 910852774434742842, guid: 1bc61f707f8d6e64ba2520e327d3fc21, type: 3}
   m_PrefabInstance: {fileID: 8955209975531418649}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &534625081 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3597410268724046547, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+  m_PrefabInstance: {fileID: 456325798}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &534625086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534625081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcac48f16f94d7d478b5ef0a7fee34c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonWorks
+  resourceButton: {fileID: 3282005516056243973}
+  resourcePanel: {fileID: 2899243190595463390}
+  playerSelectionPanel: {fileID: 1841338798}
+  offPanelList:
+  - {fileID: 19735492}
+  - {fileID: 522293583}
+  - {fileID: 513960631}
+  - {fileID: 1133581737}
+  - {fileID: 45979678}
+  - {fileID: 856115891}
+  - {fileID: 456325801}
+  - {fileID: 1841338798}
+  openPanelList:
+  - {fileID: 125632244}
+  - {fileID: 187123908}
 --- !u!1 &577539054 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2669548946586606022, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
@@ -4681,6 +4869,7 @@ GameObject:
   - component: {fileID: 703524279}
   - component: {fileID: 703524278}
   - component: {fileID: 703524277}
+  - component: {fileID: 703524280}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -4752,7 +4941,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 703524278}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 703524280}
+        m_TargetAssemblyTypeName: ButtonWorks, Assembly-CSharp
+        m_MethodName: PanelOpen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &703524278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4791,6 +4992,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 703524275}
   m_CullTransparentMesh: 1
+--- !u!114 &703524280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703524275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcac48f16f94d7d478b5ef0a7fee34c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonWorks
+  resourceButton: {fileID: 3282005516056243973}
+  resourcePanel: {fileID: 2899243190595463390}
+  playerSelectionPanel: {fileID: 1841338798}
+  offPanelList:
+  - {fileID: 19735492}
+  - {fileID: 522293583}
+  - {fileID: 513960631}
+  - {fileID: 1133581737}
+  - {fileID: 45979678}
+  - {fileID: 856115891}
+  - {fileID: 456325801}
+  openPanelList:
+  - {fileID: 45979678}
+  - {fileID: 187123908}
 --- !u!114 &722183185 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4453077862830750560, guid: 5a15b4048b04aaa4e9a59de3c989e98f, type: 3}
@@ -4874,8 +5101,7 @@ Transform:
   m_LocalPosition: {x: 2.87337, y: 3.81183, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2404791509199959035}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &768871743
@@ -5341,6 +5567,7 @@ GameObject:
   - component: {fileID: 927621154}
   - component: {fileID: 927621153}
   - component: {fileID: 927621152}
+  - component: {fileID: 927621155}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -5412,7 +5639,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 927621153}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 927621155}
+        m_TargetAssemblyTypeName: ButtonWorks, Assembly-CSharp
+        m_MethodName: PanelOpen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &927621153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5451,6 +5690,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 927621150}
   m_CullTransparentMesh: 1
+--- !u!114 &927621155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927621150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcac48f16f94d7d478b5ef0a7fee34c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonWorks
+  resourceButton: {fileID: 3282005516056243973}
+  resourcePanel: {fileID: 2899243190595463390}
+  playerSelectionPanel: {fileID: 1841338798}
+  offPanelList:
+  - {fileID: 19735492}
+  - {fileID: 522293583}
+  - {fileID: 513960631}
+  - {fileID: 1133581737}
+  - {fileID: 45979678}
+  - {fileID: 856115891}
+  - {fileID: 456325801}
+  openPanelList:
+  - {fileID: 513960631}
+  - {fileID: 187123908}
 --- !u!1 &978038794
 GameObject:
   m_ObjectHideFlags: 0
@@ -5622,7 +5887,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 598.41534, y: -50}
+  m_AnchoredPosition: {x: 598.63995, y: -50}
   m_SizeDelta: {x: 200.3549, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1009767183
@@ -6666,7 +6931,7 @@ PrefabInstance:
     - target: {fileID: 6953432907985351729, guid: 3ab330ed21d79224fbb8b7acb787bac8, type: 3}
       propertyPath: gemText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1203015015}
     - target: {fileID: 6953432907985351729, guid: 3ab330ed21d79224fbb8b7acb787bac8, type: 3}
       propertyPath: goldText
       value: 
@@ -7920,6 +8185,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!1 &1934046726 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7822395445573376385, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+  m_PrefabInstance: {fileID: 456325798}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1934046731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934046726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcac48f16f94d7d478b5ef0a7fee34c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonWorks
+  resourceButton: {fileID: 3282005516056243973}
+  resourcePanel: {fileID: 2899243190595463390}
+  playerSelectionPanel: {fileID: 1841338798}
+  offPanelList:
+  - {fileID: 19735492}
+  - {fileID: 522293583}
+  - {fileID: 513960631}
+  - {fileID: 1133581737}
+  - {fileID: 45979678}
+  - {fileID: 856115891}
+  - {fileID: 456325801}
+  - {fileID: 1841338798}
+  openPanelList:
+  - {fileID: 45979678}
+  - {fileID: 187123908}
 --- !u!1 &1944547784
 GameObject:
   m_ObjectHideFlags: 0
@@ -7932,6 +8229,7 @@ GameObject:
   - component: {fileID: 1944547788}
   - component: {fileID: 1944547787}
   - component: {fileID: 1944547786}
+  - component: {fileID: 1944547789}
   m_Layer: 5
   m_Name: Button (3)
   m_TagString: Untagged
@@ -8003,7 +8301,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1944547787}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1944547789}
+        m_TargetAssemblyTypeName: ButtonWorks, Assembly-CSharp
+        m_MethodName: PanelOpen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1944547787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8042,6 +8352,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1944547784}
   m_CullTransparentMesh: 1
+--- !u!114 &1944547789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944547784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcac48f16f94d7d478b5ef0a7fee34c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonWorks
+  resourceButton: {fileID: 3282005516056243973}
+  resourcePanel: {fileID: 2899243190595463390}
+  playerSelectionPanel: {fileID: 1841338798}
+  offPanelList:
+  - {fileID: 19735492}
+  - {fileID: 522293583}
+  - {fileID: 513960631}
+  - {fileID: 1133581737}
+  - {fileID: 45979678}
+  - {fileID: 856115891}
+  - {fileID: 456325801}
+  openPanelList:
+  - {fileID: 125632244}
+  - {fileID: 187123908}
+--- !u!1 &1974746664 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8457803860623839688, guid: c9f628669a1fd594582879786c5e5acd, type: 3}
+  m_PrefabInstance: {fileID: 456325798}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1974746669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974746664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcac48f16f94d7d478b5ef0a7fee34c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonWorks
+  resourceButton: {fileID: 3282005516056243973}
+  resourcePanel: {fileID: 2899243190595463390}
+  playerSelectionPanel: {fileID: 1841338798}
+  offPanelList:
+  - {fileID: 19735492}
+  - {fileID: 522293583}
+  - {fileID: 513960631}
+  - {fileID: 1133581737}
+  - {fileID: 45979678}
+  - {fileID: 856115891}
+  - {fileID: 456325801}
+  - {fileID: 1841338798}
+  openPanelList:
+  - {fileID: 844435780}
+  - {fileID: 187123908}
 --- !u!1 &1977863068
 GameObject:
   m_ObjectHideFlags: 0
@@ -8207,6 +8575,7 @@ GameObject:
   - component: {fileID: 1999900145}
   - component: {fileID: 1999900144}
   - component: {fileID: 1999900143}
+  - component: {fileID: 1999900146}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -8278,7 +8647,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1999900144}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1999900146}
+        m_TargetAssemblyTypeName: ButtonWorks, Assembly-CSharp
+        m_MethodName: PanelOpen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1999900144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8317,6 +8698,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1999900141}
   m_CullTransparentMesh: 1
+--- !u!114 &1999900146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999900141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcac48f16f94d7d478b5ef0a7fee34c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonWorks
+  resourceButton: {fileID: 3282005516056243973}
+  resourcePanel: {fileID: 2899243190595463390}
+  playerSelectionPanel: {fileID: 1841338798}
+  offPanelList:
+  - {fileID: 19735492}
+  - {fileID: 522293583}
+  - {fileID: 513960631}
+  - {fileID: 1133581737}
+  - {fileID: 45979678}
+  - {fileID: 856115891}
+  - {fileID: 456325801}
+  openPanelList:
+  - {fileID: 844435780}
+  - {fileID: 187123908}
 --- !u!1 &2003459574
 GameObject:
   m_ObjectHideFlags: 0
@@ -9620,7 +10027,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 741876064}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 44991956750991663, guid: 1bc61f707f8d6e64ba2520e327d3fc21, type: 3}
       propertyPath: m_IsActive
@@ -10260,3 +10667,4 @@ SceneRoots:
   - {fileID: 480321885}
   - {fileID: 1378726504}
   - {fileID: 1977863069}
+  - {fileID: 8955209975531418649}
